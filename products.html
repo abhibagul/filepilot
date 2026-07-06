@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FilePilot Products — The Desktop App and the Team Vault</title>
+  <meta name="description" content="FilePilot is a free desktop app for secure file transfers, plus an optional team server that manages who can access which servers — without sharing passwords.">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="container nav-container">
+      <a href="index.html" class="logo-link">
+        <img src="logo/filepilotico.png" alt="FilePilot Logo" class="flashy-logo">
+      </a>
+      <button class="menu-toggle">[ MENU ]</button>
+      <nav>
+        <a href="index.html" class="nav-link">Home</a>
+        <div class="nav-group">
+          <button class="nav-trigger" aria-haspopup="true" aria-expanded="false">Product <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></button>
+          <div class="nav-dropdown">
+            <a href="products.html">Product Overview<small>Compare client &amp; vault</small></a>
+            <a href="client.html">Desktop Client<small>Dual-pane transfer app</small></a>
+            <a href="enterprise.html">Enterprise Vault<small>Central credential server</small></a>
+          </div>
+        </div>
+        <a href="download.html" class="nav-link">Download</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="faq.html" class="nav-link">FAQ</a>
+        <a href="github.html" class="nav-link">GitHub</a>
+        <button class="theme-toggle" aria-label="Toggle Theme"></button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Page Header -->
+  <section class="reveal-on-scroll hero" style="padding: 9rem 0 2rem;">
+    <div class="container">
+      <span class="hero-tag">THE TWO APPS</span>
+      <h1>Two Apps, One System</h1>
+      <p class="hero-subtitle" style="max-width: 800px; margin: 0 auto;">
+        FilePilot is a fast desktop app anyone can use on their own &mdash; plus an optional team server that lets a company manage access, keep file history, and stay compliant.
+      </p>
+    </div>
+  </section>
+
+  <!-- Products Overview Columns -->
+  <section class="reveal-on-scroll">
+    <div class="container">
+      <div class="grid-2">
+        <!-- Client Detail Box -->
+        <div class="card reveal-on-scroll" style="display: flex; flex-direction: column; justify-content: space-between;">
+          <div>
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.5rem;">
+              <img src="logo/client.png" alt="Client Logo" style="height: 48px;">
+              <span class="badge accent">v1.4.2</span>
+            </div>
+            
+            <h2 style="font-size: 1.5rem; margin-bottom: 1rem;">FilePilot Desktop Client</h2>
+            
+            <!-- Actual Screenshot representation -->
+            <div class="screenshot-container mb-2" data-caption="FilePilot Desktop Client Dual Pane Interface" style="border: 1px solid var(--border-color); border-radius: var(--radius-sm); overflow: hidden;">
+              <img src="client/pasted-1783311121266-0.png" alt="FilePilot Desktop Client Layout" style="width: 100%; height: auto; display: block;">
+              <div class="screenshot-overlay">
+                <span class="zoom-icon">[ ZOOM ]</span>
+              </div>
+            </div>
+
+            <p style="font-size: 1rem; color: var(--text-secondary); margin-bottom: 1.5rem;">
+              A fast, native desktop app for moving files to and from your servers. It transfers many files at once and keeps your passwords encrypted on your own device.
+            </p>
+            <div style="margin-bottom: 2rem;">
+              <div class="footer-links-title" style="margin-bottom: 0.75rem;">Technology Stack:</div>
+              <span class="badge">Rust (Tauri Backend)</span>
+              <span class="badge">React & TypeScript</span>
+              <span class="badge">tokio (Async Engine)</span>
+              <span class="badge">SQLite (Local Config)</span>
+              <span class="badge">AES-256-GCM Envelope</span>
+            </div>
+            
+            <div class="footer-links-title" style="margin-bottom: 0.75rem;">Best For:</div>
+            <ul class="feature-list-check" style="margin-bottom: 2rem;">
+              <li>Developers managing multi-server configurations.</li>
+              <li>DevOps engineers writing JS transfer automation macros.</li>
+              <li>General power users needing reliable parallel transfers.</li>
+              <li>Teams requiring client-side password encryption.</li>
+            </ul>
+          </div>
+          <a href="client.html" class="btn btn-primary text-center" style="display: block;">Explore Client Features &rarr;</a>
+        </div>
+
+        <!-- Enterprise Detail Box -->
+        <div class="card reveal-on-scroll" style="display: flex; flex-direction: column; justify-content: space-between;">
+          <div>
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.5rem;">
+              <img src="logo/enterprise.png" alt="Enterprise Logo" style="height: 48px;">
+              <span class="badge accent" style="border-color: #00ff66;">v2.0.1</span>
+            </div>
+            
+            <h2 style="font-size: 1.5rem; margin-bottom: 1rem;">FilePilot Enterprise Vault</h2>
+
+            <!-- Actual Screenshot representation -->
+            <div class="screenshot-container mb-2" data-caption="FilePilot Enterprise Vault System Dashboard" style="border: 1px solid var(--border-color); border-radius: var(--radius-sm); overflow: hidden;">
+              <img src="enterprise/dashboard.jpg" alt="FilePilot Enterprise Vault Console" style="width: 100%; height: auto; display: block;">
+              <div class="screenshot-overlay">
+                <span class="zoom-icon">[ ZOOM ]</span>
+              </div>
+            </div>
+
+            <p style="font-size: 1rem; color: var(--text-secondary); margin-bottom: 1.5rem;">
+              A central server you run yourself (on-site or in your own cloud). It manages server logins, limits who can connect, records every action, and supports legal holds.
+            </p>
+            <div style="margin-bottom: 2rem;">
+              <div class="footer-links-title" style="margin-bottom: 0.75rem;">Technology Stack:</div>
+              <span class="badge">Node.js (Express Server)</span>
+              <span class="badge">WebSockets (Real-time Sync)</span>
+              <span class="badge">KMS Providers (AWS, Azure, GCP)</span>
+              <span class="badge">PostgreSQL / MySQL / SQLite</span>
+              <span class="badge">SHA-256 Block Hashing</span>
+            </div>
+            
+            <div class="footer-links-title" style="margin-bottom: 0.75rem;">Best For:</div>
+            <ul class="feature-list-check" style="margin-bottom: 2rem;">
+              <li>IT security administrators provisioning connections.</li>
+              <li>Platform engineering teams enforcing central logging policies.</li>
+              <li>Compliance officers requiring audit chains.</li>
+              <li>Enterprises with SSO and key-rotation policies.</li>
+            </ul>
+          </div>
+          <a href="enterprise.html" class="btn btn-secondary text-center" style="display: block;">Explore Vault Features &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How They Work Together (Diagram / Narrative) -->
+  <section class="reveal-on-scroll bg-secondary">
+    <div class="container">
+      <div class="section-header">
+        <h2>How the Two Apps Work Together</h2>
+        <p>Here&#x27;s how the desktop app gets server logins from the Vault &mdash; without any password ever being exposed.</p>
+      </div>
+      
+      <div style="max-width: 850px; margin: 0 auto; background: var(--bg-tertiary); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 2rem; font-family: var(--font-mono); font-size: 0.9rem; color: var(--text-secondary);">
+        <div style="border-bottom: 1px solid var(--border-color); padding-bottom: 1rem; margin-bottom: 1.5rem; display: flex; justify-content: space-between; align-items: center;">
+          <span style="color: var(--accent);">[ FLOW DIAGRAM ] SECURE_PROVISIONING_TUNNEL</span>
+          <span style="font-size: 0.8rem; color: var(--text-muted);">ACTIVE PORT: 8443</span>
+        </div>
+        
+        <!-- Text-based Diagram -->
+        <div style="line-height: 1.8;">
+          <div>[1] <span style="color: var(--text-primary);">Vault Administrator</span> configures connection profiles on the Web Panel.</div>
+          <div style="color: var(--text-muted); margin-left: 1.5rem;">&darr; credentials encrypted using AWS/Azure KMS wrapping keys</div>
+          
+          <div style="margin-top: 0.5rem;">[2] Admin issues token scoped to specific <span style="color: var(--accent);">Vault Group</span>.</div>
+          
+          <div style="margin-top: 0.5rem;">[3] <span style="color: var(--text-primary);">Desktop Client</span> connects using token via sync API.</div>
+          <div style="color: var(--text-muted); margin-left: 1.5rem;">&darr; validation: checks IP allowlist CIDR & client validation</div>
+          
+          <div style="margin-top: 0.5rem;">[4] Profiles synced directly to Client's local DB.</div>
+          <div style="color: var(--text-muted); margin-left: 1.5rem;">&darr; client seals connection details using local PBKDF2 Master Pass</div>
+          
+          <div style="margin-top: 0.5rem;">[5] Developer triggers transfer: client executes operations directly with server.</div>
+          <div style="color: var(--text-muted); margin-left: 1.5rem;">&darr; WebSocket audits actions to Vault Server & backs up versions</div>
+          
+          <div style="margin-top: 0.5rem; color: var(--accent);">[OK] End-to-end audit chain completed. Developer never sees raw passwords/keys.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Side by Side Specification Checklist -->
+  <section class="reveal-on-scroll">
+    <div class="container">
+      <div class="section-header">
+        <h2>What Each Option Includes</h2>
+        <p>See exactly what you get with the app alone versus the app plus the team Vault.</p>
+      </div>
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Feature Capability</th>
+              <th>Standalone Client</th>
+              <th>Client + Enterprise Vault</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Dual-Pane File Browser & drag-and-drop</td>
+              <td class="tick-ok">Yes (Local configurations)</td>
+              <td class="tick-ok">Yes (Vault-sync configurations)</td>
+            </tr>
+            <tr>
+              <td>Multi-protocol transfer speeds (Parallel tokio runtimes)</td>
+              <td class="tick-ok">Yes</td>
+              <td class="tick-ok">Yes</td>
+            </tr>
+            <tr>
+              <td>Zero-knowledge password & SSH key storage</td>
+              <td class="tick-ok">Yes (Sealed locally)</td>
+              <td class="tick-ok">Yes (Sealed locally + KMS enveloped on server)</td>
+            </tr>
+            <tr>
+              <td>JS macro scheduling & event triggers</td>
+              <td class="tick-ok">Yes (Stored locally)</td>
+              <td class="tick-ok">Yes (Stored locally)</td>
+            </tr>
+            <tr>
+              <td>Credential Syncing & Token Scoping</td>
+              <td class="tick-ko">No</td>
+              <td class="tick-ok">Yes (Enforce centralized profiles distribution)</td>
+            </tr>
+            <tr>
+              <td>Compliance checking & access IP allowlists</td>
+              <td class="tick-ko">No</td>
+              <td class="tick-ok">Yes (Central rules per Vault Group)</td>
+            </tr>
+            <tr>
+              <td>Tamper-evident audit chain logging</td>
+              <td class="tick-ko">No (Plain local logs only)</td>
+              <td class="tick-ok">Yes (Immutable SHA-256 blockchain logs)</td>
+            </tr>
+            <tr>
+              <td>Real-time remote version revert</td>
+              <td class="tick-ko">No</td>
+              <td class="tick-ok">Yes (WebSocket file version rollbacks)</td>
+            </tr>
+            <tr>
+              <td>SIEM webhook publishing (Splunk/ELK)</td>
+              <td class="tick-ko">No</td>
+              <td class="tick-ok">Yes (HMAC signed webhook triggers)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <!-- Next-Step Flow CTA -->
+  <section class="reveal-on-scroll flow-cta-section">
+    <div class="container">
+      <div class="flow-cta">
+        <span class="flow-cta-eyebrow">Which one is right for you?</span>
+        <h2>Run the client, or the client + vault</h2>
+        <p>Power users start with the standalone desktop client. Teams add the Enterprise Vault for centralized provisioning and audit.</p>
+        <div class="flow-cta-actions">
+        <a href="client.html" class="btn btn-primary">Desktop Client →</a>
+        <a href="enterprise.html" class="btn btn-secondary">Enterprise Vault →</a>
+        </div>
+      <div class="flow-journey">
+        <a class="flow-step active" href="client.html">
+          <span class="flow-step-num">STEP 01</span>
+          <span class="flow-step-title">Desktop Client</span>
+          <span class="flow-step-desc">Install the app and connect to your servers.</span>
+        </a>
+        <div class="flow-arrow"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></div>
+        <a class="flow-step" href="enterprise.html">
+          <span class="flow-step-num">STEP 02</span>
+          <span class="flow-step-title">Enterprise Vault</span>
+          <span class="flow-step-desc">Add central provisioning, audit and control.</span>
+        </a>
+        <div class="flow-arrow"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></div>
+        <a class="flow-step" href="download.html">
+          <span class="flow-step-num">STEP 03</span>
+          <span class="flow-step-title">Download &amp; Deploy</span>
+          <span class="flow-step-desc">Get binaries for every OS &mdash; free and open-source.</span>
+        </a>
+      </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-logo">
+            <img src="logo/filepilotico.png" alt="FilePilot Logo" class="flashy-logo">
+          </div>
+          <p>Fast, secure file transfers &mdash; your passwords stay encrypted on your own device, and your team&#x27;s server access is managed from one place.</p>
+        </div>
+        <div>
+          <h4 class="footer-links-title">Products</h4>
+          <ul class="footer-links">
+            <li><a href="client.html">Desktop Client</a></li>
+            <li><a href="enterprise.html">Enterprise Vault</a></li>
+            <li><a href="products.html">Product Guide</a></li>
+            <li><a href="download.html">Downloads</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer-links-title">Resources</h4>
+          <ul class="footer-links">
+            <li><a href="faq.html">FAQ & Wiki</a></li>
+            <li><a href="about.html">Architecture</a></li>
+            <li><a href="github.html">GitHub Repos</a></li>
+            <li><a href="github.html#contribute">Contribute</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer-links-title">Why FilePilot</h4>
+          <ul class="footer-links">
+            <li>100% free &amp; open source</li>
+            <li>No accounts, no tracking</li>
+            <li>Passwords never leave your device</li>
+            <li>Windows, macOS &amp; Linux</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div>&copy; 2026 FilePilot Open Source Project. Under MIT License.</div>
+        <div class="footer-bottom-links">
+          <a href="https://github.com/abhibagul/filepilot-ftp-client" target="_blank">Client Repo</a>
+          <a href="https://github.com/abhibagul/filepilot-enterprise-vault" target="_blank">Vault Repo</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  
+  <div id="premium-bg-mesh"></div>
+  <div id="grain-overlay"></div>
+</body>
+</html>

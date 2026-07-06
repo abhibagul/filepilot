@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FilePilot FAQ — Plain Answers About How It Works</title>
+  <meta name="description" content="Plain answers about FilePilot — what it is, whether it is free, where your passwords are stored, how team sharing works, and how the audit log stays tamper-proof.">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="container nav-container">
+      <a href="index.html" class="logo-link">
+        <img src="logo/filepilotico.png" alt="FilePilot Logo" class="flashy-logo">
+      </a>
+      <button class="menu-toggle">[ MENU ]</button>
+      <nav>
+        <a href="index.html" class="nav-link">Home</a>
+        <div class="nav-group">
+          <button class="nav-trigger" aria-haspopup="true" aria-expanded="false">Product <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></button>
+          <div class="nav-dropdown">
+            <a href="products.html">Product Overview<small>Compare client &amp; vault</small></a>
+            <a href="client.html">Desktop Client<small>Dual-pane transfer app</small></a>
+            <a href="enterprise.html">Enterprise Vault<small>Central credential server</small></a>
+          </div>
+        </div>
+        <a href="download.html" class="nav-link">Download</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="faq.html" class="nav-link">FAQ</a>
+        <a href="github.html" class="nav-link">GitHub</a>
+        <button class="theme-toggle" aria-label="Toggle Theme"></button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Page Header -->
+  <section class="reveal-on-scroll hero" style="padding: 9rem 0 2rem;">
+    <div class="container">
+      <span class="hero-tag">SUPPORT & WIKI</span>
+      <h1>Frequently Asked Questions</h1>
+      <p class="hero-subtitle">
+        Straight answers about how FilePilot works, what it costs, and how it keeps your passwords safe.
+      </p>
+    </div>
+  </section>
+
+  <!-- FAQ Accordion List (12 items) -->
+  <section class="reveal-on-scroll">
+    <div class="container">
+      <div class="faq-list">
+
+        <div class="faq-item">
+          <div class="faq-question">What is FilePilot, in plain terms?</div>
+          <div class="faq-answer">
+            <p>FilePilot is a free desktop app for moving files between your computer and your servers &mdash; over SFTP, FTP, S3, cloud drives, and more. There&#x27;s also an optional team server, called the Vault, that lets a whole team share server access safely without ever passing passwords around.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">Is it really free?</div>
+          <div class="faq-answer">
+            <p>Yes. Both the desktop app and the team Vault are 100% free and open source under the MIT license. There are no paid tiers, no per-seat fees, no ads, and no tracking &mdash; even for large companies.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">Do I need the Vault to use the app?</div>
+          <div class="faq-answer">
+            <p>No. The desktop app works completely on its own for managing your own connections. The Vault is only for teams that want to share access centrally, control who can reach what, and keep an audit log.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">Where are my passwords stored?</div>
+          <div class="faq-answer">
+            <p>On your own device, encrypted. You set a Master Password when you first open the app, and FilePilot uses it to lock all your saved logins and keys with strong encryption. Your passwords are never uploaded and never sent to any outside server.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">What if I forget my Master Password?</div>
+          <div class="faq-answer">
+            <p>For your security, it can&#x27;t be recovered &mdash; not even by us. FilePilot never stores or transmits it, which is exactly what keeps your saved logins safe if someone steals your computer. If you forget it, you simply set a new one and re-enter your connection details.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">How can a team share server logins without exposing the passwords?</div>
+          <div class="faq-answer">
+            <p>An admin adds each server login to the Vault, where it stays encrypted. When you&#x27;re approved, the app pulls those logins over a secure connection and locks them on your own device. You can connect and transfer files normally &mdash; but the raw passwords are never shown to you or anyone else.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">Which servers and protocols does it support?</div>
+          <div class="faq-answer">
+            <p>SFTP (SSH), FTP, FTPS, and SCP for traditional servers; Amazon S3 (plus MinIO and Ceph); WebDAV for NAS devices and Nextcloud/ownCloud; and cloud drives like Google Drive, Dropbox, OneDrive, and Azure. You can also reach servers through proxies or jump hosts, or add new types with plugins.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">Which operating systems can I run it on?</div>
+          <div class="faq-answer">
+            <p>Windows 10 and 11, macOS (Apple Silicon and Intel), and all major Linux distributions &mdash; from a single codebase, so it looks and works the same everywhere.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">Does FilePilot track me or &quot;phone home&quot;?</div>
+          <div class="faq-answer">
+            <p>No. There is zero telemetry, no analytics, no ad trackers, and no required account. Everything happens on your computer, or on your own private Vault server if you run one.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">What happens to my transfers if my internet drops?</div>
+          <div class="faq-answer">
+            <p>Nothing is lost. FilePilot notices the outage, holds any pending transfers in a queue, and picks up exactly where it left off the moment you&#x27;re back online &mdash; no re-sending the parts that already finished.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">Can I automate repetitive transfers?</div>
+          <div class="faq-answer">
+            <p>Yes. You can write short automation scripts in plain JavaScript inside a safe sandbox, and run them on a schedule or automatically when you connect, disconnect, or open the app &mdash; handy for nightly backups or routine syncs.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">Can we host the Vault on our own infrastructure?</div>
+          <div class="faq-answer">
+            <p>Yes. The Vault is a standard Node.js server you can run on your own machines, in Docker, or in any cloud &mdash; fully on-premise if you need it. It works with SQLite for small teams or PostgreSQL / MySQL for larger setups, and your data never leaves your infrastructure.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">How do I know the audit log wasn&#x27;t quietly edited?</div>
+          <div class="faq-answer">
+            <p>Every entry in the Vault&#x27;s audit log is cryptographically linked to the one before it. If anyone changes or deletes even a single entry, the chain breaks &mdash; and a built-in check points to exactly where. That makes tampering impossible to hide.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Deep Dive Comparison Matrix -->
+  <section class="reveal-on-scroll bg-secondary" id="comparisons">
+    <div class="container">
+      <div class="section-header">
+        <h2>Comparison: Feature Matrix</h2>
+        <p>FilePilot was built to modern engineering specifications. Review the details below to see how it compares to legacy clients.</p>
+      </div>
+
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Evaluation Parameter</th>
+              <th>FilePilot (Client + Vault)</th>
+              <th>FileZilla Client</th>
+              <th>WinSCP</th>
+              <th>Cyberduck</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Memory Footprint</strong></td>
+              <td class="tick-ok">Low (~42MB)</td>
+              <td class="tick-ok">Low (~35MB)</td>
+              <td class="tick-ok">Low (~30MB)</td>
+              <td class="tick-ko">High (~220MB, Java overhead)</td>
+            </tr>
+            <tr>
+              <td><strong>Secure Enclave Seal</strong></td>
+              <td class="tick-ok">PBKDF2 (600k iter) + AES-GCM</td>
+              <td class="tick-ko">Plaintext XML (Base64 only)</td>
+              <td class="tick-ko">Registry obfuscated</td>
+              <td class="tick-ok">Windows Credential/macOS Keychain</td>
+            </tr>
+            <tr>
+              <td><strong>Multi-thread Sync</strong></td>
+              <td class="tick-ok">Yes, parallel Tokio channels</td>
+              <td class="tick-ko">No (Serial files queue)</td>
+              <td class="tick-ko">No (Serial files queue)</td>
+              <td class="tick-ko">No (Serial files queue)</td>
+            </tr>
+            <tr>
+              <td><strong>Central Sync Server</strong></td>
+              <td class="tick-ok">Yes, Enterprise Vault Provisioning</td>
+              <td class="tick-ko">No</td>
+              <td class="tick-ko">No</td>
+              <td class="tick-ko">No</td>
+            </tr>
+            <tr>
+              <td><strong>Real-time Audit Logs</strong></td>
+              <td class="tick-ok">Yes, SHA-256 tamper-evident chain</td>
+              <td class="tick-ko">No (Text file only)</td>
+              <td class="tick-ko">No (Text file only)</td>
+              <td class="tick-ko">No (Text file only)</td>
+            </tr>
+            <tr>
+              <td><strong>Active SSH terminal</strong></td>
+              <td class="tick-ok">Yes, inline terminal component</td>
+              <td class="tick-ko">No</td>
+              <td class="tick-ko">No (PuTTY shortcut only)</td>
+              <td class="tick-ko">No</td>
+            </tr>
+            <tr>
+              <td><strong>Plugin Support</strong></td>
+              <td class="tick-ok">Yes, manifest JSON plugins SDK</td>
+              <td class="tick-ko">No</td>
+              <td class="tick-ko">No</td>
+              <td class="tick-ko">No</td>
+            </tr>
+            <tr>
+              <td><strong>JS Automation Scripting</strong></td>
+              <td class="tick-ok">Yes, Event hooks + sandbox API</td>
+              <td class="tick-ko">No</td>
+              <td class="tick-ko">No (CMD Scripting only)</td>
+              <td class="tick-ko">No (CLI execution only)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <!-- Next-Step Flow CTA -->
+  <section class="reveal-on-scroll flow-cta-section">
+    <div class="container">
+      <div class="flow-cta">
+        <span class="flow-cta-eyebrow">Still have questions?</span>
+        <h2>The best answer is to try it</h2>
+        <p>FilePilot is free and open-source. Install the client in seconds, or read the source to see exactly how the security model works.</p>
+        <div class="flow-cta-actions">
+        <a href="download.html" class="btn btn-primary">Download FilePilot →</a>
+        <a href="github.html" class="btn btn-secondary">View the Source →</a>
+        </div>
+      <div class="flow-journey">
+        <a class="flow-step active" href="client.html">
+          <span class="flow-step-num">STEP 01</span>
+          <span class="flow-step-title">Desktop Client</span>
+          <span class="flow-step-desc">Install the app and connect to your servers.</span>
+        </a>
+        <div class="flow-arrow"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></div>
+        <a class="flow-step" href="enterprise.html">
+          <span class="flow-step-num">STEP 02</span>
+          <span class="flow-step-title">Enterprise Vault</span>
+          <span class="flow-step-desc">Add central provisioning, audit and control.</span>
+        </a>
+        <div class="flow-arrow"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></div>
+        <a class="flow-step" href="download.html">
+          <span class="flow-step-num">STEP 03</span>
+          <span class="flow-step-title">Download &amp; Deploy</span>
+          <span class="flow-step-desc">Get binaries for every OS &mdash; free and open-source.</span>
+        </a>
+      </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-logo">
+            <img src="logo/filepilotico.png" alt="FilePilot Logo" class="flashy-logo">
+          </div>
+          <p>Fast, secure file transfers &mdash; your passwords stay encrypted on your own device, and your team&#x27;s server access is managed from one place.</p>
+        </div>
+        <div>
+          <h4 class="footer-links-title">Products</h4>
+          <ul class="footer-links">
+            <li><a href="client.html">Desktop Client</a></li>
+            <li><a href="enterprise.html">Enterprise Vault</a></li>
+            <li><a href="products.html">Product Guide</a></li>
+            <li><a href="download.html">Downloads</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer-links-title">Resources</h4>
+          <ul class="footer-links">
+            <li><a href="faq.html">FAQ & Wiki</a></li>
+            <li><a href="about.html">Architecture</a></li>
+            <li><a href="github.html">GitHub Repos</a></li>
+            <li><a href="github.html#contribute">Contribute</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer-links-title">Why FilePilot</h4>
+          <ul class="footer-links">
+            <li>100% free &amp; open source</li>
+            <li>No accounts, no tracking</li>
+            <li>Passwords never leave your device</li>
+            <li>Windows, macOS &amp; Linux</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div>&copy; 2026 FilePilot Open Source Project. Under MIT License.</div>
+        <div class="footer-bottom-links">
+          <a href="https://github.com/abhibagul/filepilot-ftp-client" target="_blank">Client Repo</a>
+          <a href="https://github.com/abhibagul/filepilot-enterprise-vault" target="_blank">Vault Repo</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  
+  <div id="premium-bg-mesh"></div>
+  <div id="grain-overlay"></div>
+</body>
+</html>

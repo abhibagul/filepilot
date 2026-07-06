@@ -1,0 +1,951 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FilePilot Team Vault — Share Server Access Without Passwords</title>
+  <meta name="description"
+    content="The FilePilot team Vault lets your team reach servers securely without sharing passwords. Control who can access what and keep a tamper-proof log of every action.">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body>
+  <!-- Header -->
+  <header>
+    <div class="container nav-container">
+      <a href="index.html" class="logo-link">
+        <img src="logo/filepilotico.png" alt="FilePilot Logo" class="flashy-logo">
+      </a>
+      <button class="menu-toggle">[ MENU ]</button>
+      <nav>
+        <a href="index.html" class="nav-link">Home</a>
+        <div class="nav-group">
+          <button class="nav-trigger" aria-haspopup="true" aria-expanded="false">Product <svg
+              xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg></button>
+          <div class="nav-dropdown">
+            <a href="products.html">Product Overview<small>Compare client &amp; vault</small></a>
+            <a href="client.html">Desktop Client<small>Dual-pane transfer app</small></a>
+            <a href="enterprise.html">Enterprise Vault<small>Central credential server</small></a>
+          </div>
+        </div>
+        <a href="download.html" class="nav-link">Download</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="faq.html" class="nav-link">FAQ</a>
+        <a href="github.html" class="nav-link">GitHub</a>
+        <button class="theme-toggle" aria-label="Toggle Theme"></button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Page Header -->
+  <section class="reveal-on-scroll hero" style="padding: 9rem 0 2rem;">
+    <div class="container">
+      <span class="hero-tag" style="border-color: var(--accent); color: var(--accent);">THE TEAM SERVER</span>
+      <h1>FilePilot Enterprise Vault</h1>
+      <p class="hero-subtitle">
+        The team server that gives everyone secure access to your servers &mdash; without sharing passwords. You decide
+        who can reach what, and keep a tamper-proof record of every action.
+      </p>
+      <div class="hero-cta mb-3">
+        <a href="download.html#server" class="btn btn-primary">Set Up the Vault &rarr;</a>
+        <a href="https://github.com/abhibagul/filepilot-enterprise-vault" class="btn btn-secondary" target="_blank">View
+          GitHub Repo</a>
+      </div>
+
+      <div class="terminal-window" style="max-width: 1000px; cursor: pointer;">
+        <div class="terminal-header">
+          <div class="terminal-buttons">
+            <span class="terminal-button red"></span>
+            <span class="terminal-button yellow"></span>
+            <span class="terminal-button green"></span>
+          </div>
+          <div class="terminal-title">FilePilot Enterprise Vault - dashboard_view</div>
+          <div style="width: 50px;"></div>
+        </div>
+        <div class="screenshot-container" data-caption="FilePilot Enterprise Vault Administration Console">
+          <img src="enterprise/dashboard.jpg" alt="FilePilot Enterprise Vault Administration Console"
+            style="width: 100%; height: auto; display: block;">
+          <div class="screenshot-overlay">
+            <span class="zoom-icon">[ ZOOM VIEW ]</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- The Problem / Why FilePilot Enterprise -->
+  <section class="marketing-section bg-secondary reveal-on-scroll" style="padding: 6rem 0;">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="marketing-title">The Problems It Solves</h2>
+        <div class="marketing-accent-line"></div>
+      </div>
+      <div class="grid-3" style="gap: 2rem;">
+        <div class="marketing-card">
+          <div class="marketing-icon"><i data-lucide="eye-off" class="marketing-icon"></i></div>
+          <h3>Unmonitored Transfers</h3>
+          <p>When everyone uses their own file-transfer app, you have no idea what data is leaving your network &mdash;
+            or who sent it.</p>
+        </div>
+        <div class="marketing-card">
+          <div class="marketing-icon"><i data-lucide="key" class="marketing-icon"></i></div>
+          <h3>Scattered Credentials</h3>
+          <p>Server passwords and keys end up saved on dozens of laptops &mdash; a security incident waiting to happen.
+          </p>
+        </div>
+        <div class="marketing-card">
+          <div class="marketing-icon"><i data-lucide="file-warning" class="marketing-icon"></i></div>
+          <h3>Failed Audits</h3>
+          <p>Without one central, tamper-proof record of every transfer, proving compliance (like SOC 2 or HIPAA) is a
+            nightmare.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="section-1" class="marketing-section  reveal-on-scroll" style="padding: 6rem 0;">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-label">01 — Getting Started</div>
+        <h2 class="marketing-title">Setup &amp; Installation</h2>
+        <div class="marketing-accent-line"></div>
+        <p
+          style="max-width: 650px; margin: 0 auto; color: var(--text-secondary); font-size: 1.05rem; line-height: 1.7;">
+          Deploy the Enterprise Vault in minutes. A browser-based wizard guides you through database selection, master
+          key setup, and your first admin account.</p>
+      </div>
+      <div class="marketing-bento">
+        <div class="bento-feature highlight">
+          <h3>Guided Setup Wizard</h3>
+          <p>Visit /admin on your server and a browser wizard walks you through database selection, master key setup,
+            and admin account creation — no CLI knowledge required.</p>
+          <div class="bento-visual"><i data-lucide="sparkles"></i></div>
+        </div>
+        <div class="bento-feature">
+          <h3>Multi-Database Support</h3>
+          <p>Use embedded SQLite for small teams, or connect to an existing PostgreSQL or MySQL cluster for
+            high-availability enterprise setups.</p>
+        </div>
+        <div class="bento-feature">
+          <h3>Database Connectivity Test</h3>
+          <p>Test the database connection directly from the setup wizard before saving. Catch credential or network
+            issues before they cause problems.</p>
+        </div>
+        <div class="bento-feature wide">
+          <h3>Config-Driven Architecture</h3>
+          <p>All settings live in config.json and a SystemConfig table. Reproducible deployments, easy
+            infrastructure-as-code integration.</p>
+        </div>
+        <div class="bento-feature">
+          <h3>Environment Variable Overrides</h3>
+          <p>Set sensitive values like the master key via environment variables. Compatible with Kubernetes secrets,
+            Docker env vars, and CI/CD pipelines.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="section-2" class="story-section bg-secondary" style="padding: 6rem 0;">
+    <div class="container" style="position: relative; z-index: 2;">
+      <div class="story-grid">
+        <div class="story-image reveal-on-scroll">
+          <div class="screenshot-showcase" data-caption="Enterprise Vault Admin Login">
+            <img src="enterprise/loginscreen.jpg" alt="Enterprise Vault Admin Login">
+            <div class="screenshot-overlay"><span class="zoom-icon">[ ZOOM ]</span></div>
+          </div>
+        </div>
+        <div class="story-content reveal-on-scroll">
+          <div class="section-label" style="margin-bottom: 1rem;">02 — Admin Security</div>
+          <h2 class="marketing-title" style="text-align: left; font-size: 2.2rem;">Secure Sign-In for Admins</h2>
+          <div class="marketing-accent-line" style="margin: 0 0 1.5rem 0;"></div>
+          <p style="color: var(--text-secondary); font-size: 1rem; line-height: 1.7; margin-bottom: 1.5rem;">Two-factor
+            login, automatic lockout after failed attempts, and full control over active sessions &mdash; strong
+            protection for the admin panel, right out of the box.</p>
+          <div class="bento-grid">
+            <div class="bento-card">
+              <div class="bento-card-header"><i data-lucide="check" class="bento-icon"></i> <strong>Session-Based
+                  Auth</strong></div>
+              <div class="bento-desc">Secure HTTP-only cookie sessions with hashed tokens stored server-side — no
+                long-lived JWTs to worry about rotating.</div>
+            </div>
+            <div class="bento-card">
+              <div class="bento-card-header"><i data-lucide="check" class="bento-icon"></i> <strong>CSRF
+                  Protection</strong></div>
+              <div class="bento-desc">Every state-changing request requires a valid CSRF token. Eliminates an entire
+                class of web attacks with zero user friction.</div>
+            </div>
+            <div class="bento-card">
+              <div class="bento-card-header"><i data-lucide="check" class="bento-icon"></i> <strong>MFA (TOTP)</strong>
+              </div>
+              <div class="bento-desc">Standard time-based OTP — compatible with Google Authenticator, Authy, and
+                1Password. Full enrollment and recovery flows built in.</div>
+            </div>
+            <div class="bento-card">
+              <div class="bento-card-header"><i data-lucide="check" class="bento-icon"></i> <strong>Backup
+                  Codes</strong></div>
+              <div class="bento-desc">Eight one-time backup codes, bcrypt-hashed. Use one if you lose your authenticator
+                device and set up a new one safely.</div>
+            </div>
+            <div class="bento-card">
+              <div class="bento-card-header"><i data-lucide="check" class="bento-icon"></i> <strong>Login
+                  Lockout</strong></div>
+              <div class="bento-desc">After 5 failed attempts in 10 minutes, the IP is automatically locked out.
+                Brute-force attacks are stopped cold.</div>
+            </div>
+            <div class="bento-card">
+              <div class="bento-card-header"><i data-lucide="check" class="bento-icon"></i> <strong>Session
+                  Management</strong></div>
+              <div class="bento-desc">See every active session — device, IP, login time. Kill individual sessions or all
+                other sessions with one click.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="section-3" class="story-section " style="padding: 6rem 0;">
+    <div class="container" style="position: relative; z-index: 2;">
+      <div class="story-grid reverse">
+        <div class="story-image reveal-on-scroll">
+          <div class="screenshot-showcase" data-caption="User &amp; Role Management">
+            <img src="enterprise/usermanagement.jpg" alt="User &amp; Role Management">
+            <div class="screenshot-overlay"><span class="zoom-icon">[ ZOOM ]</span></div>
+          </div>
+        </div>
+        <div class="story-content reveal-on-scroll">
+          <div class="section-label" style="margin-bottom: 1rem;">03 — Access Control</div>
+          <h2 class="marketing-title" style="text-align: left; font-size: 2.2rem;">Control Who Can Do What</h2>
+          <div class="marketing-accent-line" style="margin: 0 0 1.5rem 0;"></div>
+          <p style="color: var(--text-secondary); font-size: 1rem; line-height: 1.7; margin-bottom: 1.5rem;">Give each
+            person exactly the access they need with four ready-made roles and 20+ fine-grained permissions &mdash;
+            enforced on the server, not just hidden in the interface.</p>
+          <div class="bento-grid">
+            <div class="bento-card">
+              <div class="bento-card-header"><i data-lucide="check" class="bento-icon"></i> <strong>4 Built-in
+                  Roles</strong></div>
+              <div class="bento-desc">Admin has full access. Manager oversees vaults, profiles, and tokens. Operator
+                creates profiles and issues tokens. Auditor gets read-only audit log access.</div>
+            </div>
+            <div class="bento-card">
+              <div class="bento-card-header"><i data-lucide="check" class="bento-icon"></i> <strong>20+ Granular
+                  Permissions</strong></div>
+              <div class="bento-desc">Fine-grained permissions like profile.create, token.revoke, audit.export, and
+                legal_hold.manage. Build exactly the access model your compliance policy requires.</div>
+            </div>
+            <div class="bento-card">
+              <div class="bento-card-header"><i data-lucide="check" class="bento-icon"></i> <strong>Wildcard
+                  Matching</strong></div>
+              <div class="bento-desc">Grant profile.* for all profile actions at once, or be precise with profile.view
+                only. Concise when you want, precise when you need.</div>
+            </div>
+            <div class="bento-card">
+              <div class="bento-card-header"><i data-lucide="check" class="bento-icon"></i> <strong>API-Level
+                  Enforcement</strong></div>
+              <div class="bento-desc">Every endpoint verifies permissions server-side. Even a direct HTTP request
+                bypassing the frontend gets rejected if the role doesn&#x27;t permit it.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="section-4" class="story-section bg-secondary" style="padding: 6rem 0;">
+    <div class="container" style="position: relative; z-index: 2;">
+      <div class="story-grid">
+        <div class="story-image reveal-on-scroll">
+          <div class="screenshot-showcase" data-caption="Vault Groups &amp; Encryption Isolation">
+            <img src="enterprise/vaults.jpg" alt="Vault Groups &amp; Encryption Isolation">
+            <div class="screenshot-overlay"><span class="zoom-icon">[ ZOOM ]</span></div>
+          </div>
+        </div>
+        <div class="story-content reveal-on-scroll">
+          <div class="section-label" style="margin-bottom: 1rem;">04 — Organization</div>
+          <h2 class="marketing-title" style="text-align: left; font-size: 2.2rem;">Vault Groups</h2>
+          <div class="marketing-accent-line" style="margin: 0 0 1.5rem 0;"></div>
+          <p style="color: var(--text-secondary); font-size: 1rem; line-height: 1.7; margin-bottom: 1.5rem;">Sort your
+            server logins into separate groups &mdash; one per team, project, or environment. Each group has its own
+            encryption key and its own list of allowed IP addresses.</p>
+          <div class="bento-grid">
+            <div class="bento-card">
+              <div class="bento-card-header"><i data-lucide="check" class="bento-icon"></i> <strong>Group-Based
+                  Organization</strong></div>
+              <div class="bento-desc">One group for DevOps, one for DBAs, one for staging — each completely isolated
+                from the others.</div>
+            </div>
+            <div class="bento-card">
+              <div class="bento-card-header"><i data-lucide="check" class="bento-icon"></i> <strong>IP
+                  Allowlisting</strong></div>
+              <div class="bento-desc">Restrict which IPs can pull profiles from a group. Only laptops on your VPN can
+                access the production group.</div>
+            </div>
+            <div class="bento-card">
+              <div class="bento-card-header"><i data-lucide="check" class="bento-icon"></i> <strong>Per-Group Encryption
+                  Keys</strong></div>
+              <div class="bento-desc">Each group has its own Data Encryption Key. Even if one group&#x27;s DEK is
+                compromised, the others remain protected.</div>
+            </div>
+            <div class="bento-card">
+              <div class="bento-card-header"><i data-lucide="check" class="bento-icon"></i> <strong>Per-Group KMS
+                  Provider</strong></div>
+              <div class="bento-desc">Your EU team&#x27;s group uses Azure Key Vault; your US team&#x27;s uses AWS KMS.
+                Full data sovereignty, per team.</div>
+            </div>
+            <div class="bento-card">
+              <div class="bento-card-header"><i data-lucide="check" class="bento-icon"></i> <strong>SSRF
+                  Protection</strong></div>
+              <div class="bento-desc">Hostnames are validated against private IP ranges. No one can register a profile
+                pointing to internal cloud metadata endpoints.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="section-5" class="story-section " style="padding: 6rem 0;">
+    <div class="container" style="position: relative; z-index: 2;">
+      <div class="story-grid reverse">
+        <div class="story-image reveal-on-scroll">
+          <div class="screenshot-showcase" data-caption="Connection Profile Provisioning">
+            <img src="enterprise/singlevault.jpg" alt="Connection Profile Provisioning">
+            <div class="screenshot-overlay"><span class="zoom-icon">[ ZOOM ]</span></div>
+          </div>
+        </div>
+        <div class="story-content reveal-on-scroll">
+          <div class="section-label" style="margin-bottom: 1rem;">05 — Provisioning</div>
+          <h2 class="marketing-title" style="text-align: left; font-size: 2.2rem;">Manage Server Logins in One Place
+          </h2>
+          <div class="marketing-accent-line" style="margin: 0 0 1.5rem 0;"></div>
+          <p style="color: var(--text-secondary); font-size: 1rem; line-height: 1.7; margin-bottom: 1.5rem;">Keep every
+            server login in one place. Create one, test it, and it&#x27;s instantly available to every approved teammate
+            &mdash; no emailing passwords around.</p>
+          <div class="bento-grid">
+            <div class="bento-card">
+              <div class="bento-card-header"><i data-lucide="check" class="bento-icon"></i> <strong>Centralized
+                  Profiles</strong></div>
+              <div class="bento-desc">Full CRUD for connection profiles across all protocols: FTP, SFTP, FTPS, SCP, S3,
+                and WebDAV.</div>
+            </div>
+            <div class="bento-card">
+              <div class="bento-card-header"><i data-lucide="check" class="bento-icon"></i> <strong>Encrypted
+                  Storage</strong></div>
+              <div class="bento-desc">Every password and key is AES-256-GCM encrypted with the group&#x27;s unique DEK.
+                Raw credentials never appear in plaintext.</div>
+            </div>
+            <div class="bento-card">
+              <div class="bento-card-header"><i data-lucide="check" class="bento-icon"></i> <strong>Test Before
+                  Deploy</strong></div>
+              <div class="bento-desc">Click &#x27;Test Connection&#x27; to verify a profile works before provisioning
+                it. Catch typos before anyone notices.</div>
+            </div>
+            <div class="bento-card">
+              <div class="bento-card-header"><i data-lucide="check" class="bento-icon"></i> <strong>Automatic Client
+                  Sync</strong></div>
+              <div class="bento-desc">Save a profile and it&#x27;s immediately available to any desktop client with a
+                valid token for that group.</div>
+            </div>
+            <div class="bento-card">
+              <div class="bento-card-header"><i data-lucide="check" class="bento-icon"></i> <strong>Token-Scoped
+                  Delivery</strong></div>
+              <div class="bento-desc">Each token only grants access to profiles in its specific Vault Group. A staging
+                token can&#x27;t pull production credentials.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="section-6" class="marketing-section bg-secondary reveal-on-scroll" style="padding: 6rem 0;">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-label">06 — Access Keys</div>
+        <h2 class="marketing-title">Access Keys</h2>
+        <div class="marketing-accent-line"></div>
+        <p
+          style="max-width: 650px; margin: 0 auto; color: var(--text-secondary); font-size: 1.05rem; line-height: 1.7;">
+          Hand out secure access keys, then track, block, or cancel them anytime. Each key works for just one person and
+          one group, and can expire on a date you choose.</p>
+      </div>
+      <div class="grid-3" style="gap: 1.5rem;">
+        <div class="marketing-card">
+          <h3>256-bit Tokens</h3>
+          <p>Cryptographically secure tokens generated server-side. The raw token is shown exactly once — never stored
+            again.</p>
+        </div>
+        <div class="marketing-card">
+          <h3>SHA-256 Hashing</h3>
+          <p>Only the hash is stored in the database. If the database leaks, token hashes can&#x27;t be reversed to the
+            originals.</p>
+        </div>
+        <div class="marketing-card">
+          <h3>User &amp; Group Scoped</h3>
+          <p>Every token is tied to a specific user identity and vault group. Can&#x27;t be reused across groups or
+            impersonate other users.</p>
+        </div>
+        <div class="marketing-card">
+          <h3>Expiration Dates</h3>
+          <p>Set optional expiry dates. Expired tokens are blocked automatically — no cron job or admin action needed.
+          </p>
+        </div>
+        <div class="marketing-card">
+          <h3>Instant Revocation</h3>
+          <p>Block a token from the admin panel and the connected desktop client loses access within seconds via
+            WebSocket notification.</p>
+        </div>
+        <div class="marketing-card">
+          <h3>Legal Hold Protection</h3>
+          <p>Tokens belonging to a group under Legal Hold cannot be deleted or reissued for the duration of the
+            investigation.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="section-7" class="story-section " style="padding: 6rem 0;">
+    <div class="container" style="position: relative; z-index: 2;">
+      <div class="story-grid">
+        <div class="story-image reveal-on-scroll">
+          <div class="screenshot-showcase" data-caption="Encryption Key Management &amp; Rotation">
+            <img src="enterprise/key.jpg" alt="Encryption Key Management &amp; Rotation">
+            <div class="screenshot-overlay"><span class="zoom-icon">[ ZOOM ]</span></div>
+          </div>
+        </div>
+        <div class="story-content reveal-on-scroll">
+          <div class="section-label" style="margin-bottom: 1rem;">07 — Encryption</div>
+          <h2 class="marketing-title" style="text-align: left; font-size: 2.2rem;">Encryption &amp; Key Management</h2>
+          <div class="marketing-accent-line" style="margin: 0 0 1.5rem 0;"></div>
+          <p style="color: var(--text-secondary); font-size: 1rem; line-height: 1.7; margin-bottom: 1.5rem;">Two-tier
+            envelope encryption with rotatable master keys, per-group data keys, and pluggable KMS backends — from AWS
+            to HashiCorp Vault.</p>
+          <div class="bento-grid">
+            <div class="bento-card">
+              <div class="bento-card-header"><i data-lucide="check" class="bento-icon"></i> <strong>Envelope
+                  Encryption</strong></div>
+              <div class="bento-desc">Master KEK wraps per-group DEKs, DEKs encrypt credentials. Compromising one layer
+                doesn&#x27;t expose the other.</div>
+            </div>
+            <div class="bento-card">
+              <div class="bento-card-header"><i data-lucide="check" class="bento-icon"></i> <strong>AES-256-GCM</strong>
+              </div>
+              <div class="bento-desc">Every value uses AES-256-GCM with random 96-bit IVs and authentication tags.
+                Tampering is detected and rejected automatically.</div>
+            </div>
+            <div class="bento-card">
+              <div class="bento-card-header"><i data-lucide="check" class="bento-icon"></i> <strong>Master Key
+                  Rotation</strong></div>
+              <div class="bento-desc">Rotate the KEK from the admin panel. All group DEKs are re-wrapped under the new
+                key without exposing raw credentials.</div>
+            </div>
+            <div class="bento-card">
+              <div class="bento-card-header"><i data-lucide="check" class="bento-icon"></i> <strong>Resumable
+                  Rotation</strong></div>
+              <div class="bento-desc">If the server crashes mid-rotation, it picks up from the last completed group — no
+                partial rotations or data loss.</div>
+            </div>
+            <div class="bento-card">
+              <div class="bento-card-header"><i data-lucide="check" class="bento-icon"></i> <strong>Multi-KMS
+                  Support</strong></div>
+              <div class="bento-desc">Plug in AWS KMS, Azure Key Vault, GCP Cloud KMS, or HashiCorp Vault. Each group
+                can use a different provider.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="section-8" class="story-section bg-secondary" style="padding: 6rem 0;">
+    <div class="container" style="position: relative; z-index: 2;">
+      <div class="story-grid reverse">
+        <div class="story-image reveal-on-scroll">
+          <div class="screenshot-showcase" data-caption="Tamper-Evident Audit Trail">
+            <img src="enterprise/logs.jpg" alt="Tamper-Evident Audit Trail">
+            <div class="screenshot-overlay"><span class="zoom-icon">[ ZOOM ]</span></div>
+          </div>
+        </div>
+        <div class="story-content reveal-on-scroll">
+          <div class="section-label" style="margin-bottom: 1rem;">08 — Audit Trail</div>
+          <h2 class="marketing-title" style="text-align: left; font-size: 2.2rem;">A Record No One Can Secretly Change
+          </h2>
+          <div class="marketing-accent-line" style="margin: 0 0 1.5rem 0;"></div>
+          <p style="color: var(--text-secondary); font-size: 1rem; line-height: 1.7; margin-bottom: 1.5rem;">Every
+            action is written to a log that&#x27;s cryptographically linked together. Change or delete even one entry
+            and the chain breaks &mdash; so tampering is impossible to hide.</p>
+          <div class="bento-grid">
+            <div class="bento-card">
+              <div class="bento-card-header"><i data-lucide="check" class="bento-icon"></i> <strong>Hash Chain</strong>
+              </div>
+              <div class="bento-desc">Every audit entry contains a SHA-256 hash of itself plus the previous entry. An
+                unbreakable chain that catches any tampering.</div>
+            </div>
+            <div class="bento-card">
+              <div class="bento-card-header"><i data-lucide="check" class="bento-icon"></i> <strong>Integrity
+                  Verification</strong></div>
+              <div class="bento-desc">An admin API endpoint verifies the complete chain and reports the exact entry
+                where it breaks, if any.</div>
+            </div>
+            <div class="bento-card">
+              <div class="bento-card-header"><i data-lucide="check" class="bento-icon"></i> <strong>Structured
+                  Metadata</strong></div>
+              <div class="bento-desc">Who did what, when, and from which IP — all recorded as structured, queryable
+                JSON.</div>
+            </div>
+            <div class="bento-card">
+              <div class="bento-card-header"><i data-lucide="check" class="bento-icon"></i> <strong>CSV Export</strong>
+              </div>
+              <div class="bento-desc">Export filtered audit data for your compliance team. Filter by date range, action
+                type, or user.</div>
+            </div>
+            <div class="bento-card">
+              <div class="bento-card-header"><i data-lucide="check" class="bento-icon"></i> <strong>Log
+                  Archival</strong></div>
+              <div class="bento-desc">Archive old entries to hide them from the main view without deleting. They remain
+                immutable and available for review.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="section-9" class="marketing-section  reveal-on-scroll" style="padding: 6rem 0;">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-label">09 — SIEM Integration</div>
+        <h2 class="marketing-title">SIEM Webhook Integration</h2>
+        <div class="marketing-accent-line"></div>
+        <p
+          style="max-width: 650px; margin: 0 auto; color: var(--text-secondary); font-size: 1.05rem; line-height: 1.7;">
+          Stream audit events to your SIEM in real time — with HMAC-signed payloads, automatic retries, and failure
+          logging built in.</p>
+      </div>
+      <div class="grid-3" style="gap: 1.5rem;">
+        <div class="marketing-card">
+          <h3>Configurable Endpoint</h3>
+          <p>Point the Vault at your Splunk, Datadog, ELK, or any custom webhook receiver with a single URL.</p>
+        </div>
+        <div class="marketing-card">
+          <h3>HMAC-SHA256 Signatures</h3>
+          <p>Every payload is signed with a shared secret. Your SIEM verifies the signature to confirm the event is
+            authentic.</p>
+        </div>
+        <div class="marketing-card">
+          <h3>Retry with Backoff</h3>
+          <p>Failed deliveries retry 3 times (1s → 4s → 16s). Transient outages don&#x27;t cause audit gaps.</p>
+        </div>
+        <div class="marketing-card">
+          <h3>Failure Logging</h3>
+          <p>If all retries fail, the delivery failure is itself recorded in the audit trail. You always know when
+            events didn&#x27;t reach your SIEM.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="section-10" class="marketing-section bg-secondary reveal-on-scroll" style="padding: 6rem 0;">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-label">10 — Compliance</div>
+        <h2 class="marketing-title">Legal &amp; Preservation Holds</h2>
+        <div class="marketing-accent-line"></div>
+        <p
+          style="max-width: 650px; margin: 0 auto; color: var(--text-secondary); font-size: 1.05rem; line-height: 1.7;">
+          Freeze an entire Vault Group for regulatory review. Tokens can&#x27;t be deleted, profiles can&#x27;t be
+          modified, and the access record remains intact.</p>
+      </div>
+      <div class="grid-3" style="gap: 1.5rem;">
+        <div class="marketing-card">
+          <h3>Activate Legal Hold</h3>
+          <p>Place any group under hold with a reason, responsible user, and timestamp. Data enters locked-down mode
+            immediately.</p>
+        </div>
+        <div class="marketing-card">
+          <h3>Write Freeze</h3>
+          <p>Optionally freeze all writes — profile edits, token issuance, token deletion. Data is preserved in its
+            exact state.</p>
+        </div>
+        <div class="marketing-card">
+          <h3>Token &amp; Profile Protection</h3>
+          <p>Tokens and profiles within a held group cannot be deleted. The access configuration is preserved for the
+            investigation.</p>
+        </div>
+        <div class="marketing-card">
+          <h3>Client Notification</h3>
+          <p>Hold status and freeze flags are pushed to connected clients via the sync API. Users see the hold status in
+            their app.</p>
+        </div>
+        <div class="marketing-card">
+          <h3>Release Hold</h3>
+          <p>Remove the hold from the admin panel when the review ends. All restricted operations become available
+            immediately.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="section-11" class="story-section " style="padding: 6rem 0;">
+    <div class="container" style="position: relative; z-index: 2;">
+      <div class="story-grid">
+        <div class="story-image reveal-on-scroll">
+          <div class="screenshot-showcase" data-caption="File Version History &amp; Revert">
+            <img src="enterprise/file diff log.jpg" alt="File Version History &amp; Revert">
+            <div class="screenshot-overlay"><span class="zoom-icon">[ ZOOM ]</span></div>
+          </div>
+        </div>
+        <div class="story-content reveal-on-scroll">
+          <div class="section-label" style="margin-bottom: 1rem;">11 — Version Control</div>
+          <h2 class="marketing-title" style="text-align: left; font-size: 2.2rem;">File History &amp; One-Click Undo
+          </h2>
+          <div class="marketing-accent-line" style="margin: 0 0 1.5rem 0;"></div>
+          <p style="color: var(--text-secondary); font-size: 1rem; line-height: 1.7; margin-bottom: 1.5rem;">Every file
+            uploaded through a connected app is saved as a version. Browse the history, look at older copies, and roll
+            any file back with one click.</p>
+          <div class="bento-grid">
+            <div class="bento-card">
+              <div class="bento-card-header"><i data-lucide="check" class="bento-icon"></i> <strong>Automatic
+                  Snapshots</strong></div>
+              <div class="bento-desc">Every upload creates a version snapshot with SHA-256 hash and file size. No manual
+                action required.</div>
+            </div>
+            <div class="bento-card">
+              <div class="bento-card-header"><i data-lucide="check" class="bento-icon"></i> <strong>Version
+                  History</strong></div>
+              <div class="bento-desc">Browse all versions in the admin panel with timestamps, sizes, and the user who
+                uploaded each one.</div>
+            </div>
+            <div class="bento-card">
+              <div class="bento-card-header"><i data-lucide="check" class="bento-icon"></i> <strong>Content
+                  Viewer</strong></div>
+              <div class="bento-desc">View the actual content of any past version directly in the admin panel without
+                downloading it.</div>
+            </div>
+            <div class="bento-card">
+              <div class="bento-card-header"><i data-lucide="check" class="bento-icon"></i> <strong>Remote
+                  Revert</strong></div>
+              <div class="bento-desc">Push any past version back to the connected client with one click. FilePilot
+                writes it to the server via WebSocket.</div>
+            </div>
+            <div class="bento-card">
+              <div class="bento-card-header"><i data-lucide="check" class="bento-icon"></i> <strong>Offline Revert
+                  Queue</strong></div>
+              <div class="bento-desc">If the client is offline, the revert is queued. The moment it reconnects, the
+                operation completes automatically.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="section-12" class="marketing-section bg-secondary reveal-on-scroll" style="padding: 6rem 0;">
+    <div class="container">
+      <div
+        style="background: linear-gradient(135deg, rgba(0,230,96,0.08) 0%, rgba(13,18,22,0.98) 100%); border: 1px solid rgba(0,230,96,0.25); border-radius: var(--radius-lg); padding: 3rem 3.5rem;">
+        <div class="section-label" style="margin-bottom: 1rem;">12 — Real-Time Sync</div>
+        <h2 style="font-size: 2rem; margin-bottom: 0.75rem; color: #fff;">Real-Time Updates</h2>
+        <p style="color: var(--text-secondary); margin-bottom: 2rem; max-width: 700px;">Connected apps stay linked to
+          the Vault at all times. When you cancel a key, undo a file, or freeze a group, it takes effect within seconds
+          &mdash; not on the next sync.</p>
+        <div class="grid-3" style="text-align: left; gap: 1.5rem;">
+          <div style="border-left: 2px solid rgba(0,230,96,0.4); padding-left: 1.25rem;">
+            <strong style="color:var(--accent); display: block; margin-bottom: 0.4rem;">Persistent Connections</strong>
+            <span style="color:var(--text-secondary); font-size: 0.9rem; line-height: 1.6;">Clients maintain a live
+              WebSocket channel after authenticating. The backbone for all real-time operations.</span>
+          </div>
+          <div style="border-left: 2px solid rgba(0,230,96,0.4); padding-left: 1.25rem;">
+            <strong style="color:var(--accent); display: block; margin-bottom: 0.4rem;">Instant Token Events</strong>
+            <span style="color:var(--text-secondary); font-size: 0.9rem; line-height: 1.6;">Block a token and the client
+              loses access within milliseconds. Restore it and access returns without user action.</span>
+          </div>
+          <div style="border-left: 2px solid rgba(0,230,96,0.4); padding-left: 1.25rem;">
+            <strong style="color:var(--accent); display: block; margin-bottom: 0.4rem;">Live File Reverts</strong>
+            <span style="color:var(--text-secondary); font-size: 0.9rem; line-height: 1.6;">File revert commands travel
+              over WebSocket. The client receives the content and writes it immediately.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="section-13" class="story-section " style="padding: 6rem 0;">
+    <div class="container" style="position: relative; z-index: 2;">
+      <div class="story-grid reverse">
+        <div class="story-image reveal-on-scroll">
+          <div class="screenshot-showcase" data-caption="Compliance Posture Dashboard">
+            <img src="enterprise/compliance.jpg" alt="Compliance Posture Dashboard">
+            <div class="screenshot-overlay"><span class="zoom-icon">[ ZOOM ]</span></div>
+          </div>
+        </div>
+        <div class="story-content reveal-on-scroll">
+          <div class="section-label" style="margin-bottom: 1rem;">13 — Compliance Dashboard</div>
+          <h2 class="marketing-title" style="text-align: left; font-size: 2.2rem;">Compliance Posture Dashboard</h2>
+          <div class="marketing-accent-line" style="margin: 0 0 1.5rem 0;"></div>
+          <p style="color: var(--text-secondary); font-size: 1rem; line-height: 1.7; margin-bottom: 1.5rem;">Five
+            posture panels covering encryption, access control, audit integrity, IP policy, and session security —
+            formatted to answer the exact questions your compliance auditor will ask.</p>
+          <div class="bento-grid">
+            <div class="bento-card">
+              <div class="bento-card-header"><i data-lucide="check" class="bento-icon"></i> <strong>Encryption
+                  Posture</strong></div>
+              <div class="bento-desc">KEK rotation history, per-group KMS provider, and DEK version status — all on one
+                screen.</div>
+            </div>
+            <div class="bento-card">
+              <div class="bento-card-header"><i data-lucide="check" class="bento-icon"></i> <strong>Access Control
+                  Posture</strong></div>
+              <div class="bento-desc">All users, roles, MFA status, active tokens with age and last-used timestamps.
+              </div>
+            </div>
+            <div class="bento-card">
+              <div class="bento-card-header"><i data-lucide="check" class="bento-icon"></i> <strong>Audit
+                  Integrity</strong></div>
+              <div class="bento-desc">Full hash chain verification. Tells your auditor exactly how trustworthy the logs
+                are.</div>
+            </div>
+            <div class="bento-card">
+              <div class="bento-card-header"><i data-lucide="check" class="bento-icon"></i> <strong>Access
+                  Policy</strong></div>
+              <div class="bento-desc">IP allowlist coverage per group. Spot groups with no restrictions that represent a
+                wider access surface.</div>
+            </div>
+            <div class="bento-card">
+              <div class="bento-card-header"><i data-lucide="check" class="bento-icon"></i> <strong>Session
+                  Security</strong></div>
+              <div class="bento-desc">Configured timeouts, max concurrent sessions, and current active session count
+                across all users.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="section-14" class="story-section bg-secondary" style="padding: 6rem 0;">
+    <div class="container" style="position: relative; z-index: 2;">
+      <div class="story-grid">
+        <div class="story-image reveal-on-scroll">
+          <div class="screenshot-showcase" data-caption="Enterprise Vault Admin Dashboard">
+            <img src="enterprise/dashboard.jpg" alt="Enterprise Vault Admin Dashboard">
+            <div class="screenshot-overlay"><span class="zoom-icon">[ ZOOM ]</span></div>
+          </div>
+        </div>
+        <div class="story-content reveal-on-scroll">
+          <div class="section-label" style="margin-bottom: 1rem;">14 — Admin Panel</div>
+          <h2 class="marketing-title" style="text-align: left; font-size: 2.2rem;">One Dashboard to Run It All</h2>
+          <div class="marketing-accent-line" style="margin: 0 0 1.5rem 0;"></div>
+          <p style="color: var(--text-secondary); font-size: 1rem; line-height: 1.7; margin-bottom: 1.5rem;">A rich
+            single-page admin interface with live metrics, full CRUD for groups, profiles, tokens, and users — plus
+            audit viewing, compliance reports, and system settings.</p>
+          <div class="bento-grid">
+            <div class="bento-card">
+              <div class="bento-card-header"><i data-lucide="check" class="bento-icon"></i> <strong>Live
+                  Dashboard</strong></div>
+              <div class="bento-desc">Active WebSocket connections, total file versions, recent audit entries, and
+                database backend — all updating in real time.</div>
+            </div>
+            <div class="bento-card">
+              <div class="bento-card-header"><i data-lucide="check" class="bento-icon"></i> <strong>Group &amp; Profile
+                  Management</strong></div>
+              <div class="bento-desc">Create, edit, delete vault groups and connection profiles. Configure KMS, IP
+                policies, and encryption per group.</div>
+            </div>
+            <div class="bento-card">
+              <div class="bento-card-header"><i data-lucide="check" class="bento-icon"></i> <strong>Token
+                  Management</strong></div>
+              <div class="bento-desc">Issue, view, block, unblock, and revoke access tokens with one click. See status,
+                expiry, and usage data.</div>
+            </div>
+            <div class="bento-card">
+              <div class="bento-card-header"><i data-lucide="check" class="bento-icon"></i> <strong>Audit &amp;
+                  Compliance</strong></div>
+              <div class="bento-desc">Browse the audit trail with filters, verify chain integrity, export to CSV, and
+                view the five-panel compliance dashboard.</div>
+            </div>
+            <div class="bento-card">
+              <div class="bento-card-header"><i data-lucide="check" class="bento-icon"></i> <strong>System
+                  Settings</strong></div>
+              <div class="bento-desc">SIEM webhook, SMTP email, backup schedule, database configuration, and KEK
+                rotation — organized into tabs.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="marketing-section reveal-on-scroll" style="padding: 6rem 0;">
+    <div class="container" style="max-width: 800px;">
+      <div class="section-header">
+        <div class="section-label">FAQ</div>
+        <h2 class="marketing-title">Frequently Asked Questions</h2>
+        <div class="marketing-accent-line"></div>
+      </div>
+      <div class="faq-accordion">
+        <div class="faq-item">
+          <button class="faq-question">How does the Desktop Client talk to the Vault? </button>
+          <div class="faq-answer">
+            <p>The client authenticates with the Vault using an access token over HTTPS, then maintains a persistent
+              WebSocket connection for real-time events. Encrypted connection profiles are delivered through the REST
+              API.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">Can I self-host this on-premise? </button>
+          <div class="faq-answer">
+            <p>Yes. The Enterprise Vault is a standard Node.js application. Deploy it on your own servers, in Docker, or
+              in any cloud provider. Your data never leaves your infrastructure.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">Is the Vault required to use the Desktop Client? </button>
+          <div class="faq-answer">
+            <p>No. The Desktop Client works perfectly as a standalone application. The Vault is only needed for team
+              provisioning, role-based access control, and audit logging.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">Which databases are supported? </button>
+          <div class="faq-answer">
+            <p>SQLite for simple single-server deployments, PostgreSQL and MySQL for production clusters. You can switch
+              between them at runtime from the admin panel.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">Is this really free for enterprise use? </button>
+          <div class="faq-answer">
+            <p>Yes. Both products are MIT licensed with no premium tiers, no per-seat licensing, and no telemetry.
+              Deploy it for your 500-person engineering org at zero cost.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+
+
+  <!-- Footer -->
+
+
+  <!-- Footer -->
+
+
+  <!-- Footer -->
+
+
+  <!-- Footer -->
+  <!-- Next-Step Flow CTA -->
+  <section class="reveal-on-scroll flow-cta-section">
+    <div class="container">
+      <div class="flow-cta">
+        <span class="flow-cta-eyebrow">Next step</span>
+        <h2>Hand it to your engineers</h2>
+        <p>Deploy the Vault to your infrastructure, then hand out the desktop client with a single access token. From
+          download to first sync in minutes.</p>
+        <div class="flow-cta-actions">
+          <a href="download.html" class="btn btn-primary">Download & Deploy →</a>
+          <a href="client.html" class="btn btn-secondary">Explore the Desktop Client →</a>
+        </div>
+        <div class="flow-journey">
+          <a class="flow-step" href="client.html">
+            <span class="flow-step-num">STEP 01</span>
+            <span class="flow-step-title">Desktop Client</span>
+            <span class="flow-step-desc">Install the app and connect to your servers.</span>
+          </a>
+          <div class="flow-arrow"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg></div>
+          <a class="flow-step active" href="enterprise.html">
+            <span class="flow-step-num">STEP 02</span>
+            <span class="flow-step-title">Enterprise Vault</span>
+            <span class="flow-step-desc">Add central provisioning, audit and control.</span>
+          </a>
+          <div class="flow-arrow"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg></div>
+          <a class="flow-step" href="download.html">
+            <span class="flow-step-num">STEP 03</span>
+            <span class="flow-step-title">Download &amp; Deploy</span>
+            <span class="flow-step-desc">Get binaries for every OS &mdash; free and open-source.</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-logo">
+            <img src="logo/filepilotico.png" alt="FilePilot Logo" class="flashy-logo">
+          </div>
+          <p>Fast, secure file transfers &mdash; your passwords stay encrypted on your own device, and your team&#x27;s
+            server access is managed from one place.</p>
+        </div>
+        <div>
+          <h4 class="footer-links-title">Products</h4>
+          <ul class="footer-links">
+            <li><a href="client.html">Desktop Client</a></li>
+            <li><a href="enterprise.html">Enterprise Vault</a></li>
+            <li><a href="products.html">Product Guide</a></li>
+            <li><a href="download.html">Downloads</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer-links-title">Resources</h4>
+          <ul class="footer-links">
+            <li><a href="faq.html">FAQ & Wiki</a></li>
+            <li><a href="about.html">Architecture</a></li>
+            <li><a href="github.html">GitHub Repos</a></li>
+            <li><a href="github.html#contribute">Contribute</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer-links-title">Why FilePilot</h4>
+          <ul class="footer-links">
+            <li>100% free &amp; open source</li>
+            <li>No accounts, no tracking</li>
+            <li>Passwords never leave your device</li>
+            <li>Windows, macOS &amp; Linux</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div>&copy; 2026 FilePilot Open Source Project. Under MIT License.</div>
+        <div class="footer-bottom-links">
+          <a href="https://github.com/abhibagul/filepilot-ftp-client" target="_blank">Client Repo</a>
+          <a href="https://github.com/abhibagul/filepilot-enterprise-vault" target="_blank">Vault Repo</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+
+  <div id="premium-bg-mesh"></div>
+  <div id="grain-overlay"></div>
+
+
+
+
+
+  <script src="js/letter-glitch.js"></script>
+  <script>if (typeof lucide !== "undefined") lucide.createIcons();</script>
+</body>
+
+</html>

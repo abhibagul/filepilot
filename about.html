@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About FilePilot — Fast, Private File Transfers, Open Source</title>
+  <meta name="description" content="FilePilot replaces old FTP apps with a fast, private, open-source way to move files to your servers. Learn what it is and how it keeps your passwords safe.">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="container nav-container">
+      <a href="index.html" class="logo-link">
+        <img src="logo/filepilotico.png" alt="FilePilot Logo" class="flashy-logo">
+      </a>
+      <button class="menu-toggle">[ MENU ]</button>
+      <nav>
+        <a href="index.html" class="nav-link">Home</a>
+        <div class="nav-group">
+          <button class="nav-trigger" aria-haspopup="true" aria-expanded="false">Product <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></button>
+          <div class="nav-dropdown">
+            <a href="products.html">Product Overview<small>Compare client &amp; vault</small></a>
+            <a href="client.html">Desktop Client<small>Dual-pane transfer app</small></a>
+            <a href="enterprise.html">Enterprise Vault<small>Central credential server</small></a>
+          </div>
+        </div>
+        <a href="download.html" class="nav-link">Download</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="faq.html" class="nav-link">FAQ</a>
+        <a href="github.html" class="nav-link">GitHub</a>
+        <button class="theme-toggle" aria-label="Toggle Theme"></button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Page Header -->
+  <section class="reveal-on-scroll hero" style="padding: 9rem 0 2rem;">
+    <div class="container">
+      <span class="hero-tag">ABOUT FILEPILOT</span>
+      <h1>Built for Security and Speed</h1>
+      <p class="hero-subtitle">
+        FilePilot replaces old, clunky FTP apps with something modern, lightweight, and genuinely secure &mdash; for individuals and teams alike.
+      </p>
+    </div>
+  </section>
+
+  <!-- Mission Section -->
+  <section class="reveal-on-scroll">
+    <div class="container">
+      <div class="grid-2" style="align-items: center;">
+        <div>
+          <h2>Our Core Mission</h2>
+          <p>
+            Most file-transfer apps save your passwords in plain text or a format that&#x27;s trivial to decode, leaving them exposed to malware. On top of that, they feel dated and can&#x27;t automate anything on their own.
+          </p>
+          <p class="mb-2">
+            FilePilot was founded on three design criteria:
+          </p>
+          <ul class="feature-list-check" style="margin-bottom: 2rem;">
+            <li><strong>Real security, not obfuscation:</strong> your passwords and keys are locked with strong encryption on your own device, using a master password only you know.</li>
+            <li><strong>Zero-Telemetry Privacy:</strong> No analytics logging, no telemetry, and no mandatory cloud accounts. You own 100% of your data.</li>
+            <li><strong>Fast and lightweight:</strong> a native app that stays quick and uses a fraction of the memory of bulkier alternatives.</li>
+          </ul>
+        </div>
+        
+        <div class="card reveal-on-scroll">
+          <div class="footer-links-title" style="color: var(--accent); margin-bottom: 0.5rem;">[ MEMORY_SAFETY: COMPASS ]</div>
+          <p style="font-family: var(--font-mono); font-size: 0.85rem; line-height: 1.8; color: var(--text-secondary); margin-bottom: 0;">
+            $ cargo count -f rust<br>
+            Total Lines: 12,402 (Rust core engine)<br>
+            Total Lines: 14,891 (TypeScript/React Views)<br>
+            Memory Footprint: ~42MB (vs ~450MB Electron)<br>
+            CPU Overhead: &lt;0.5% at idle<br>
+            Multi-threaded workers: tokio spawn task pool<br>
+            Credential wrapping: ring::aead AES_256_GCM
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Client & Server Architecture Deep Dive -->
+  <section class="reveal-on-scroll bg-secondary">
+    <div class="container">
+      <div class="section-header">
+        <h2>How FilePilot Is Built</h2>
+        <p>A look at the technology behind both apps.</p>
+      </div>
+
+      <div class="grid-2">
+        <!-- Client Architecture -->
+        <div class="card reveal-on-scroll">
+          <h3 class="text-accent" style="font-family: var(--font-title);">Desktop Client: Tauri + Rust</h3>
+          <p>
+            Unlike Electron-based transfer clients that pack an entire Chromium browser instance, FilePilot compiles a native webview window linked to a high-speed Rust backend.
+          </p>
+          <p style="font-size: 0.9rem; color: var(--text-secondary);">
+            Rust handles the multi-threaded network connections, folder sync analysis, and system cryptographic operations. The React/TypeScript frontend renders the user interface in a light, hardware-accelerated viewport.
+          </p>
+          <div class="alert-box" style="margin-top: 1.5rem; background: var(--bg-primary);">
+            <span class="alert-icon">[i]</span>
+            <div class="alert-content" style="font-size: 0.85rem;">
+              <strong>Sandboxed API Bridge:</strong> UI events are passed to Rust via Tauri IPC Commands, protecting system folders and credentials from browser-based injections.
+            </div>
+          </div>
+        </div>
+
+        <!-- Server Architecture -->
+        <div class="card reveal-on-scroll">
+          <h3 class="text-accent" style="font-family: var(--font-title);">Vault Server: Express + WebSockets</h3>
+          <p>
+            The Enterprise Vault is a Node.js web applications server. Designed to be stateless and deployable inside air-gapped networks, it routes secret delivery and logs auditing events.
+          </p>
+          <p style="font-size: 0.9rem; color: var(--text-secondary);">
+            It establishes real-time persistent connections with active desktop clients via WebSockets, allowing administrators to push credentials updates, trigger file reversion updates, and block client tokens instantly.
+          </p>
+          <div class="alert-box" style="margin-top: 1.5rem; background: var(--bg-primary);">
+            <span class="alert-icon">[i]</span>
+            <div class="alert-content" style="font-size: 0.85rem;">
+              <strong>Database Portability:</strong> Support for SQLite, PostgreSQL, and MySQL allows the Vault Server to drop into existing SQL clusters.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- License Section -->
+  <section class="reveal-on-scroll">
+    <div class="container text-center">
+      <h2>The MIT License</h2>
+      <p style="max-width: 700px; margin: 0 auto 2rem;">
+        FilePilot is free software released under the permissive MIT License. You are free to run, modify, fork, and distribute the software for personal, academic, or corporate use.
+      </p>
+      
+      <div style="max-width: 800px; margin: 0 auto; text-align: left; background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: var(--radius-sm); padding: 2rem; font-family: var(--font-mono); font-size: 0.85rem; color: var(--text-secondary); line-height: 1.8; max-height: 300px; overflow-y: auto;">
+        <div>MIT License</div>
+        <br>
+        <div>Copyright (c) 2026 Abhibagul (FilePilot Project Contributors)</div>
+        <br>
+        <div>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:</div>
+        <br>
+        <div>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</div>
+        <br>
+        <div>THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <!-- Next-Step Flow CTA -->
+  <section class="reveal-on-scroll flow-cta-section">
+    <div class="container">
+      <div class="flow-cta">
+        <span class="flow-cta-eyebrow">Next step</span>
+        <h2>See the architecture in action</h2>
+        <p>Everything you just read about is one download away. Try the client, or spin up the vault on your own infrastructure.</p>
+        <div class="flow-cta-actions">
+        <a href="download.html" class="btn btn-primary">Download FilePilot →</a>
+        <a href="products.html" class="btn btn-secondary">Compare the Products →</a>
+        </div>
+      <div class="flow-journey">
+        <a class="flow-step active" href="client.html">
+          <span class="flow-step-num">STEP 01</span>
+          <span class="flow-step-title">Desktop Client</span>
+          <span class="flow-step-desc">Install the app and connect to your servers.</span>
+        </a>
+        <div class="flow-arrow"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></div>
+        <a class="flow-step" href="enterprise.html">
+          <span class="flow-step-num">STEP 02</span>
+          <span class="flow-step-title">Enterprise Vault</span>
+          <span class="flow-step-desc">Add central provisioning, audit and control.</span>
+        </a>
+        <div class="flow-arrow"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></div>
+        <a class="flow-step" href="download.html">
+          <span class="flow-step-num">STEP 03</span>
+          <span class="flow-step-title">Download &amp; Deploy</span>
+          <span class="flow-step-desc">Get binaries for every OS &mdash; free and open-source.</span>
+        </a>
+      </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-logo">
+            <img src="logo/filepilotico.png" alt="FilePilot Logo" class="flashy-logo">
+          </div>
+          <p>Fast, secure file transfers &mdash; your passwords stay encrypted on your own device, and your team&#x27;s server access is managed from one place.</p>
+        </div>
+        <div>
+          <h4 class="footer-links-title">Products</h4>
+          <ul class="footer-links">
+            <li><a href="client.html">Desktop Client</a></li>
+            <li><a href="enterprise.html">Enterprise Vault</a></li>
+            <li><a href="products.html">Product Guide</a></li>
+            <li><a href="download.html">Downloads</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer-links-title">Resources</h4>
+          <ul class="footer-links">
+            <li><a href="faq.html">FAQ & Wiki</a></li>
+            <li><a href="about.html">Architecture</a></li>
+            <li><a href="github.html">GitHub Repos</a></li>
+            <li><a href="github.html#contribute">Contribute</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer-links-title">Why FilePilot</h4>
+          <ul class="footer-links">
+            <li>100% free &amp; open source</li>
+            <li>No accounts, no tracking</li>
+            <li>Passwords never leave your device</li>
+            <li>Windows, macOS &amp; Linux</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div>&copy; 2026 FilePilot Open Source Project. Under MIT License.</div>
+        <div class="footer-bottom-links">
+          <a href="https://github.com/abhibagul/filepilot-ftp-client" target="_blank">Client Repo</a>
+          <a href="https://github.com/abhibagul/filepilot-enterprise-vault" target="_blank">Vault Repo</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  
+  <div id="premium-bg-mesh"></div>
+  <div id="grain-overlay"></div>
+</body>
+</html>

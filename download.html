@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Download FilePilot — Free for Windows, macOS and Linux</title>
+  <meta name="description"
+    content="Download FilePilot free for Windows, macOS and Linux — or run the team Vault server yourself with Docker or npm. 100% free and open source.">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body>
+  <!-- Header -->
+  <header>
+    <div class="container nav-container">
+      <a href="index.html" class="logo-link">
+        <img src="logo/filepilotico.png" alt="FilePilot Logo" class="flashy-logo">
+      </a>
+      <button class="menu-toggle">[ MENU ]</button>
+      <nav>
+        <a href="index.html" class="nav-link">Home</a>
+        <div class="nav-group">
+          <button class="nav-trigger" aria-haspopup="true" aria-expanded="false">Product <svg
+              xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg></button>
+          <div class="nav-dropdown">
+            <a href="products.html">Product Overview<small>Compare client &amp; vault</small></a>
+            <a href="client.html">Desktop Client<small>Dual-pane transfer app</small></a>
+            <a href="enterprise.html">Enterprise Vault<small>Central credential server</small></a>
+          </div>
+        </div>
+        <a href="download.html" class="nav-link">Download</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="faq.html" class="nav-link">FAQ</a>
+        <a href="github.html" class="nav-link">GitHub</a>
+        <button class="theme-toggle" aria-label="Toggle Theme"></button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Page Header -->
+  <section class="reveal-on-scroll hero" style="padding: 9rem 0 2rem;">
+    <div class="container">
+      <span class="hero-tag">DOWNLOAD CENTER</span>
+      <h1>Get FilePilot</h1>
+      <p class="hero-subtitle">
+        Deploy FilePilot Desktop Client on your operating system or install the Enterprise Vault Server inside your
+        network.
+      </p>
+    </div>
+  </section>
+
+  <!-- Client Download Cards -->
+  <section class="reveal-on-scroll">
+    <div class="container">
+      <div class="section-header">
+        <h2>FilePilot Desktop Client</h2>
+        <p>A lightweight app that runs natively on Windows, macOS, and Linux.</p>
+      </div>
+
+      <div class="grid-3 mb-3">
+        <!-- Windows -->
+        <div class="card reveal-on-scroll"
+          style="display: flex; flex-direction: column; justify-content: space-between; text-align: center;">
+          <div>
+            <div style="margin-bottom: 1rem;"><i data-lucide="monitor"
+                style="width:42px;height:42px;stroke:var(--accent);stroke-width:1.5;"></i></div>
+            <h3 class="card-title">Windows</h3>
+            <p style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 1.5rem;">Windows 10 & 11 (64-bit
+              installer or portable zip)</p>
+            <!-- <div
+              style="text-align: left; background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: var(--radius-sm); padding: 0.75rem; margin-bottom: 1.5rem; font-family: var(--font-mono); font-size: 0.8rem; overflow-x: auto;">
+              <span style="color: var(--accent);">&gt;</span> winget install filepilot
+            </div> -->
+          </div>
+          <a href="https://github.com/abhibagul/filepilot-ftp-client/releases/latest" class="btn btn-primary"
+            style="display: block; justify-content: center;">Download Installer</a>
+        </div>
+
+        <!-- macOS -->
+        <div class="card reveal-on-scroll"
+          style="display: flex; flex-direction: column; justify-content: space-between; text-align: center;">
+          <div>
+            <div style="margin-bottom: 1rem;"><i data-lucide="laptop"
+                style="width:42px;height:42px;stroke:var(--accent);stroke-width:1.5;"></i></div>
+            <h3 class="card-title">macOS</h3>
+            <p style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 1.5rem;">Universal DMG (Apple
+              Silicon & Intel architectures)</p>
+            <!-- <div
+              style="text-align: left; background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: var(--radius-sm); padding: 0.75rem; margin-bottom: 1.5rem; font-family: var(--font-mono); font-size: 0.8rem; overflow-x: auto;">
+              <span style="color: var(--accent);">&gt;</span> brew install filepilot
+            </div> -->
+          </div>
+          <a href="https://github.com/abhibagul/filepilot-ftp-client/releases/latest" class="btn btn-primary"
+            style="display: block; justify-content: center;">Download DMG</a>
+        </div>
+
+        <!-- Linux -->
+        <div class="card reveal-on-scroll"
+          style="display: flex; flex-direction: column; justify-content: space-between; text-align: center;">
+          <div>
+            <div style="margin-bottom: 1rem;"><i data-lucide="terminal"
+                style="width:42px;height:42px;stroke:var(--accent);stroke-width:1.5;"></i></div>
+            <h3 class="card-title">Linux</h3>
+            <p style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 1.5rem;">Debian, RPM, AppImage,
+              and Arch packages</p>
+            <!-- <div
+              style="text-align: left; background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: var(--radius-sm); padding: 0.75rem; margin-bottom: 1.5rem; font-family: var(--font-mono); font-size: 0.8rem; overflow-x: auto;">
+              <span style="color: var(--accent);">&gt;</span> flatpak install filepilot
+            </div> -->
+          </div>
+          <a href="https://github.com/abhibagul/filepilot-ftp-client/releases/latest" class="btn btn-primary"
+            style="display: block; justify-content: center;">Download Binaries</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Server Download Cards -->
+  <section class="reveal-on-scroll bg-secondary" id="server">
+    <div class="container">
+      <div class="section-header">
+        <h2>FilePilot Enterprise Vault Server</h2>
+        <p>Run the team server on your own infrastructure to manage access, sync, and audit logs.</p>
+      </div>
+
+      <div class="grid-2">
+        <!-- Container Deploy -->
+        <div class="card reveal-on-scroll">
+          <div style="margin-bottom: 1rem;"><i data-lucide="container"
+              style="width:42px;height:42px;stroke:var(--accent);stroke-width:1.5;"></i></div>
+          <h3 class="card-title">Docker Deployment (Recommended)</h3>
+          <p class="mb-2">Pull and deploy the official Vault Server container from Docker Hub. Ideal for Kubernetes,
+            ECS, or local Docker environments.</p>
+          <pre><code>docker pull abbybagul/filepilot-enterprise-vault:latest
+docker run -d -p 8443:8443 \
+  -e VAULT_MASTER_KEY=your_key_here \
+  -v ./data:/app/data \
+  abbybagul/filepilot-enterprise-vault:latest
+</code></pre>
+          <a href="https://hub.docker.com/r/abbybagul/filepilot-enterprise-vault" class="btn btn-primary"
+            style="margin-top: 1rem;">View Docker Container &rarr;</a>
+        </div>
+
+        <!-- Node package -->
+        <div class="card reveal-on-scroll">
+          <div style="margin-bottom: 1rem;"><i data-lucide="package"
+              style="width:42px;height:42px;stroke:var(--accent);stroke-width:1.5;"></i></div>
+          <h3 class="card-title">NPM / Source Installation</h3>
+          <p class="mb-2">Install globally via NPM or build directly from source. Compatible with Node.js v18+ and
+            SQLite, PostgreSQL, or MySQL backends.</p>
+          <pre><code>
+# Install globally from NPM
+npm install -g filepilot-enterprise-vault
+
+# Run the installation wizard
+filepilot-enterprise-vault init
+
+# Or run instantly with NPX (No installation required)
+npx filepilot-enterprise-vault init
+
+
+</code></pre>
+          <a href="https://www.npmjs.com/package/filepilot-enterprise-vault" class="btn btn-secondary"
+            style="margin-top: 1rem;" target="_blank">View on NPM &rarr;</a>
+          <a href="https://github.com/abhibagul/filepilot-enterprise-vault" class="btn btn-secondary"
+            style="margin-top: 1rem;" target="_blank">View GitHub Repo &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <!-- Next-Step Flow CTA -->
+  <section class="reveal-on-scroll flow-cta-section">
+    <div class="container">
+      <div class="flow-cta">
+        <span class="flow-cta-eyebrow">You are one command away</span>
+        <h2>Installed? Here is what comes next</h2>
+        <p>Star the project, browse the source, or read the docs to get the most out of FilePilot.</p>
+        <div class="flow-cta-actions">
+          <a href="github.html" class="btn btn-primary">Star on GitHub →</a>
+          <a href="faq.html" class="btn btn-secondary">Read the FAQ →</a>
+        </div>
+        <div class="flow-journey">
+          <a class="flow-step" href="client.html">
+            <span class="flow-step-num">STEP 01</span>
+            <span class="flow-step-title">Desktop Client</span>
+            <span class="flow-step-desc">Install the app and connect to your servers.</span>
+          </a>
+          <div class="flow-arrow"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg></div>
+          <a class="flow-step" href="enterprise.html">
+            <span class="flow-step-num">STEP 02</span>
+            <span class="flow-step-title">Enterprise Vault</span>
+            <span class="flow-step-desc">Add central provisioning, audit and control.</span>
+          </a>
+          <div class="flow-arrow"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg></div>
+          <a class="flow-step active" href="download.html">
+            <span class="flow-step-num">STEP 03</span>
+            <span class="flow-step-title">Download &amp; Deploy</span>
+            <span class="flow-step-desc">Get binaries for every OS &mdash; free and open-source.</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-logo">
+            <img src="logo/filepilotico.png" alt="FilePilot Logo" class="flashy-logo">
+          </div>
+          <p>Fast, secure file transfers &mdash; your passwords stay encrypted on your own device, and your team&#x27;s
+            server access is managed from one place.</p>
+        </div>
+        <div>
+          <h4 class="footer-links-title">Products</h4>
+          <ul class="footer-links">
+            <li><a href="client.html">Desktop Client</a></li>
+            <li><a href="enterprise.html">Enterprise Vault</a></li>
+            <li><a href="products.html">Product Guide</a></li>
+            <li><a href="download.html">Downloads</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer-links-title">Resources</h4>
+          <ul class="footer-links">
+            <li><a href="faq.html">FAQ & Wiki</a></li>
+            <li><a href="about.html">Architecture</a></li>
+            <li><a href="github.html">GitHub Repos</a></li>
+            <li><a href="github.html#contribute">Contribute</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer-links-title">Why FilePilot</h4>
+          <ul class="footer-links">
+            <li>100% free &amp; open source</li>
+            <li>No accounts, no tracking</li>
+            <li>Passwords never leave your device</li>
+            <li>Windows, macOS &amp; Linux</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div>&copy; 2026 FilePilot Open Source Project. Under MIT License.</div>
+        <div class="footer-bottom-links">
+          <a href="https://github.com/abhibagul/filepilot-ftp-client" target="_blank">Client Repo</a>
+          <a href="https://github.com/abhibagul/filepilot-enterprise-vault" target="_blank">Vault Repo</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+
+  <div id="premium-bg-mesh"></div>
+  <div id="grain-overlay"></div>
+</body>
+
+</html>
