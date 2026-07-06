@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Frequently Asked Questions - FilePilot Wiki & comparisons</title>
+  <meta name="description" content="Read frequently asked questions about FilePilot security, master passwords, cloud KMS, database support, and comparison features.">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="container nav-container">
+      <a href="index.html" class="logo-link">
+        <img src="logo/client.png" alt="FilePilot Logo">
+        <span>FILEPILOT<span class="logo-prompt">:/$</span></span>
+      </a>
+      <button class="menu-toggle">[ MENU ]</button>
+      <nav>
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="products.html" class="nav-link">Products</a>
+        <a href="client.html" class="nav-link">Desktop Client</a>
+        <a href="enterprise.html" class="nav-link">Enterprise Vault</a>
+        <a href="download.html" class="nav-link">Download</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="faq.html" class="nav-link">FAQ</a>
+        <a href="github.html" class="nav-link">GitHub</a>
+        <button class="theme-toggle" aria-label="Toggle Theme"></button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Page Header -->
+  <section class="reveal-on-scroll hero" style="padding: 4rem 0 2rem;">
+    <div class="container">
+      <span class="hero-tag">SUPPORT & WIKI</span>
+      <h1>Frequently Asked Questions</h1>
+      <p class="hero-subtitle">
+        Everything you need to know about FilePilot's encryption architecture, deployment models, and features.
+      </p>
+    </div>
+  </section>
+
+  <!-- FAQ Accordion List (12 items) -->
+  <section class="reveal-on-scroll">
+    <div class="container">
+      <div class="faq-list">
+        
+        <!-- Q1 -->
+        <div class="faq-item">
+          <div class="faq-question">1. What is FilePilot and how are the two components related?</div>
+          <div class="faq-answer">
+            <p>
+              FilePilot is an open-source project consisting of a high-speed desktop client (Tauri/Rust) and an optional centralized provisioning server (Node.js/Express) called the Enterprise Vault.
+            </p>
+            <p>
+              You can run the Desktop Client standalone to manage local and remote connections. If you work in a team, you can link the Desktop Client to an Enterprise Vault server to sync connection profiles, automate backups, log security audit events, and enforce security policies.
+            </p>
+          </div>
+        </div>
+
+        <!-- Q2 -->
+        <div class="faq-item">
+          <div class="faq-question">2. How does Zero-Knowledge local encryption protect my passwords?</div>
+          <div class="faq-answer">
+            <p>
+              When you launch the client, you define a local Master Password. This password is run through 600,000 iterations of PBKDF2 to derive a strong encryption key. This key is used to seal your connection credentials (passwords, private SSH keys, cloud keys) at rest using AES-256-GCM envelope encryption.
+            </p>
+            <p>
+              The master password is never stored on disk and never sent to any external server. Without it, your connection configuration remains completely encrypted, protecting you even if the local database file is extracted from your machine.
+            </p>
+          </div>
+        </div>
+
+        <!-- Q3 -->
+        <div class="faq-item">
+          <div class="faq-question">3. How does the Enterprise Vault distribute credentials safely?</div>
+          <div class="faq-answer">
+            <p>
+              When using the Enterprise Vault, raw passwords are encrypted in the central database using AWS KMS, Azure Key Vault, Google Cloud KMS, or HashiCorp Vault.
+            </p>
+            <p>
+              When a Desktop Client requests synchronization, the server validates the client's token, audits the access log, and verifies IP access rules. If cleared, the encrypted secrets are transferred over a secure TLS WebSocket connection, decrypted in-memory on the client, and immediately sealed into the client's local database using the client's master key. Raw passwords are never visible to the developer in transit or in the UI.
+            </p>
+          </div>
+        </div>
+
+        <!-- Q4 -->
+        <div class="faq-item">
+          <div class="faq-question">4. What databases can I run the Enterprise Vault server on?</div>
+          <div class="faq-answer">
+            <p>
+              FilePilot Enterprise Vault is designed with runtime database configuration. You can switch between SQLite, PostgreSQL, and MySQL backends directly from the system admin panel. Database configuration settings are verified using a connection tester wizard before committing.
+            </p>
+          </div>
+        </div>
+
+        <!-- Q5 -->
+        <div class="faq-item">
+          <div class="faq-question">5. How does KEK Rotation prevent downtime or data corruption?</div>
+          <div class="faq-answer">
+            <p>
+              The Vault Server uses envelope encryption: a Master Key Encryption Key (KEK) wraps individual Data Encryption Keys (DEKs) for each group, which then encrypt individual connection profiles.
+            </p>
+            <p>
+              When KEK rotation is triggered, the server decrypts the Group DEKs with the old KEK and wraps them under the new KEK. The actual profile credentials are never modified, avoiding any performance degradation or data corruption.
+            </p>
+          </div>
+        </div>
+
+        <!-- Q6 -->
+        <div class="faq-item">
+          <div class="faq-question">6. What is a blockchain-style audit trail?</div>
+          <div class="faq-answer">
+            <p>
+              Every transaction logged in the Enterprise Vault features a SHA-256 signature chain. Each entry contains a hash of its own metadata combined with the hash of the preceding entry (<code>prev_hash</code>).
+            </p>
+            <p>
+              The admin panel provides a validation task that scans the log table. If a malicious attacker edits or deletes a row, the cryptographic signature chain is broken, pointing to the exact row that was modified.
+            </p>
+          </div>
+        </div>
+
+        <!-- Q7 -->
+        <div class="faq-item">
+          <div class="faq-question">7. How do JavaScript macros automate transfer workflows?</div>
+          <div class="faq-answer">
+            <p>
+              The Desktop Client includes a sandboxed JavaScript runtime environment. You can write custom scripts using a built-in API (<code>fp.copy()</code>, <code>fp.list()</code>, <code>fp.rename()</code>, <code>fp.delete()</code>, <code>fp.notify()</code>) and trigger them on app launch, when connecting to a profile, or when disconnecting.
+            </p>
+          </div>
+        </div>
+
+        <!-- Q8 -->
+        <div class="faq-item">
+          <div class="faq-question">8. Can I run FilePilot Client without the Enterprise Vault?</div>
+          <div class="faq-answer">
+            <p>
+              Yes, stand-alone mode is fully supported. By default, the Desktop Client acts as a self-contained manager storing profiles inside a local sealed SQLite file.
+            </p>
+          </div>
+        </div>
+
+        <!-- Q9 -->
+        <div class="faq-item">
+          <div class="faq-question">9. Does FilePilot collect telemetry or transfer usage logs?</div>
+          <div class="faq-answer">
+            <p>
+              Never. We have zero telemetry, zero analytics tracking, and no external calls. All configurations and operations are processed on your workstation or inside your private Enterprise Vault server.
+            </p>
+          </div>
+        </div>
+
+        <!-- Q10 -->
+        <div class="faq-item">
+          <div class="faq-question">10. How does the folder synchronization resolve file differences?</div>
+          <div class="faq-answer">
+            <p>
+              The folder sync module compares directory structures on both sides. If the same file was modified on both local and remote nodes, a conflict resolution modal launches, showing side-by-side snippet previews so you can decide which version to retain.
+            </p>
+          </div>
+        </div>
+
+        <!-- Q11 -->
+        <div class="faq-item">
+          <div class="faq-question">11. How are SSH private keys and passphrases secured by FilePilot?</div>
+          <div class="faq-answer">
+            <p>
+              SSH keys are loaded, encrypted via AES-256-GCM using your PBKDF2 derived master key, and written to the sealed local database. During transfer loops, keys are decrypted directly in-memory and passed to the SSH authentication channel. Raw key files are never written to temporary folders.
+            </p>
+          </div>
+        </div>
+
+        <!-- Q12 -->
+        <div class="faq-item">
+          <div class="faq-question">12. How does the Plugin SDK guarantee system security?</div>
+          <div class="faq-answer">
+            <p>
+              Plugins must declare all network and filesystem permissions within a static <code>plugin.json</code> manifest. The Tauri core enforces sandbox isolation based on these declarations, preventing unauthorized plugins from accessing local credentials or making external network requests.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Deep Dive Comparison Matrix -->
+  <section class="reveal-on-scroll bg-secondary" id="comparisons">
+    <div class="container">
+      <div class="section-header">
+        <h2>Comparison: Feature Matrix</h2>
+        <p>FilePilot was built to modern engineering specifications. Review the details below to see how it compares to legacy clients.</p>
+      </div>
+
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Evaluation Parameter</th>
+              <th>FilePilot (Client + Vault)</th>
+              <th>FileZilla Client</th>
+              <th>WinSCP</th>
+              <th>Cyberduck</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Memory Footprint</strong></td>
+              <td class="tick-ok">Low (~42MB)</td>
+              <td class="tick-ok">Low (~35MB)</td>
+              <td class="tick-ok">Low (~30MB)</td>
+              <td class="tick-ko">High (~220MB, Java overhead)</td>
+            </tr>
+            <tr>
+              <td><strong>Secure Enclave Seal</strong></td>
+              <td class="tick-ok">PBKDF2 (600k iter) + AES-GCM</td>
+              <td class="tick-ko">Plaintext XML (Base64 only)</td>
+              <td class="tick-ko">Registry obfuscated</td>
+              <td class="tick-ok">Windows Credential/macOS Keychain</td>
+            </tr>
+            <tr>
+              <td><strong>Multi-thread Sync</strong></td>
+              <td class="tick-ok">Yes, parallel Tokio channels</td>
+              <td class="tick-ko">No (Serial files queue)</td>
+              <td class="tick-ko">No (Serial files queue)</td>
+              <td class="tick-ko">No (Serial files queue)</td>
+            </tr>
+            <tr>
+              <td><strong>Central Sync Server</strong></td>
+              <td class="tick-ok">Yes, Enterprise Vault Provisioning</td>
+              <td class="tick-ko">No</td>
+              <td class="tick-ko">No</td>
+              <td class="tick-ko">No</td>
+            </tr>
+            <tr>
+              <td><strong>Real-time Audit Logs</strong></td>
+              <td class="tick-ok">Yes, SHA-256 tamper-evident chain</td>
+              <td class="tick-ko">No (Text file only)</td>
+              <td class="tick-ko">No (Text file only)</td>
+              <td class="tick-ko">No (Text file only)</td>
+            </tr>
+            <tr>
+              <td><strong>Active SSH terminal</strong></td>
+              <td class="tick-ok">Yes, inline terminal component</td>
+              <td class="tick-ko">No</td>
+              <td class="tick-ko">No (PuTTY shortcut only)</td>
+              <td class="tick-ko">No</td>
+            </tr>
+            <tr>
+              <td><strong>Plugin Support</strong></td>
+              <td class="tick-ok">Yes, manifest JSON plugins SDK</td>
+              <td class="tick-ko">No</td>
+              <td class="tick-ko">No</td>
+              <td class="tick-ko">No</td>
+            </tr>
+            <tr>
+              <td><strong>JS Automation Scripting</strong></td>
+              <td class="tick-ok">Yes, Event hooks + sandbox API</td>
+              <td class="tick-ko">No</td>
+              <td class="tick-ko">No (CMD Scripting only)</td>
+              <td class="tick-ko">No (CLI execution only)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-logo">
+            <img src="logo/client.png" alt="FilePilot Logo">
+            <span>FILEPILOT</span>
+          </div>
+          <p>Blazing-fast file transfers secured by zero-knowledge local cryptography and centralized access vault control.</p>
+        </div>
+        <div>
+          <h4 class="footer-links-title">Products</h4>
+          <ul class="footer-links">
+            <li><a href="client.html">Desktop Client</a></li>
+            <li><a href="enterprise.html">Enterprise Vault</a></li>
+            <li><a href="products.html">Product Guide</a></li>
+            <li><a href="download.html">Downloads</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer-links-title">Resources</h4>
+          <ul class="footer-links">
+            <li><a href="faq.html">FAQ & Wiki</a></li>
+            <li><a href="about.html">Architecture</a></li>
+            <li><a href="github.html">GitHub Repos</a></li>
+            <li><a href="github.html#contribute">Contribute</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer-links-title">System Status</h4>
+          <ul class="footer-links text-mono" style="font-size: 0.85rem; color: var(--accent);">
+            <li>SEAL_STATE: LOCKED</li>
+            <li>VAULT: OPERATIONAL</li>
+            <li>CORE: RUST_ASYNC</li>
+            <li>LICENSE: MIT</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div>&copy; 2026 FilePilot Open Source Project. Under MIT License.</div>
+        <div class="footer-bottom-links">
+          <a href="https://github.com/abhibagul/filepilot-ftp-client" target="_blank">Client Repo</a>
+          <a href="https://github.com/abhibagul/filepilot-enterprise-vault" target="_blank">Vault Repo</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  
+  <div id="premium-bg-mesh"></div>
+  <div id="grain-overlay"></div>
+</body>
+</html>

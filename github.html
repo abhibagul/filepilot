@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FilePilot GitHub - Open Source Repositories & Build Guides</title>
+  <meta name="description" content="Access FilePilot Client and Enterprise Vault source code repositories. Learn how to compile Tauri desktop clients and Node.js servers from source.">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="container nav-container">
+      <a href="index.html" class="logo-link">
+        <img src="logo/client.png" alt="FilePilot Logo">
+        <span>FILEPILOT<span class="logo-prompt">:/$</span></span>
+      </a>
+      <button class="menu-toggle">[ MENU ]</button>
+      <nav>
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="products.html" class="nav-link">Products</a>
+        <a href="client.html" class="nav-link">Desktop Client</a>
+        <a href="enterprise.html" class="nav-link">Enterprise Vault</a>
+        <a href="download.html" class="nav-link">Download</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="faq.html" class="nav-link">FAQ</a>
+        <a href="github.html" class="nav-link">GitHub</a>
+        <button class="theme-toggle" aria-label="Toggle Theme"></button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Page Header -->
+  <section class="reveal-on-scroll hero" style="padding: 4rem 0 2rem;">
+    <div class="container">
+      <span class="hero-tag">OPEN SOURCE HUB</span>
+      <h1>FilePilot on GitHub</h1>
+      <p class="hero-subtitle">
+        FilePilot is 100% open-source under the MIT License. Explore our codebases, submit pull requests, or compile binaries locally.
+      </p>
+    </div>
+  </section>
+
+  <!-- Repository Dual Links -->
+  <section class="reveal-on-scroll">
+    <div class="container">
+      <div class="grid-2 mb-3">
+        <!-- Client Repository -->
+        <div class="card reveal-on-scroll" style="display: flex; flex-direction: column; justify-content: space-between;">
+          <div>
+            <div style="font-size: 2rem; margin-bottom: 0.5rem;">🖥️</div>
+            <h3 class="card-title">filepilot-ftp-client</h3>
+            <p style="font-size: 0.95rem; color: var(--text-secondary); margin-bottom: 1.5rem;">
+              The Tauri/Rust desktop client repository. Contains the parallel Tokio transfer worker engine, the React UI dashboard components, and local cryptographic seals.
+            </p>
+          </div>
+          <div>
+            <span class="badge accent">Rust</span>
+            <span class="badge accent">TypeScript</span>
+            <span class="badge">Tauri SDK</span>
+            <span class="badge">React</span>
+            <a href="https://github.com/abhibagul/filepilot-ftp-client" class="btn btn-primary" style="display: block; text-align: center; margin-top: 1.5rem;" target="_blank">View Client Repository &rarr;</a>
+          </div>
+        </div>
+
+        <!-- Enterprise Vault Repository -->
+        <div class="card reveal-on-scroll" style="display: flex; flex-direction: column; justify-content: space-between;">
+          <div>
+            <div style="font-size: 2rem; margin-bottom: 0.5rem;">🏢</div>
+            <h3 class="card-title">filepilot-enterprise-vault</h3>
+            <p style="font-size: 0.95rem; color: var(--text-secondary); margin-bottom: 1.5rem;">
+              The centralized credential provisioning server repository. Holds Express middleware routines, the database integration drivers, key wrappers, and the admin panel dashboard.
+            </p>
+          </div>
+          <div>
+            <span class="badge accent">Node.js</span>
+            <span class="badge accent">JavaScript</span>
+            <span class="badge">Express</span>
+            <span class="badge">WebSockets</span>
+            <a href="https://github.com/abhibagul/filepilot-enterprise-vault" class="btn btn-secondary" style="display: block; text-align: center; margin-top: 1.5rem;" target="_blank">View Vault Repository &rarr;</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Compilation Guides -->
+  <section class="reveal-on-scroll bg-secondary" id="compile">
+    <div class="container">
+      <div class="section-header">
+        <h2>Building From Source</h2>
+        <p>Follow these instructions to compile or test either component inside your development sandbox.</p>
+      </div>
+
+      <div class="grid-2">
+        <!-- Client build guide -->
+        <div>
+          <h3>Compiling the Desktop Client</h3>
+          <p class="mb-2">Prerequisites: Node.js v18+ and the Rust compiler toolchain (cargo, rustc).</p>
+          
+          <pre><code># 1. Clone client repository
+git clone https://github.com/abhibagul/filepilot-ftp-client.git
+cd filepilot-ftp-client
+
+# 2. Install node dependencies
+npm install
+
+# 3. Launch desktop client in hot-reload dev mode
+npm run tauri dev
+
+# 4. Compile optimized native installer for your OS
+npm run tauri build</code></pre>
+          <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 1rem;">
+            Note: Compiled binaries are written to <code>src-tauri/target/release/bundle</code>.
+          </p>
+        </div>
+
+        <!-- Server build guide -->
+        <div>
+          <h3>Running the Vault Server</h3>
+          <p class="mb-2">Prerequisites: Node.js v18+ and a compatible database client (SQLite, Postgres, or MySQL).</p>
+          
+          <pre><code># 1. Clone vault server repository
+git clone https://github.com/abhibagul/filepilot-enterprise-vault.git
+cd filepilot-enterprise-vault
+
+# 2. Install express server modules
+npm install
+
+# 3. Define master key encryption key variable
+$env:VAULT_MASTER_KEY="your_secure_rotation_key"
+
+# 4. Start node application server locally
+npm run dev</code></pre>
+          <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 1rem;">
+            Note: First-time boot directs you to the setup wizard at <code>http://localhost:8443/admin</code>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contributing Section -->
+  <section id="contribute">
+    <div class="container">
+      <div class="grid-2" style="align-items: center;">
+        <div>
+          <h2>Contributing to FilePilot</h2>
+          <p>
+            We welcome contributions from system administrators, security engineers, and frontend developers alike. You can participate by checking code quality, reporting vulnerabilities, or submitting pull requests.
+          </p>
+          <div style="font-family: var(--font-mono); font-size: 0.9rem; line-height: 1.8; color: var(--text-secondary); margin-top: 1.5rem;">
+            <div style="color: var(--text-primary); font-weight: bold;">[i] Pull Request Rules</div>
+            &bull; Write comprehensive unit tests for Rust transfer streams.<br>
+            &bull; Document all macro JS APIs if altering methods.<br>
+            &bull; Verify database backward compatibility before patching SQL tables.<br>
+            &bull; Enforce standard ESLint styles on Express handlers.
+          </div>
+        </div>
+        
+        <div class="card reveal-on-scroll">
+          <h3 style="font-family: var(--font-title);">How to Report Issues</h3>
+          <p class="mb-2">Found a bug or have a suggestion? Open an issue on our GitHub trackers:</p>
+          <ul style="list-style: none; padding-left: 0; line-height: 1.8; font-family: var(--font-mono); font-size: 0.9rem;">
+            <li class="mb-1">
+              <span class="text-accent">&gt;</span> 
+              <a href="https://github.com/abhibagul/filepilot-ftp-client/issues" target="_blank">FilePilot Client Issues</a>
+            </li>
+            <li>
+              <span class="text-accent">&gt;</span> 
+              <a href="https://github.com/abhibagul/filepilot-enterprise-vault/issues" target="_blank">FilePilot Vault Issues</a>
+            </li>
+          </ul>
+          <p class="mt-2" style="font-size: 0.85rem; color: var(--text-muted);">
+            For security disclosures, please send encrypted reports to the maintainers listed on GitHub.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-logo">
+            <img src="logo/client.png" alt="FilePilot Logo">
+            <span>FILEPILOT</span>
+          </div>
+          <p>Blazing-fast file transfers secured by zero-knowledge local cryptography and centralized access vault control.</p>
+        </div>
+        <div>
+          <h4 class="footer-links-title">Products</h4>
+          <ul class="footer-links">
+            <li><a href="client.html">Desktop Client</a></li>
+            <li><a href="enterprise.html">Enterprise Vault</a></li>
+            <li><a href="products.html">Product Guide</a></li>
+            <li><a href="download.html">Downloads</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer-links-title">Resources</h4>
+          <ul class="footer-links">
+            <li><a href="faq.html">FAQ & Wiki</a></li>
+            <li><a href="about.html">Architecture</a></li>
+            <li><a href="github.html">GitHub Repos</a></li>
+            <li><a href="github.html#contribute">Contribute</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer-links-title">System Status</h4>
+          <ul class="footer-links text-mono" style="font-size: 0.85rem; color: var(--accent);">
+            <li>SEAL_STATE: LOCKED</li>
+            <li>VAULT: OPERATIONAL</li>
+            <li>CORE: RUST_ASYNC</li>
+            <li>LICENSE: MIT</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div>&copy; 2026 FilePilot Open Source Project. Under MIT License.</div>
+        <div class="footer-bottom-links">
+          <a href="https://github.com/abhibagul/filepilot-ftp-client" target="_blank">Client Repo</a>
+          <a href="https://github.com/abhibagul/filepilot-enterprise-vault" target="_blank">Vault Repo</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  
+  <div id="premium-bg-mesh"></div>
+  <div id="grain-overlay"></div>
+</body>
+</html>

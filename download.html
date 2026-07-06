@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Download FilePilot - Desktop Client & Enterprise Vault Server</title>
+  <meta name="description" content="Download the latest version of FilePilot Client for Windows, macOS, and Linux, or pull the FilePilot Enterprise Vault Docker image.">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="container nav-container">
+      <a href="index.html" class="logo-link">
+        <img src="logo/client.png" alt="FilePilot Logo">
+        <span>FILEPILOT<span class="logo-prompt">:/$</span></span>
+      </a>
+      <button class="menu-toggle">[ MENU ]</button>
+      <nav>
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="products.html" class="nav-link">Products</a>
+        <a href="client.html" class="nav-link">Desktop Client</a>
+        <a href="enterprise.html" class="nav-link">Enterprise Vault</a>
+        <a href="download.html" class="nav-link">Download</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="faq.html" class="nav-link">FAQ</a>
+        <a href="github.html" class="nav-link">GitHub</a>
+        <button class="theme-toggle" aria-label="Toggle Theme"></button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Page Header -->
+  <section class="reveal-on-scroll hero" style="padding: 4rem 0 2rem;">
+    <div class="container">
+      <span class="hero-tag">DOWNLOAD CENTER</span>
+      <h1>Get FilePilot</h1>
+      <p class="hero-subtitle">
+        Deploy FilePilot Desktop Client on your operating system or install the Enterprise Vault Server inside your network.
+      </p>
+    </div>
+  </section>
+
+  <!-- Client Download Cards -->
+  <section class="reveal-on-scroll">
+    <div class="container">
+      <div class="section-header">
+        <h2>FilePilot Desktop Client</h2>
+        <p>Cross-platform, low-overhead native transfer client. Built on Tauri and Rust.</p>
+      </div>
+
+      <div class="grid-3 mb-3">
+        <!-- Windows -->
+        <div class="card reveal-on-scroll" style="display: flex; flex-direction: column; justify-content: space-between; text-align: center;">
+          <div>
+            <div style="font-size: 2.5rem; margin-bottom: 1rem;">🪟</div>
+            <h3 class="card-title">Windows</h3>
+            <p style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 1.5rem;">Windows 10 & 11 (64-bit installer or portable zip)</p>
+            <div style="text-align: left; background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: var(--radius-sm); padding: 0.75rem; margin-bottom: 1.5rem; font-family: var(--font-mono); font-size: 0.8rem; overflow-x: auto;">
+              <span style="color: var(--accent);">&gt;</span> winget install filepilot
+            </div>
+          </div>
+          <a href="https://github.com/abhibagul/filepilot-ftp-client/releases/latest" class="btn btn-primary" style="display: block; justify-content: center;">Download Installer</a>
+        </div>
+
+        <!-- macOS -->
+        <div class="card reveal-on-scroll" style="display: flex; flex-direction: column; justify-content: space-between; text-align: center;">
+          <div>
+            <div style="font-size: 2.5rem; margin-bottom: 1rem;">🍎</div>
+            <h3 class="card-title">macOS</h3>
+            <p style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 1.5rem;">Universal DMG (Apple Silicon & Intel architectures)</p>
+            <div style="text-align: left; background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: var(--radius-sm); padding: 0.75rem; margin-bottom: 1.5rem; font-family: var(--font-mono); font-size: 0.8rem; overflow-x: auto;">
+              <span style="color: var(--accent);">&gt;</span> brew install filepilot
+            </div>
+          </div>
+          <a href="https://github.com/abhibagul/filepilot-ftp-client/releases/latest" class="btn btn-primary" style="display: block; justify-content: center;">Download DMG</a>
+        </div>
+
+        <!-- Linux -->
+        <div class="card reveal-on-scroll" style="display: flex; flex-direction: column; justify-content: space-between; text-align: center;">
+          <div>
+            <div style="font-size: 2.5rem; margin-bottom: 1rem;">🐧</div>
+            <h3 class="card-title">Linux</h3>
+            <p style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 1.5rem;">Debian, RPM, AppImage, and Arch packages</p>
+            <div style="text-align: left; background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: var(--radius-sm); padding: 0.75rem; margin-bottom: 1.5rem; font-family: var(--font-mono); font-size: 0.8rem; overflow-x: auto;">
+              <span style="color: var(--accent);">&gt;</span> flatpak install filepilot
+            </div>
+          </div>
+          <a href="https://github.com/abhibagul/filepilot-ftp-client/releases/latest" class="btn btn-primary" style="display: block; justify-content: center;">Download Binaries</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Server Download Cards -->
+  <section class="reveal-on-scroll bg-secondary" id="server">
+    <div class="container">
+      <div class="section-header">
+        <h2>FilePilot Enterprise Vault Server</h2>
+        <p>Deploy the governance, sync, and audit server inside your own infrastructure. Built on Express & Node.js.</p>
+      </div>
+
+      <div class="grid-2">
+        <!-- Container Deploy -->
+        <div class="card reveal-on-scroll">
+          <div style="font-size: 2.5rem; margin-bottom: 1rem;">🐋</div>
+          <h3 class="card-title">Docker Deployment (Recommended)</h3>
+          <p class="mb-2">Pull and deploy the official Vault Server container from Docker Hub. Ideal for Kubernetes, ECS, or local Docker environments.</p>
+          <pre><code>docker pull abhibagul/filepilot-enterprise-vault:latest
+docker run -d -p 8443:8443 \
+  -e VAULT_MASTER_KEY=your_key_here \
+  -v ./data:/app/data \
+  abhibagul/filepilot-enterprise-vault</code></pre>
+          <a href="https://github.com/abhibagul/filepilot-enterprise-vault/releases/latest" class="btn btn-primary" style="margin-top: 1rem;">View Docker Container &rarr;</a>
+        </div>
+
+        <!-- Node package -->
+        <div class="card reveal-on-scroll">
+          <div style="font-size: 2.5rem; margin-bottom: 1rem;">📦</div>
+          <h3 class="card-title">NPM / Source Installation</h3>
+          <p class="mb-2">Install globally via NPM or build directly from source. Compatible with Node.js v18+ and SQLite, PostgreSQL, or MySQL backends.</p>
+          <pre><code># Install from NPM
+npm install -g @abhibagul/filepilot-enterprise-vault
+
+# Run installation wizard
+filepilot-vault init</code></pre>
+          <a href="https://github.com/abhibagul/filepilot-enterprise-vault" class="btn btn-secondary" style="margin-top: 1rem;" target="_blank">View GitHub Repo &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-logo">
+            <img src="logo/client.png" alt="FilePilot Logo">
+            <span>FILEPILOT</span>
+          </div>
+          <p>Blazing-fast file transfers secured by zero-knowledge local cryptography and centralized access vault control.</p>
+        </div>
+        <div>
+          <h4 class="footer-links-title">Products</h4>
+          <ul class="footer-links">
+            <li><a href="client.html">Desktop Client</a></li>
+            <li><a href="enterprise.html">Enterprise Vault</a></li>
+            <li><a href="products.html">Product Guide</a></li>
+            <li><a href="download.html">Downloads</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer-links-title">Resources</h4>
+          <ul class="footer-links">
+            <li><a href="faq.html">FAQ & Wiki</a></li>
+            <li><a href="about.html">Architecture</a></li>
+            <li><a href="github.html">GitHub Repos</a></li>
+            <li><a href="github.html#contribute">Contribute</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer-links-title">System Status</h4>
+          <ul class="footer-links text-mono" style="font-size: 0.85rem; color: var(--accent);">
+            <li>SEAL_STATE: LOCKED</li>
+            <li>VAULT: OPERATIONAL</li>
+            <li>CORE: RUST_ASYNC</li>
+            <li>LICENSE: MIT</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div>&copy; 2026 FilePilot Open Source Project. Under MIT License.</div>
+        <div class="footer-bottom-links">
+          <a href="https://github.com/abhibagul/filepilot-ftp-client" target="_blank">Client Repo</a>
+          <a href="https://github.com/abhibagul/filepilot-enterprise-vault" target="_blank">Vault Repo</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  
+  <div id="premium-bg-mesh"></div>
+  <div id="grain-overlay"></div>
+</body>
+</html>

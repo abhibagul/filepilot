@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FilePilot Enterprise - Centralized Provisioning Vault & Audit Server</title>
+  <meta name="description" content="FilePilot Enterprise Vault is a Node.js/Express server that secures connection profiles, enforces role-based access controls, and logs transfers in a blockchain-style audit trail.">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="container nav-container">
+      <a href="index.html" class="logo-link">
+        <img src="logo/enterprise.png" alt="FilePilot Enterprise Logo">
+        <span>FILEPILOT<span class="logo-prompt">:[ENTERPRISE]</span></span>
+      </a>
+      <button class="menu-toggle">[ MENU ]</button>
+      <nav>
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="products.html" class="nav-link">Products</a>
+        <a href="client.html" class="nav-link">Desktop Client</a>
+        <a href="enterprise.html" class="nav-link">Enterprise Vault</a>
+        <a href="download.html" class="nav-link">Download</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="faq.html" class="nav-link">FAQ</a>
+        <a href="github.html" class="nav-link">GitHub</a>
+        <button class="theme-toggle" aria-label="Toggle Theme"></button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Page Header -->
+  <section class="reveal-on-scroll hero" style="padding: 4rem 0 2rem;">
+    <div class="container">
+      <span class="hero-tag" style="border-color: var(--accent); color: var(--accent);">VAULT MANAGEMENT SERVER</span>
+      <h1>FilePilot Enterprise Vault</h1>
+      <p class="hero-subtitle">
+        Centralized server provisioning, role-based governance, multi-cloud KMS integration, and immutable cryptographic compliance logs for security-first organizations.
+      </p>
+      <div class="hero-cta">
+        <a href="download.html#server" class="btn btn-primary">Deploy Vault Server &rarr;</a>
+        <a href="https://github.com/abhibagul/filepilot-enterprise-vault" class="btn btn-secondary" target="_blank">View GitHub Repo</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- HTML Mock Compliance Posture Dashboard -->
+      <section style="padding: 4rem 0;">
+    <div class="docs-layout">
+      <aside class="docs-sidebar">
+        <h3>Vault Features</h3>
+        <ul class="docs-nav">
+          <li><a href="#section-1" class="docs-nav-link active">1. Setup & Installation</a></li>
+          <li><a href="#section-2" class="docs-nav-link">2. Admin Authentication & Security</a></li>
+          <li><a href="#section-3" class="docs-nav-link">3. Role-Based Access Control (RBAC)</a></li>
+          <li><a href="#section-4" class="docs-nav-link">4. Vault Groups</a></li>
+          <li><a href="#section-5" class="docs-nav-link">5. Connection Profile Provisioning</a></li>
+          <li><a href="#section-6" class="docs-nav-link">6. Access Key (Token) Management</a></li>
+          <li><a href="#section-7" class="docs-nav-link">7. Encryption & Key Management</a></li>
+          <li><a href="#section-8" class="docs-nav-link">8. Tamper-Evident Audit Trail</a></li>
+          <li><a href="#section-9" class="docs-nav-link">9. SIEM Webhook Integration</a></li>
+          <li><a href="#section-10" class="docs-nav-link">10. Legal / Preservation Holds</a></li>
+          <li><a href="#section-11" class="docs-nav-link">11. File Version Control & Revert</a></li>
+          <li><a href="#section-12" class="docs-nav-link">12. WebSocket Real-Time Communication</a></li>
+          <li><a href="#section-13" class="docs-nav-link">13. Compliance Posture Dashboard</a></li>
+          <li><a href="#section-14" class="docs-nav-link">14. User Management</a></li>
+          <li><a href="#section-15" class="docs-nav-link">15. System Administration</a></li>
+          <li><a href="#section-16" class="docs-nav-link">16. Admin Panel (Web UI)</a></li>
+        </ul>
+      </aside>
+      <main class="docs-content">
+        <div id="section-1" class="docs-section reveal-on-scroll">
+          <h2>1. Setup & Installation</h2>
+
+            <div class="screenshot-container mb-2 reveal-on-scroll" data-caption="Setup Wizard">
+              <img src="enterprise/setup.jpg" alt="Setup Wizard">
+              <div class="screenshot-overlay"><span class="zoom-icon">[ ZOOM ]</span></div>
+            </div>
+            
+          <div class="feature-grid">
+            <div class="feature-item-card reveal-on-scroll">
+              <h4>**Guided Setup Wizard**</h4>
+              <p>Web-based installation wizard at `/admin` for first-time configuration ([install.html](file:///d:/personalproj/filepilot/corporate-vault-integration/admin/install.html))</p>
+            </div>
+            <div class="feature-item-card reveal-on-scroll">
+              <h4>**Database Test**</h4>
+              <p>Test database connectivity (SQLite, PostgreSQL, MySQL) before committing config</p>
+            </div>
+            <div class="feature-item-card reveal-on-scroll">
+              <h4>**Multi-Database Support**</h4>
+              <p>Choose between embedded SQLite, PostgreSQL, or MySQL as the vault database</p>
+            </div>
+            <div class="feature-item-card reveal-on-scroll">
+              <h4>**Config-Driven**</h4>
+              <p>All settings stored in `config.json` and the `SystemConfig` database table</p>
+            </div>
+            <div class="feature-item-card reveal-on-scroll">
+              <h4>**Environment Variable Override**</h4>
+              <p>Set `VAULT_MASTER_KEY` via env var for production-grade key management</p>
+            </div>
+          </div>
+        </div>
+        <div id="section-2" class="docs-section reveal-on-scroll">
+          <h2>2. Admin Authentication & Security</h2>
+          <div class="feature-grid">
+            <div class="feature-item-card reveal-on-scroll">
+              <h4>**Session-Based Auth**</h4>
+              <p>Hashed session tokens stored in `AdminSession` table with cookie-based delivery</p>
+            </div>
+            <div class="feature-item-card reveal-on-scroll">
+              <h4>**CSRF Protection**</h4>
+              <p>All state-changing requests (POST/PUT/DELETE) require a valid `X-CSRF-Token` header</p>
+            </div>
+            <div class="feature-item-card reveal-on-scroll">
+              <h4>**MFA (TOTP)**</h4>
+              <p>Full TOTP-based multi-factor authentication: enrollment, verification, backup codes, disable/re-enable</p>
+            </div>
+            <div class="feature-item-card reveal-on-scroll">
+              <h4>**MFA Backup Codes**</h4>
+              <p>8 one-time-use backup codes (bcrypt-hashed) for MFA recovery</p>
+            </div>
+            <div class="feature-item-card reveal-on-scroll">
+              <h4>**Login Lockout**</h4>
+              <p>Rate-limited login attempts (5 per 10 minutes) with automatic IP-based lockout</p>
+            </div>
+            <div class="feature-item-card reveal-on-scroll">
+              <h4>**Session Management**</h4>
+              <p>View all active sessions, revoke individual sessions, revoke all other sessions</p>
+            </div>
+            <div class="feature-item-card reveal-on-scroll">
+              <h4>**Password Change**</h4>
+              <p>In-app password change with old-password verification</p>
+            </div>
+            <div class="feature-item-card reveal-on-scroll">
+              <h4>**Periodic Session Cleanup**</h4>
+              <p>Background job prunes expired sessions every 10 minutes</p>
+            </div>
+          </div>
+        </div>
+        <div id="section-3" class="docs-section reveal-on-scroll">
+          <h2>3. Role-Based Access Control (RBAC)</h2>
+
+            <div class="screenshot-container mb-2 reveal-on-scroll" data-caption="RBAC Policies">
+              <img src="enterprise/rbac.jpg" alt="RBAC Policies">
+              <div class="screenshot-overlay"><span class="zoom-icon">[ ZOOM ]</span></div>
+            </div>
+            
+          <div class="feature-grid">
+            <div class="feature-item-card reveal-on-scroll">
+              <h4>**4 Built-in Roles**</h4>
+              <p>`admin` (full access), `manager` (vault/profile/token/backup), `operator` (create/edit profiles, issue tokens), `auditor` (read-only audit/export)</p>
+            </div>
+            <div class="feature-item-card reveal-on-scroll">
+              <h4>**Granular Permissions**</h4>
+              <p>20+ fine-grained permissions: `vault.*`, `profile.view/create/edit/delete/decrypt_credentials/test_connection`, `token.view/issue/revoke`, `user.view/manage`, `audit.view/export`, `backup.view/restore`, `siem.configure`, `system.configure`, `legal_hold.manage`</p>
+            </div>
+            <div class="feature-item-card reveal-on-scroll">
+              <h4>**Wildcard Matching**</h4>
+              <p>Role permissions support wildcard syntax (e.g., `profile.*` matches all profile actions)</p>
+            </div>
+            <div class="feature-item-card reveal-on-scroll">
+              <h4>**Permission Enforcement**</h4>
+              <p>Every API endpoint is gated by `requirePermission()` middleware</p>
+            </div>
+          </div>
+        </div>
+        <div id="section-4" class="docs-section reveal-on-scroll">
+          <h2>4. Vault Groups</h2>
+          <div class="feature-grid">
+            <div class="feature-item-card reveal-on-scroll">
+              <h4>**Group-Based Organization**</h4>
+              <p>Connection profiles are organized into Vault Groups — logical containers for team/project scoping</p>
+            </div>
+            <div class="feature-item-card reveal-on-scroll">
+              <h4>**IP Allowlisting**</h4>
+              <p>Restrict profile sync to specific client IPs or CIDR ranges per group (supports wildcards and subnet matching)</p>
+            </div>
+            <div class="feature-item-card reveal-on-scroll">
+              <h4>**Per-Group Encryption**</h4>
+              <p>Each group has its own Data Encryption Key (DEK) wrapped by the master KEK</p>
+            </div>
+            <div class="feature-item-card reveal-on-scroll">
+              <h4>**Per-Group KMS**</h4>
+              <p>Each group can use a different KMS provider (Local, AWS KMS, Azure Key Vault, GCP KMS, HashiCorp Vault)</p>
+            </div>
+            <div class="feature-item-card reveal-on-scroll">
+              <h4>**SSRF Protection**</h4>
+              <p>Jump host and connection profile hostnames are validated against private IP ranges to prevent SSRF attacks</p>
+            </div>
+          </div>
+        </div>
+        <div id="section-5" class="docs-section reveal-on-scroll">
+          <h2>5. Connection Profile Provisioning</h2>
+          <div class="feature-grid">
+            <div class="feature-item-card reveal-on-scroll">
+              <h4>**Centralized Profiles**</h4>
+              <p>Create, edit, and delete connection profiles (FTP, SFTP, FTPS, SCP, S3, WebDAV) from the admin panel</p>
+            </div>
+            <div class="feature-item-card reveal-on-scroll">
+              <h4>**Encrypted Credentials**</h4>
+              <p>All passwords and private keys are encrypted at rest using AES-256-GCM with per-group DEKs</p>
+            </div>
+            <div class="feature-item-card reveal-on-scroll">
+              <h4>**Password & Key-Pair Auth**</h4>
+              <p>Supports both password-based and SSH key-pair authentication modes</p>
+            </div>
+            <div class="feature-item-card reveal-on-scroll">
+              <h4>**Jump Host / Bastion**</h4>
+              <p>Configure SSH jump hosts with separate credentials per profile for bastion-host access patterns</p>
+            </div>
+            <div class="feature-item-card reveal-on-scroll">
+              <h4>**Test Connection**</h4>
+              <p>One-click connection test from the admin panel verifies reachability before provisioning</p>
+            </div>
+            <div class="feature-item-card reveal-on-scroll">
+              <h4>**Auto-Sync to Clients**</h4>
+              <p>Provisioned profiles are delivered to the desktop client via the `/v1/secret/data/filepilot/profiles` API</p>
+            </div>
+            <div class="feature-item-card reveal-on-scroll">
+              <h4>**Token-Scoped Delivery**</h4>
+              <p>Each access token grants access only to profiles within its assigned Vault Group</p>
+            </div>
+          </div>
+        </div>
+        <div id="section-6" class="docs-section reveal-on-scroll">
+          <h2>6. Access Key (Token) Management</h2>
+
+            <div class="screenshot-container mb-2 reveal-on-scroll" data-caption="Token Management">
+              <img src="enterprise/tokenmangement.jpg" alt="Token Management">
+              <div class="screenshot-overlay"><span class="zoom-icon">[ ZOOM ]</span></div>
+            </div>
+            
+          <div class="feature-grid">
+            <div class="feature-item-card reveal-on-scroll">
+              <h4>**Server-Generated Tokens**</h4>
+              <p>Cryptographically secure 256-bit tokens generated server-side; raw token shown only once</p>
+            </div>
+            <div class="feature-item-card reveal-on-scroll">
+              <h4>**SHA-256 Token Hashing**</h4>
+              <p>Tokens are stored as irreversible SHA-256 hashes — raw tokens never persisted</p>
+            </div>
+            <div class="feature-item-card reveal-on-scroll">
+              <h4>**User-Scoped Tokens**</h4>
+              <p>Each token is bound to a specific user and Vault Group</p>
+            </div>
+            <div class="feature-item-card reveal-on-scroll">
+              <h4>**Token Expiration**</h4>
+              <p>Optional expiry dates; expired tokens are automatically blocked on sync attempts</p>
+            </div>
+            <div class="feature-item-card reveal-on-scroll">
+              <h4>**Token Status Management**</h4>
+              <p>Tokens can be `active`, `blocked`, or `expired` with real-time status transitions</p>
+            </div>
+            <div class="feature-item-card reveal-on-scroll">
+              <h4>**Instant Revocation**</h4>
+              <p>Revoke or block tokens instantly; connected clients are notified via WebSocket</p>
+            </div>
+            <div class="feature-item-card reveal-on-scroll">
+              <h4>**Legal Hold Protection**</h4>
+              <p>Tokens under a Legal Hold freeze cannot be deleted or reissued</p>
+            </div>
+          </div>
+        </div>
+        <div id="section-7" class="docs-section reveal-on-scroll">
+          <h2>7. Encryption & Key Management</h2>
+          <div class="feature-grid">
+            <div class="feature-item-card reveal-on-scroll">
+              <h4>**Envelope Encryption**</h4>
+              <p>Two-tier encryption: Master KEK wraps per-group DEKs, DEKs encrypt credentials</p>
+            </div>
+            <div class="feature-item-card reveal-on-scroll">
+              <h4>**AES-256-GCM**</h4>
+              <p>All encryption uses AES-256-GCM with random 96-bit IVs and authentication tags</p>
+            </div>
+            <div class="feature-item-card reveal-on-scroll">
+              <h4>**KEK Rotation**</h4>
+              <p>Admin-initiated master key rotation that re-wraps all group DEKs under the new KEK</p>
+            </div>
+            <div class="feature-item-card reveal-on-scroll">
+              <h4>**Resumable Rotation**</h4>
+              <p>If rotation is interrupted, it resumes from the last successfully rotated group</p>
+            </div>
+            <div class="feature-item-card reveal-on-scroll">
+              <h4>**Key Version Tracking**</h4>
+              <p>Every KEK rotation creates a `KeyVersion` record with creation and retirement timestamps</p>
+            </div>
+            <div class="feature-item-card reveal-on-scroll">
+              <h4>**Multi-KMS Providers**</h4>
+              <p>Pluggable KMS backends — Local, AWS KMS, Azure Key Vault, GCP Cloud KMS, HashiCorp Vault</p>
+            </div>
+            <div class="feature-item-card reveal-on-scroll">
+              <h4>**KMS Connection Test**</h4>
+              <p>Validate KMS connectivity per-group before switching providers</p>
+            </div>
+            <div class="feature-item-card reveal-on-scroll">
+              <h4>**Previous Key Support**</h4>
+              <p>Set `VAULT_MASTER_KEY_PREVIOUS` env var to support graceful KEK migration</p>
+            </div>
+          </div>
+        </div>
+        <div id="section-8" class="docs-section reveal-on-scroll">
+          <h2>8. Tamper-Evident Audit Trail</h2>
+
+            <div class="screenshot-container mb-2 reveal-on-scroll" data-caption="Audit Viewer">
+              <img src="enterprise/auditviewer.jpg" alt="Audit Viewer">
+              <div class="screenshot-overlay"><span class="zoom-icon">[ ZOOM ]</span></div>
+            </div>
+            
+          <div class="feature-grid">
+            <div class="feature-item-card reveal-on-scroll">
+              <h4>**Blockchain-Style Chaining**</h4>
+              <p>Every audit log entry includes a SHA-256 `entry_hash` and `prev_hash`, forming an immutable hash chain</p>
+            </div>
+            <div class="feature-item-card reveal-on-scroll">
+              <h4>**Hash Versioning**</h4>
+              <p>Hash computation schema is versioned (`hash_version`) for forward-compatible upgrades</p>
+            </div>
+            <div class="feature-item-card reveal-on-scroll">
+              <h4>**Full Integrity Verification**</h4>
+              <p>Admin API endpoint verifies the entire audit chain and reports the first broken link</p>
+            </div>
+            <div class="feature-item-card reveal-on-scroll">
+              <h4>**Quick Integrity Check**</h4>
+              <p>Lightweight verification of the latest N entries for fast health checks</p>
+            </div>
+            <div class="feature-item-card reveal-on-scroll">
+              <h4>**Structured Metadata**</h4>
+              <p>Audit entries include structured JSON metadata (who, what, when, from where)</p>
+            </div>
+            <div class="feature-item-card reveal-on-scroll">
+              <h4>**Audit Export**</h4>
+              <p>Export filtered audit logs to CSV with date range, action, and user filters</p>
+            </div>
+            <div class="feature-item-card reveal-on-scroll">
+              <h4>**Log Archival**</h4>
+              <p>Mark old logs as archived without deleting them</p>
+            </div>
+          </div>
+        </div>
+        <div id="section-9" class="docs-section reveal-on-scroll">
+          <h2>9. SIEM Webhook Integration</h2>
+          <div class="feature-grid">
+            <div class="feature-item-card reveal-on-scroll">
+              <h4>**Configurable Webhook URL**</h4>
+              <p>Point audit events at your SIEM collector (Splunk, Datadog, ELK, etc.)</p>
+            </div>
+            <div class="feature-item-card reveal-on-scroll">
+              <h4>**HMAC-SHA256 Signatures**</h4>
+              <p>Every webhook payload is signed with a configurable secret (`X-Vault-Signature-256` header)</p>
+            </div>
+            <div class="feature-item-card reveal-on-scroll">
+              <h4>**Retry with Exponential Backoff**</h4>
+              <p>Failed deliveries retry 3 times (1s → 4s → 16s) before logging a permanent failure</p>
+            </div>
+            <div class="feature-item-card reveal-on-scroll">
+              <h4>**Delivery Timeout**</h4>
+              <p>5-second timeout per webhook attempt with AbortController</p>
+            </div>
+            <div class="feature-item-card reveal-on-scroll">
+              <h4>**Failure Logging**</h4>
+              <p>Permanent delivery failures are recorded in the audit log as `siem_failure` events</p>
+            </div>
+          </div>
+        </div>
+        <div id="section-10" class="docs-section reveal-on-scroll">
+          <h2>10. Legal / Preservation Holds</h2>
+          <div class="feature-grid">
+            <div class="feature-item-card reveal-on-scroll">
+              <h4>**Activate Legal Hold**</h4>
+              <p>Place a Vault Group under legal hold with a reason, placed-by user, and timestamp</p>
+            </div>
+            <div class="feature-item-card reveal-on-scroll">
+              <h4>**Freeze Writes**</h4>
+              <p>Optionally freeze all write operations (profile edits, token issuance/deletion) on held groups</p>
+            </div>
+            <div class="feature-item-card reveal-on-scroll">
+              <h4>**Protect Tokens**</h4>
+              <p>Tokens scoped to a held group cannot be deleted or modified</p>
+            </div>
+            <div class="feature-item-card reveal-on-scroll">
+              <h4>**Protect Profiles**</h4>
+              <p>Profiles within a held group cannot be deleted when the hold is active</p>
+            </div>
+            <div class="feature-item-card reveal-on-scroll">
+              <h4>**Client Notification**</h4>
+              <p>Legal hold status and freeze flags are propagated to connected clients via the sync API</p>
+            </div>
+            <div class="feature-item-card reveal-on-scroll">
+              <h4>**Release Hold**</h4>
+              <p>Remove the hold when the legal review period ends</p>
+            </div>
+          </div>
+        </div>
+        <div id="section-11" class="docs-section reveal-on-scroll">
+          <h2>11. File Version Control & Revert</h2>
+          <div class="feature-grid">
+            <div class="feature-item-card reveal-on-scroll">
+              <h4>**Automatic Versioning**</h4>
+              <p>Every file uploaded through a vault-linked client creates a version snapshot with hash and size</p>
+            </div>
+            <div class="feature-item-card reveal-on-scroll">
+              <h4>**Version History**</h4>
+              <p>Browse all file versions in the admin panel with timestamps, sizes, and modifiers</p>
+            </div>
+            <div class="feature-item-card reveal-on-scroll">
+              <h4>**Content Viewer**</h4>
+              <p>View the content of any past version directly in the admin panel</p>
+            </div>
+            <div class="feature-item-card reveal-on-scroll">
+              <h4>**Remote Revert**</h4>
+              <p>Restore a previous version by pushing it back to connected clients via WebSocket</p>
+            </div>
+            <div class="feature-item-card reveal-on-scroll">
+              <h4>**Pending Reversions**</h4>
+              <p>If a client is offline during a revert, the operation is queued and dispatched when the client reconnects</p>
+            </div>
+            <div class="feature-item-card reveal-on-scroll">
+              <h4>**Configurable Retention**</h4>
+              <p>Set a `backup_retention_limit` to control how many versions are kept per file</p>
+            </div>
+          </div>
+        </div>
+        <div id="section-12" class="docs-section reveal-on-scroll">
+          <h2>12. WebSocket Real-Time Communication</h2>
+          <div class="feature-grid">
+            <div class="feature-item-card reveal-on-scroll">
+              <h4>**Client Registration**</h4>
+              <p>Desktop clients connect via WebSocket and register with their access token</p>
+            </div>
+            <div class="feature-item-card reveal-on-scroll">
+              <h4>**Token Revocation Alerts**</h4>
+              <p>Instantly notify connected clients when their token is blocked or revoked</p>
+            </div>
+            <div class="feature-item-card reveal-on-scroll">
+              <h4>**Token Restoration Alerts**</h4>
+              <p>Notify clients when a previously blocked token is reactivated</p>
+            </div>
+            <div class="feature-item-card reveal-on-scroll">
+              <h4>**File Revert Commands**</h4>
+              <p>Push `write_file` commands to connected clients to restore file versions in real-time</p>
+            </div>
+            <div class="feature-item-card reveal-on-scroll">
+              <h4>**Connection Monitoring**</h4>
+              <p>Admin panel shows active WebSocket connections with client metadata</p>
+            </div>
+            <div class="feature-item-card reveal-on-scroll">
+              <h4>**Force Disconnect**</h4>
+              <p>Admins can force-disconnect specific client WebSocket sessions</p>
+            </div>
+          </div>
+        </div>
+        <div id="section-13" class="docs-section reveal-on-scroll">
+          <h2>13. Compliance Posture Dashboard</h2>
+
+            <div class="screenshot-container mb-2 reveal-on-scroll" data-caption="Compliance Posture">
+              <img src="enterprise/compliance.jpg" alt="Compliance Posture">
+              <div class="screenshot-overlay"><span class="zoom-icon">[ ZOOM ]</span></div>
+            </div>
+            
+          <div class="feature-grid">
+            <div class="feature-item-card reveal-on-scroll">
+              <h4>**Encryption Posture**</h4>
+              <p>Shows KEK rotation history, per-group KMS provider, and DEK version status ([compliance-checks.cjs](file:///d:/personalproj/filepilot/corporate-vault-integration/compliance-checks.cjs))</p>
+            </div>
+            <div class="feature-item-card reveal-on-scroll">
+              <h4>**Access Control Posture**</h4>
+              <p>Lists all users, roles, MFA status, active tokens with age and last-used timestamps</p>
+            </div>
+            <div class="feature-item-card reveal-on-scroll">
+              <h4>**Audit Integrity Posture**</h4>
+              <p>Verifies the hash chain and reports if the audit trail is intact or broken</p>
+            </div>
+            <div class="feature-item-card reveal-on-scroll">
+              <h4>**Access Policy Posture**</h4>
+              <p>Shows IP allowlist coverage per Vault Group</p>
+            </div>
+            <div class="feature-item-card reveal-on-scroll">
+              <h4>**Session Security Posture**</h4>
+              <p>Reports session timeout settings, max sessions per user, and active session counts</p>
+            </div>
+          </div>
+        </div>
+        <div id="section-14" class="docs-section reveal-on-scroll">
+          <h2>14. User Management</h2>
+          <div class="feature-grid">
+            <div class="feature-item-card reveal-on-scroll">
+              <h4>**Create / Delete Users**</h4>
+              <p>Admin-managed user lifecycle with username, password, and role assignment</p>
+            </div>
+            <div class="feature-item-card reveal-on-scroll">
+              <h4>**Role Assignment**</h4>
+              <p>Assign one of 4 RBAC roles (Admin, Manager, Operator, Auditor) per user</p>
+            </div>
+            <div class="feature-item-card reveal-on-scroll">
+              <h4>**MFA Enforcement**</h4>
+              <p>Per-user MFA status tracking; admins can view which users have MFA enabled</p>
+            </div>
+            <div class="feature-item-card reveal-on-scroll">
+              <h4>**Session Visibility**</h4>
+              <p>View and manage all active sessions across all users</p>
+            </div>
+          </div>
+        </div>
+        <div id="section-15" class="docs-section reveal-on-scroll">
+          <h2>15. System Administration</h2>
+          <div class="feature-grid">
+            <div class="feature-item-card reveal-on-scroll">
+              <h4>**Database Reconfiguration**</h4>
+              <p>Switch between SQLite, PostgreSQL, and MySQL at runtime from the admin panel</p>
+            </div>
+            <div class="feature-item-card reveal-on-scroll">
+              <h4>**SMTP Configuration**</h4>
+              <p>Configure outbound email (host, port, username, password, sender) for notifications</p>
+            </div>
+            <div class="feature-item-card reveal-on-scroll">
+              <h4>**Backup Management**</h4>
+              <p>Enable/disable automated backups, set retention limits, clear old backups</p>
+            </div>
+            <div class="feature-item-card reveal-on-scroll">
+              <h4>**Log Maintenance**</h4>
+              <p>Clear archived logs, purge old audit entries with date-range filters</p>
+            </div>
+            <div class="feature-item-card reveal-on-scroll">
+              <h4>**Health Check**</h4>
+              <p>`/healthz` endpoint returns database connectivity status and server uptime for monitoring</p>
+            </div>
+            <div class="feature-item-card reveal-on-scroll">
+              <h4>**Rate Limiting**</h4>
+              <p>Built-in rate limiter on auth endpoints (5/10min) and sync endpoints (30/min) with IP-based tracking</p>
+            </div>
+          </div>
+        </div>
+        <div id="section-16" class="docs-section reveal-on-scroll">
+          <h2>16. Admin Panel (Web UI)</h2>
+
+            <div class="screenshot-container mb-2 reveal-on-scroll" data-caption="Admin Dashboard">
+              <img src="enterprise/pasted-1783312015509-1.png" alt="Admin Dashboard">
+              <div class="screenshot-overlay"><span class="zoom-icon">[ ZOOM ]</span></div>
+            </div>
+            
+          <div class="feature-grid">
+            <div class="feature-item-card reveal-on-scroll">
+              <h4>**Full Dashboard**</h4>
+              <p>Rich single-page admin interface with live metrics: active sockets, total versions, recent logs, database dialect ([index.html](file:///d:/personalproj/filepilot/corporate-vault-integration/admin/index.html) — 300 KB)</p>
+            </div>
+            <div class="feature-item-card reveal-on-scroll">
+              <h4>**Group Management**</h4>
+              <p>Create, edit, delete Vault Groups; configure KMS and IP policies</p>
+            </div>
+            <div class="feature-item-card reveal-on-scroll">
+              <h4>**Profile Management**</h4>
+              <p>Full CRUD for connection profiles within groups</p>
+            </div>
+            <div class="feature-item-card reveal-on-scroll">
+              <h4>**Token Management**</h4>
+              <p>Issue, block, unblock, and revoke access tokens</p>
+            </div>
+            <div class="feature-item-card reveal-on-scroll">
+              <h4>**Audit Viewer**</h4>
+              <p>Browse, filter, and export the tamper-evident audit trail</p>
+            </div>
+            <div class="feature-item-card reveal-on-scroll">
+              <h4>**Compliance Dashboard**</h4>
+              <p>5-panel compliance posture report (encryption, access, audit, policy, sessions)</p>
+            </div>
+            <div class="feature-item-card reveal-on-scroll">
+              <h4>**Version Browser**</h4>
+              <p>Browse and restore file version snapshots</p>
+            </div>
+            <div class="feature-item-card reveal-on-scroll">
+              <h4>**System Settings**</h4>
+              <p>Configure SIEM, SMTP, backups, database, and KEK rotation</p>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-logo">
+            <img src="logo/client.png" alt="FilePilot Logo">
+            <span>FILEPILOT</span>
+          </div>
+          <p>Blazing-fast file transfers secured by zero-knowledge local cryptography and centralized access vault control.</p>
+        </div>
+        <div>
+          <h4 class="footer-links-title">Products</h4>
+          <ul class="footer-links">
+            <li><a href="client.html">Desktop Client</a></li>
+            <li><a href="enterprise.html">Enterprise Vault</a></li>
+            <li><a href="products.html">Product Guide</a></li>
+            <li><a href="download.html">Downloads</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer-links-title">Resources</h4>
+          <ul class="footer-links">
+            <li><a href="faq.html">FAQ & Wiki</a></li>
+            <li><a href="about.html">Architecture</a></li>
+            <li><a href="github.html">GitHub Repos</a></li>
+            <li><a href="github.html#contribute">Contribute</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer-links-title">System Status</h4>
+          <ul class="footer-links text-mono" style="font-size: 0.85rem; color: var(--accent);">
+            <li>SEAL_STATE: LOCKED</li>
+            <li>VAULT: OPERATIONAL</li>
+            <li>CORE: RUST_ASYNC</li>
+            <li>LICENSE: MIT</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div>&copy; 2026 FilePilot Open Source Project. Under MIT License.</div>
+        <div class="footer-bottom-links">
+          <a href="https://github.com/abhibagul/filepilot-ftp-client" target="_blank">Client Repo</a>
+          <a href="https://github.com/abhibagul/filepilot-enterprise-vault" target="_blank">Vault Repo</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  
+  <div id="premium-bg-mesh"></div>
+  <div id="grain-overlay"></div>
+  
+  
+  
+  
+  
+  <script src="js/letter-glitch.js"></script>
+</body>
+</html>
