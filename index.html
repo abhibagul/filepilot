@@ -1,31 +1,40 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="dark">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>FilePilot - High-Speed Secure File Transfer Engine & Corporate Vault</title>
-  <meta name="description" content="FilePilot is a modern, high-speed, secure desktop file transfer client built with Tauri and Rust, paired with a centralized enterprise credential vault server built with Node.js. 100% free and open-source.">
+  <title>FilePilot — Fast, Secure File Transfers for Any Server</title>
+  <meta name="description"
+    content="FilePilot is a free desktop app for moving files to and from your servers over SFTP, FTP, S3 and more. Add the optional team Vault to share server access safely, without passing passwords around.">
   <link rel="stylesheet" href="css/style.css">
+  <link rel="shortcut icon" type="image/png" href="logo/filepilotico.png">
+  <script src="https://unpkg.com/lucide@latest"></script>
 </head>
+
 <body>
   <!-- Header -->
   <header>
     <div class="container nav-container">
       <a href="index.html" class="logo-link">
-        <img src="logo/client.png" alt="FilePilot Logo">
-        <span>FILEPILOT<span class="logo-prompt">:/$</span></span>
+        <img src="logo/filepilotico.png" alt="FilePilot Logo" class="flashy-logo">
       </a>
       <button class="menu-toggle">[ MENU ]</button>
       <nav>
         <a href="index.html" class="nav-link">Home</a>
-        <a href="products.html" class="nav-link">Products</a>
-        <a href="client.html" class="nav-link">Desktop Client</a>
-        <a href="enterprise.html" class="nav-link">Enterprise Vault</a>
+        <div class="dropdown">
+          <a href="products.html" class="nav-link dropdown-toggle">Products <span
+              style="font-size: 0.75rem;">▼</span></a>
+          <div class="dropdown-menu">
+            <a href="client.html" class="dropdown-item">Desktop Client</a>
+            <a href="shell.html" class="dropdown-item">Terminal Shell</a>
+            <a href="enterprise.html" class="dropdown-item">Enterprise Vault</a>
+          </div>
+        </div>
         <a href="download.html" class="nav-link">Download</a>
         <a href="about.html" class="nav-link">About</a>
         <a href="faq.html" class="nav-link">FAQ</a>
         <a href="github.html" class="nav-link">GitHub</a>
-        <button class="theme-toggle" aria-label="Toggle Theme"></button>
       </nav>
     </div>
   </header>
@@ -33,32 +42,98 @@
   <!-- Hero Section -->
   <section class="reveal-on-scroll hero">
     <div class="container">
-      <span class="hero-tag">STATUS: PRODUCTION_READY (MIT_LICENSE)</span>
-      <h1>Secure Visual File Transfers,<br>Built for the Modern DevOps Era</h1>
+      <span class="hero-tag">100% FREE &amp; OPEN SOURCE</span>
+      <h1>Modern Developer Tools &mdash;<br>Secure, Fast, and Open Source</h1>
       <p class="hero-subtitle">
-        FilePilot combines a blazing-fast, dual-pane desktop GUI client with a secure, centralized enterprise credentials vault. Manage SFTP, S3, and FTP transfers via a unified dashboard without exposing raw passwords.
+        Native, high-performance developer tools for secure file transfers, multi-tab terminal splits, and centralized
+        team access governance.
       </p>
       <div class="hero-cta mb-3">
-        <a href="client.html" class="btn btn-primary">FilePilot Client &rarr;</a>
+        <a href="client.html" class="btn btn-primary">Desktop Client &rarr;</a>
+        <a href="shell.html" class="btn btn-secondary"
+          style="border-color: var(--accent); color: var(--accent);">Terminal Shell &rarr;</a>
         <a href="enterprise.html" class="btn btn-secondary">Enterprise Vault &rarr;</a>
       </div>
-      
-      <!-- Actual App Screenshot in Hero Window -->
+
+      <div class="hero-trust">
+        <span>MIT Licensed &mdash; 100% open source</span>
+        <span>Zero telemetry</span>
+        <span>Windows &middot; macOS &middot; Linux</span>
+        <span>Rust-powered engine</span>
+      </div>
+      <!-- Actual App Screenshot in Hero Window (Carousel) -->
       <div class="terminal-window" style="max-width: 1000px; cursor: pointer;">
-        <div class="terminal-header">
-          <div class="terminal-buttons">
+        <div class="terminal-header" style="display: flex; justify-content: space-between; align-items: center;">
+          <div class="terminal-buttons" style="flex: 0 0 100px;">
             <span class="terminal-button red"></span>
             <span class="terminal-button yellow"></span>
             <span class="terminal-button green"></span>
           </div>
-          <div class="terminal-title">FilePilot Client Workspace - dualpane_view</div>
-          <div style="width: 50px;"></div>
+          <!-- Tabs for Carousel -->
+          <div class="terminal-carousel-tabs" style="display: flex; gap: 0.5rem; justify-content: center; flex: 1;">
+            <button class="terminal-tab active" data-target="carousel-client"
+              style="background: none; border: none; font-family: var(--font-mono); font-size: 0.72rem; color: var(--accent); cursor: pointer; padding: 0.3rem 0.75rem; border-radius: var(--radius-sm); border: 1px solid var(--accent); transition: all 0.2s;">[
+              CLIENT ]</button>
+            <button class="terminal-tab" data-target="carousel-shell"
+              style="background: none; border: none; font-family: var(--font-mono); font-size: 0.72rem; color: var(--text-muted); cursor: pointer; padding: 0.3rem 0.75rem; border-radius: var(--radius-sm); border: 1px solid transparent; transition: all 0.2s;">[
+              SHELL ]</button>
+            <button class="terminal-tab" data-target="carousel-vault"
+              style="background: none; border: none; font-family: var(--font-mono); font-size: 0.72rem; color: var(--text-muted); cursor: pointer; padding: 0.3rem 0.75rem; border-radius: var(--radius-sm); border: 1px solid transparent; transition: all 0.2s;">[
+              VAULT ]</button>
+          </div>
+          <div
+            style="flex: 0 0 100px; text-align: right; font-family: var(--font-mono); font-size: 0.7rem; color: var(--text-muted); padding-right: 1rem; text-transform: uppercase;"
+            id="terminal-carousel-title">client_view</div>
         </div>
-        <div class="screenshot-container" data-caption="FilePilot Desktop Client Workspace Dashboard">
-          <img src="client/pasted-1783311139724-0.png" alt="FilePilot Desktop Client Graphical Interface" style="width: 100%; height: auto; display: block;">
+
+        <!-- Carousel Content -->
+        <div class="screenshot-container active" id="carousel-client"
+          data-caption="FilePilot Desktop Client split-pane visual file transfers">
+          <img src="client/pasted-1783311009047-0.png" alt="FilePilot Desktop Client Workspace Dashboard"
+            style="width: 100%; height: auto; display: block;">
           <div class="screenshot-overlay">
             <span class="zoom-icon">[ ZOOM VIEW ]</span>
           </div>
+        </div>
+        <div class="screenshot-container" id="carousel-shell"
+          data-caption="FilePilot Shell premium multi-tab terminal emulator splits" style="display: none;">
+          <img src="shell/multipanel.jpg" alt="FilePilot Shell Workspace Terminal"
+            style="width: 100%; height: auto; display: block;">
+          <div class="screenshot-overlay">
+            <span class="zoom-icon">[ ZOOM VIEW ]</span>
+          </div>
+        </div>
+        <div class="screenshot-container" id="carousel-vault"
+          data-caption="FilePilot Enterprise Vault centralized credentials provisioner" style="display: none;">
+          <img src="enterprise/dashboard.jpg" alt="FilePilot Enterprise Vault Admin Console Dashboard"
+            style="width: 100%; height: auto; display: block;">
+          <div class="screenshot-overlay">
+            <span class="zoom-icon">[ ZOOM VIEW ]</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Key Metrics -->
+  <section class="reveal-on-scroll">
+    <div class="container">
+      <div class="stats-band">
+        <div class="stat">
+          <div class="stat-value">42<span>MB</span></div>
+          <div class="stat-label">Memory used while idle &mdash; most apps use 10&times; more</div>
+        </div>
+        <div class="stat">
+          <div class="stat-value">600<span>K</span></div>
+          <div class="stat-label">PBKDF2 rounds guarding credentials &amp; SSH keys</div>
+        </div>
+        <div class="stat">
+          <div class="stat-value">9<span>+</span></div>
+          <div class="stat-label">Protocols &amp; shell environments supported</div>
+        </div>
+        <div class="stat">
+          <div class="stat-value">0</div>
+          <div class="stat-label">Trackers, ads, or accounts required</div>
         </div>
       </div>
     </div>
@@ -68,62 +143,114 @@
   <section class="reveal-on-scroll bg-secondary">
     <div class="container">
       <div class="section-header">
-        <h2>Two Components. One Unified System.</h2>
-        <p>Run the standalone client on your workstation, or deploy the central vault to enforce access control across your entire organization.</p>
+        <h2>Three Core Products. One Unified System.</h2>
+        <p>Run the standalone transfer client, accelerate your command line with our multi-tab terminal, or deploy the
+          central vault to enforce access control across your organization.</p>
       </div>
-      <div class="grid-2">
+      <div class="grid-3">
         <!-- Client Card -->
         <div class="card reveal-on-scroll">
           <div class="card-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M9 17.25v1.007a3 3 0 01-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0115 18.257V17.25m6-12V15a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 15V5.25m18 0A2.25 2.25 0 0018.75 3H5.25A2.25 2.25 0 003 5.25m18 0V12a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 12V5.25" />
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+              stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M9 17.25v1.007a3 3 0 01-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0115 18.257V17.25m6-12V15a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 15V5.25m18 0A2.25 2.25 0 0018.75 3H5.25A2.25 2.25 0 003 5.25m18 0V12a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 12V5.25" />
             </svg>
           </div>
+          <span class="badge accent">Desktop App</span>
           <h3 class="card-title">FilePilot Client</h3>
-          <p class="mb-2">A high-performance dual-pane desktop application built with Rust and Tauri. Native performance, low memory footprint, and robust local credential sealing.</p>
-          
+          <p class="mb-2">Connect to your servers and move files between your computer and the cloud &mdash; all in one
+            fast, native window. Your passwords stay locked on your own device.</p>
+
           <!-- Actual Screenshot Preview of Client -->
-          <div class="screenshot-container mb-2" data-caption="FilePilot Desktop Client Split Pane View" style="border: 1px solid var(--border-color); border-radius: var(--radius-sm); overflow: hidden; margin-top: 1rem;">
-            <img src="client/pasted-1783311121266-0.png" alt="FilePilot Split Pane Browser UI" style="width: 100%; height: auto;">
+          <div class="screenshot-container mb-2" data-caption="FilePilot Desktop Client Split Pane View"
+            style="border: 1px solid var(--border-color); border-radius: var(--radius-sm); overflow: hidden; margin-top: 1rem;">
+            <img src="client/pasted-1783311009047-0.png" alt="FilePilot Split Pane Browser UI"
+              style="width: 100%; height: auto;">
             <div class="screenshot-overlay">
               <span class="zoom-icon">[ ZOOM ]</span>
             </div>
           </div>
-          
+
           <ul class="feature-list-check">
-            <li>Dual-pane directory structure with synchronized browsing</li>
-            <li>Zero-Knowledge local credential sealing (PBKDF2 / AES-256)</li>
-            <li>Folder syncing with live side-by-side diff viewers</li>
-            <li>Offline transfer queuing and auto-resume engine</li>
+            <li>See your computer and the server side by side</li>
+            <li>Passwords stay encrypted on your machine &mdash; never uploaded</li>
+            <li>Sync folders and see exactly what changed</li>
+            <li>Transfers pick up automatically if your connection drops</li>
           </ul>
-          <a href="client.html" style="font-family: var(--font-sans); font-size: 0.85rem; font-weight: bold; text-transform: uppercase;">Explore Client Features &rarr;</a>
+          <a href="client.html"
+            style="font-family: var(--font-sans); font-size: 0.85rem; font-weight: bold; text-transform: uppercase;">Explore
+            Client Features &rarr;</a>
+        </div>
+
+        <!-- Shell Card -->
+        <div class="card reveal-on-scroll">
+          <div class="card-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+              stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M6.75 7.5l3 2.25-3 2.25m4.5 0h3m-9 8.25h13.5A2.25 2.25 0 0021 18V6a2.25 2.25 0 00-2.25-2.25H5.25A2.25 2.25 0 003 6v12a2.25 2.25 0 002.25 2.25z" />
+            </svg>
+          </div>
+          <span class="badge accent">Terminal Emulator</span>
+          <h3 class="card-title">FilePilot Shell</h3>
+          <p class="mb-2">A premium, lightning-fast multi-tab terminal emulator built with Rust and Tauri. Manage local
+            and remote SSH sessions with built-in sync and automation.</p>
+
+          <!-- Actual Screenshot Preview of Shell -->
+          <div class="screenshot-container mb-2" data-caption="FilePilot Shell Workspace Terminal"
+            style="border: 1px solid var(--border-color); border-radius: var(--radius-sm); overflow: hidden; margin-top: 1rem;">
+            <img src="shell/multipanel.jpg" alt="FilePilot Shell Terminal Workspace"
+              style="width: 100%; height: auto;">
+            <div class="screenshot-overlay">
+              <span class="zoom-icon">[ ZOOM ]</span>
+            </div>
+          </div>
+
+          <ul class="feature-list-check">
+            <li>Multi-group sync for cross-pane/tab input broadcasting</li>
+            <li>PTY session stdout logs and frame-by-frame replay</li>
+            <li>Environment initialization macros (JS/Shell editor)</li>
+            <li>Nerd font stacks with deferred ligature rendering</li>
+          </ul>
+          <a href="shell.html"
+            style="font-family: var(--font-sans); font-size: 0.85rem; font-weight: bold; text-transform: uppercase;">Explore
+            Shell Features &rarr;</a>
         </div>
 
         <!-- Enterprise Card -->
         <div class="card reveal-on-scroll">
           <div class="card-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M5.25 14.25h13.5m-13.5 0a3 3 0 01-3-3V7.5a3 3 0 013-3h13.5a3 3 0 013 3v3.75a3 3 0 01-3 3zm0 5.25h13.5m-13.5 0a3 3 0 01-3-3v-3.75a3 3 0 013-3h13.5a3 3 0 013 3v3.75a3 3 0 01-3 3zM6 7.5h.008v.008H6V7.5zm0 10.5h.008v.008H6V18.008zM18 7.5h.008v.008H18V7.5zm0 10.5h.008v.008H18V18.008z" />
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+              stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M5.25 14.25h13.5m-13.5 0a3 3 0 01-3-3V7.5a3 3 0 013-3h13.5a3 3 0 013 3v3.75a3 3 0 01-3 3zm0 5.25h13.5m-13.5 0a3 3 0 01-3-3v-3.75a3 3 0 013-3h13.5a3 3 0 013 3v3.75a3 3 0 01-3 3zM6 7.5h.008v.008H6V7.5zm0 10.5h.008v.008H6V18.008zM18 7.5h.008v.008H18V7.5zm0 10.5h.008v.008H18V18.008z" />
             </svg>
           </div>
+          <span class="badge accent">Team Server</span>
           <h3 class="card-title">FilePilot Enterprise Vault</h3>
-          <p class="mb-2">A centralized Express/Node.js provisioning server that secures and audits connection profiles across platform and database administration teams.</p>
-          
+          <p class="mb-2">Give your team access to servers without ever sharing passwords. Decide who can reach what,
+            and keep a tamper-proof log of every action.</p>
+
           <!-- Actual Screenshot Preview of Enterprise Server -->
-          <div class="screenshot-container mb-2" data-caption="FilePilot Enterprise Vault Admin Console Dashboard" style="border: 1px solid var(--border-color); border-radius: var(--radius-sm); overflow: hidden; margin-top: 1rem;">
-            <img src="enterprise/dashboard.jpg" alt="FilePilot Enterprise Vault Administration Console" style="width: 100%; height: auto;">
+          <div class="screenshot-container mb-2" data-caption="FilePilot Enterprise Vault Admin Console Dashboard"
+            style="border: 1px solid var(--border-color); border-radius: var(--radius-sm); overflow: hidden; margin-top: 1rem;">
+            <img src="enterprise/dashboard.jpg" alt="FilePilot Enterprise Vault Administration Console"
+              style="width: 100%; height: auto;">
             <div class="screenshot-overlay">
               <span class="zoom-icon">[ ZOOM ]</span>
             </div>
           </div>
-          
+
           <ul class="feature-list-check">
-            <li>Centralized connection profile token-scoped provisioning</li>
-            <li>Blockchain-style tamper-evident audit logs (SHA-256 chain)</li>
-            <li>Multiple Database backends (SQLite, PostgreSQL, MySQL)</li>
-            <li>Real-time token revocation and remote file restoration</li>
+            <li>Share server logins without revealing the passwords</li>
+            <li>Control who can access which servers</li>
+            <li>Tamper-proof record of every file transfer</li>
+            <li>Revoke access or restore files instantly</li>
           </ul>
-          <a href="enterprise.html" style="font-family: var(--font-sans); font-size: 0.85rem; font-weight: bold; text-transform: uppercase;">Explore Vault Features &rarr;</a>
+          <a href="enterprise.html"
+            style="font-family: var(--font-sans); font-size: 0.85rem; font-weight: bold; text-transform: uppercase;">Explore
+            Vault Features &rarr;</a>
         </div>
       </div>
     </div>
@@ -133,52 +260,79 @@
   <section class="reveal-on-scroll">
     <div class="container">
       <div class="section-header">
-        <h2>Multi-Protocol Integration</h2>
-        <p>FilePilot supports all industry-standard transfer protocols out-of-the-box, optimized via Rust's async runtime engine.</p>
+        <h2>Connects to Just About Anything</h2>
+        <p>SFTP, FTP, S3, WebDAV, local PTY shells, and remote SSH terminal connections &mdash; all managed from a single secure system.</p>
       </div>
-      <div class="grid-4">
-        <!-- SFTP -->
-        <div class="card reveal-on-scroll text-center">
-          <div class="card-icon" style="margin-bottom: 0.75rem;">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 5.25a3 3 0 013 3m3 0a6 6 0 01-7.029 5.912c-.563-.097-1.159.026-1.563.43L10.5 17.25H8.25v2.25H6v2.25H2.25v-2.818c0-.597.237-1.17.659-1.591l6.499-6.499c.404-.404.527-1 .43-1.563A6 6 0 1121.75 8.25z" />
-            </svg>
+      <div class="protocol-grid">
+        <div class="protocol-card">
+          <div class="protocol-ic"><i data-lucide="terminal"></i></div>
+          <div>
+            <div class="protocol-name">SFTP (SSH)</div>
+            <p class="protocol-desc">Secure Shell transfers with password or SSH key-pair auth, SOCKS proxies, and
+              jump-host chaining.</p>
           </div>
-          <div style="font-size: 1.35rem; margin-bottom: 0.5rem; color: var(--accent); font-family: var(--font-title);">SFTP (SSH)</div>
-          <p>Secure Shell File Transfer with password & SSH key pair authentication, SOCKS proxies, and jump-host chaining.</p>
         </div>
-
-        <!-- S3 -->
-        <div class="card reveal-on-scroll text-center">
-          <div class="card-icon" style="margin-bottom: 0.75rem;">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15a4.5 4.5 0 004.5 4.5H18a3.75 3.75 0 001.332-7.257 3 3 0 00-3.758-3.848 5.25 5.25 0 00-10.233 2.33A4.502 4.502 0 002.25 15z" />
-            </svg>
+        <div class="protocol-card">
+          <div class="protocol-ic"><i data-lucide="folder"></i></div>
+          <div>
+            <div class="protocol-name">FTP</div>
+            <p class="protocol-desc">Standard FTP with active and passive modes &mdash; works through firewalls and NAT
+              without extra setup.</p>
           </div>
-          <div style="font-size: 1.35rem; margin-bottom: 0.5rem; color: var(--accent); font-family: var(--font-title);">Amazon S3</div>
-          <p>Native AWS bucket browser, bucket actions, custom endpoints (MinIO/Ceph), and concurrent multipart transfers.</p>
         </div>
-
-        <!-- FTPS -->
-        <div class="card reveal-on-scroll text-center">
-          <div class="card-icon" style="margin-bottom: 0.75rem;">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.57-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
-            </svg>
+        <div class="protocol-card">
+          <div class="protocol-ic"><i data-lucide="monitor"></i></div>
+          <div>
+            <div class="protocol-name">Local PTY Shells</div>
+            <p class="protocol-desc">Spawn native PowerShell, CMD, bash, or zsh sessions inside tab splits with deferred Nerd font ligature rendering.</p>
           </div>
-          <div style="font-size: 1.35rem; margin-bottom: 0.5rem; color: var(--accent); font-family: var(--font-title);">FTPS (TLS/SSL)</div>
-          <p>Classic FTP wrapped in modern transport-layer security with implicit/explicit modes and validation certificates.</p>
         </div>
-
-        <!-- WebDAV -->
-        <div class="card reveal-on-scroll text-center">
-          <div class="card-icon" style="margin-bottom: 0.75rem;">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12h19.5M2.25 9h19.5m-19.5 6h19.5m-19.5 3h19.5M2.25 6h19.5" />
-            </svg>
+        <div class="protocol-card">
+          <div class="protocol-ic"><i data-lucide="git-branch"></i></div>
+          <div>
+            <div class="protocol-name">Multiplexed SSH</div>
+            <p class="protocol-desc">Open multiple remote terminal sessions simultaneously, broadcast inputs in real-time, and route through SSH jump hosts.</p>
           </div>
-          <div style="font-size: 1.35rem; margin-bottom: 0.5rem; color: var(--accent); font-family: var(--font-title);">WebDAV</div>
-          <p>HTTP-based authoring and versioning, optimized for private network attached storage (NAS) and Cloud mounts.</p>
+        </div>
+        <div class="protocol-card">
+          <div class="protocol-ic"><i data-lucide="cloud"></i></div>
+          <div>
+            <div class="protocol-name">Amazon S3</div>
+            <p class="protocol-desc">Browse buckets like a filesystem &mdash; regions, custom endpoints (MinIO/Ceph),
+              multipart transfers.</p>
+          </div>
+        </div>
+        <div class="protocol-card">
+          <div class="protocol-ic"><i data-lucide="hard-drive"></i></div>
+          <div>
+            <div class="protocol-name">WebDAV</div>
+            <p class="protocol-desc">Nextcloud, ownCloud, NAS devices, and any HTTP-based file server with full
+              read/write access.</p>
+          </div>
+        </div>
+        <div class="protocol-card">
+          <div class="protocol-ic"><i data-lucide="box"></i></div>
+          <div>
+            <div class="protocol-name">Cloud Storage</div>
+            <p class="protocol-desc">First-class Google Drive, Dropbox, OneDrive, and Azure Blob support in the same
+              dual pane.</p>
+          </div>
+        </div>
+        <div class="protocol-card">
+          <div class="protocol-ic"><i data-lucide="shuffle"></i></div>
+          <div>
+            <div class="protocol-name">Proxy / Jump Host</div>
+            <p class="protocol-desc">Tunnel through SOCKS5 or HTTP proxies, or chain SSH bastions to reach private
+              networks.</p>
+          </div>
+        </div>
+        <div class="protocol-card">
+          <div class="protocol-ic"><i data-lucide="puzzle"></i></div>
+          <div>
+            <div class="protocol-name">Plugin Protocols</div>
+            <p class="protocol-desc">Need something else? Build your own protocol handler with the SDK and register it
+              as native.</p>
+          </div>
         </div>
       </div>
       <div class="text-center mt-3">
@@ -188,12 +342,70 @@
     </div>
   </section>
 
+  <!-- Built For (personas) -->
+  <section class="reveal-on-scroll bg-secondary">
+    <div class="container">
+      <div class="section-header">
+        <h2>Built for the Way You Actually Work</h2>
+        <p>One tool that fits the developer at their desk and the security team that has to sign off on it.</p>
+      </div>
+      <div class="persona-grid">
+        <div class="persona-card">
+          <div class="persona-ic"><i data-lucide="code-2"></i></div>
+          <h3>DevOps &amp; Developers</h3>
+          <p>Manage transfers and terminal splits in one unified workspace, automate routines with JavaScript macros, and orchestrate environments natively.</p>
+        </div>
+        <div class="persona-card">
+          <div class="persona-ic"><i data-lucide="shield"></i></div>
+          <h3>Security &amp; Compliance</h3>
+          <p>Zero-knowledge credential sealing, tamper-evident SHA-256 audit chains, and IP allowlists that stand up to
+            the strictest security review.</p>
+        </div>
+        <div class="persona-card">
+          <div class="persona-ic"><i data-lucide="users"></i></div>
+          <h3>Platform &amp; IT Teams</h3>
+          <p>Provision connection profiles centrally, rotate keys, and revoke access in real time &mdash; every engineer
+            stays in sync from a single vault.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works -->
+  <section class="reveal-on-scroll">
+    <div class="container">
+      <div class="section-header">
+        <h2>How Team Access Works</h2>
+        <p>How your team gets access to servers &mdash; without a password ever changing hands.</p>
+      </div>
+      <div class="how-steps">
+        <div class="how-step">
+          <div class="how-step-num">1</div>
+          <h3>Provision</h3>
+          <p>An admin defines connection profiles in the Vault. Secrets are wrapped with your cloud KMS (AWS, Azure,
+            GCP, or HashiCorp) and never stored in plaintext.</p>
+        </div>
+        <div class="how-step">
+          <div class="how-step-num">2</div>
+          <h3>Sync</h3>
+          <p>The client redeems a scoped access token over a TLS WebSocket. Profiles are decrypted in-memory and
+            re-sealed into the local encrypted database.</p>
+        </div>
+        <div class="how-step">
+          <div class="how-step-num">3</div>
+          <h3>Access &amp; Audit</h3>
+          <p>Every transfer or terminal action runs directly against target servers. Each operation streams back to a tamper-evident SHA-256 audit chain.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Comparisons Section -->
   <section class="reveal-on-scroll bg-secondary">
     <div class="container">
       <div class="section-header">
         <h2>Comparison: The Modern Shift</h2>
-        <p>FileZilla and WinSCP were built for a different decade. Here is how FilePilot addresses modern engineering workflows.</p>
+        <p>Legacy file transfer clients and terminal tools were built for a different decade. Here is how FilePilot integrates transfers, command lines, and governance into modern developer workflows.</p>
       </div>
       <div class="table-container">
         <table>
@@ -269,9 +481,11 @@
       <div class="alert-box important" style="max-width: 800px; margin: 0 auto; text-align: left;">
         <span class="alert-icon">[!]</span>
         <div class="alert-content">
-          <h3 class="text-accent" style="margin-bottom: 0.5rem; font-family: var(--font-title);">100% Free, Open Source, and Secure</h3>
+          <h3 class="text-accent" style="margin-bottom: 0.5rem; font-family: var(--font-title);">100% Free, Open Source,
+            and Secure</h3>
           <p>
-            Both FilePilot Client and FilePilot Enterprise Vault are licensed under the permissive **MIT License**. There are no locked features, no premium tiers, no tracking telemetry, and no ad trackers.
+            Both FilePilot standalone tools (Client &amp; Shell) and the Enterprise Vault are licensed under the permissive **MIT License**.
+            There are no locked features, no premium tiers, no tracking telemetry, and no ad trackers.
           </p>
           <p class="mt-1">
             All code is audited on GitHub and runs completely locally or on your private infrastructure.
@@ -286,20 +500,77 @@
   </section>
 
   <!-- Footer -->
+  <!-- Next-Step Flow CTA -->
+  <section class="reveal-on-scroll flow-cta-section">
+    <div class="container">
+      <div class="flow-cta">
+        <span class="flow-cta-eyebrow">GETTING STARTED</span>
+        <h2>Start with standalone tools, scale as you grow</h2>
+        <p>Download our native desktop apps for free today. Add the Enterprise Vault later when you need to sync
+          configurations and audit access for your team.</p>
+        <div class="flow-cta-actions">
+          <a href="download.html" class="btn btn-primary">Download FilePilot →</a>
+          <a href="products.html" class="btn btn-secondary">Compare Products →</a>
+        </div>
+        <div class="flow-journey">
+          <a class="flow-step" href="client.html">
+            <span class="flow-step-num">STEP 01</span>
+            <span class="flow-step-title">Desktop Client</span>
+            <span class="flow-step-desc">Blazing-fast dual-pane visual file transfers.</span>
+          </a>
+          <div class="flow-arrow"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg></div>
+
+          <a class="flow-step" href="shell.html">
+            <span class="flow-step-num">STEP 02</span>
+            <span class="flow-step-title">Terminal Shell</span>
+            <span class="flow-step-desc">Vibrant multi-tab command terminal splits.</span>
+          </a>
+          <div class="flow-arrow"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg></div>
+
+          <a class="flow-step" href="enterprise.html">
+            <span class="flow-step-num">STEP 03</span>
+            <span class="flow-step-title">Enterprise Vault</span>
+            <span class="flow-step-desc">Centralized credential sync, policy, & audit.</span>
+          </a>
+          <div class="flow-arrow"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg></div>
+
+          <a class="flow-step" href="download.html">
+            <span class="flow-step-num">STEP 04</span>
+            <span class="flow-step-title">Download &amp; Deploy</span>
+            <span class="flow-step-desc">Get native installers for Windows, macOS, &amp; Linux.</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <footer>
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
           <div class="footer-logo">
-            <img src="logo/client.png" alt="FilePilot Logo">
-            <span>FILEPILOT</span>
+            <img src="logo/filepilotico.png" alt="FilePilot Logo" class="flashy-logo">
           </div>
-          <p>Blazing-fast file transfers secured by zero-knowledge local cryptography and centralized access vault control.</p>
+          <p>Fast, secure file transfers &mdash; your passwords stay encrypted on your own device, and your team&#x27;s
+            server access is managed from one place.</p>
         </div>
         <div>
           <h4 class="footer-links-title">Products</h4>
           <ul class="footer-links">
             <li><a href="client.html">Desktop Client</a></li>
+            <li><a href="shell.html">Terminal Shell</a></li>
             <li><a href="enterprise.html">Enterprise Vault</a></li>
             <li><a href="products.html">Product Guide</a></li>
             <li><a href="download.html">Downloads</a></li>
@@ -315,12 +586,12 @@
           </ul>
         </div>
         <div>
-          <h4 class="footer-links-title">System Status</h4>
-          <ul class="footer-links text-mono" style="font-size: 0.85rem; color: var(--accent);">
-            <li>SEAL_STATE: LOCKED</li>
-            <li>VAULT: OPERATIONAL</li>
-            <li>CORE: RUST_ASYNC</li>
-            <li>LICENSE: MIT</li>
+          <h4 class="footer-links-title">Why FilePilot</h4>
+          <ul class="footer-links">
+            <li>100% free &amp; open source</li>
+            <li>No accounts, no tracking</li>
+            <li>Passwords never leave your device</li>
+            <li>Windows, macOS &amp; Linux</li>
           </ul>
         </div>
       </div>
@@ -335,9 +606,10 @@
   </footer>
 
   <script src="js/main.js"></script>
-  
+
   <div id="premium-bg-mesh"></div>
   <div id="grain-overlay"></div>
   <script src="js/hyperspeed.js"></script>
 </body>
+
 </html>

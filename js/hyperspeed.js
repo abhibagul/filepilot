@@ -58,7 +58,7 @@ document.addEventListener('DOMContentLoaded', () => {
         this.pz = this.z;
       }
     }
-    draw() {
+    draw(accentColor) {
       const sx = (this.x / this.z) * cx + cx;
       const sy = (this.y / this.z) * cy + cy;
       const px = (this.x / this.pz) * cx + cx;
@@ -72,16 +72,29 @@ document.addEventListener('DOMContentLoaded', () => {
       const size = Math.max(0.1, (1 - this.z / width) * 3);
       const alpha = 1 - (this.z / width);
 
+      // Canvas Blackout Mask for Hero Text Readability
+      const dx = Math.abs((sx + px)/2 - cx);
+      const dy = Math.abs((sy + py)/2 - cy) / 0.5; // Flatten ellipse
+      const dist = Math.sqrt(dx * dx + dy * dy);
+      const maskRadius = width * 0.25;
+      
+      let maskFade = 1;
+      if (dist < maskRadius) {
+        maskFade = Math.pow(dist / maskRadius, 4);
+      }
+      
+      const finalAlpha = alpha * maskFade;
+      if (finalAlpha < 0.02) return;
+
       ctx.beginPath();
       ctx.moveTo(px, py);
       ctx.lineTo(sx, sy);
       
-      const theme = document.documentElement.getAttribute('data-theme');
-      const isDark = theme !== 'light';
-      
+      ctx.globalAlpha = finalAlpha;
       ctx.lineWidth = size;
-      ctx.strokeStyle = isDark ? `rgba(0, 230, 96, ${alpha})` : `rgba(0, 184, 87, ${alpha})`;
+      ctx.strokeStyle = accentColor;
       ctx.stroke();
+      ctx.globalAlpha = 1.0;
     }
   }
 
@@ -98,9 +111,12 @@ document.addEventListener('DOMContentLoaded', () => {
     ctx.fillStyle = isDark ? 'rgba(13, 18, 22, 0.4)' : 'rgba(249, 251, 251, 0.4)';
     ctx.fillRect(0, 0, width, height);
 
+    const computed = getComputedStyle(document.documentElement);
+    const accentColor = computed.getPropertyValue('--accent').trim();
+
     stars.forEach(star => {
       star.update();
-      star.draw();
+      star.draw(accentColor);
     });
 
     requestAnimationFrame(animate);

@@ -3,40 +3,45 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>FilePilot GitHub - Open Source Repositories & Build Guides</title>
-  <meta name="description" content="Access FilePilot Client and Enterprise Vault source code repositories. Learn how to compile Tauri desktop clients and Node.js servers from source.">
+  <title>FilePilot on GitHub — Free and Open Source Code</title>
+  <meta name="description" content="FilePilot is 100% free and open source. Browse the desktop app and team Vault source code, suggest changes, or build the apps yourself.">
   <link rel="stylesheet" href="css/style.css">
+  <link rel="shortcut icon" type="image/png" href="logo/filepilotico.png">
+  <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body>
   <!-- Header -->
   <header>
     <div class="container nav-container">
       <a href="index.html" class="logo-link">
-        <img src="logo/client.png" alt="FilePilot Logo">
-        <span>FILEPILOT<span class="logo-prompt">:/$</span></span>
+        <img src="logo/filepilotico.png" alt="FilePilot Logo" class="flashy-logo">
       </a>
       <button class="menu-toggle">[ MENU ]</button>
       <nav>
         <a href="index.html" class="nav-link">Home</a>
-        <a href="products.html" class="nav-link">Products</a>
-        <a href="client.html" class="nav-link">Desktop Client</a>
-        <a href="enterprise.html" class="nav-link">Enterprise Vault</a>
+        <div class="dropdown">
+          <a href="products.html" class="nav-link dropdown-toggle">Products <span style="font-size: 0.75rem;">▼</span></a>
+          <div class="dropdown-menu">
+            <a href="client.html" class="dropdown-item">Desktop Client</a>
+            <a href="shell.html" class="dropdown-item">Terminal Shell</a>
+            <a href="enterprise.html" class="dropdown-item">Enterprise Vault</a>
+          </div>
+        </div>
         <a href="download.html" class="nav-link">Download</a>
         <a href="about.html" class="nav-link">About</a>
         <a href="faq.html" class="nav-link">FAQ</a>
         <a href="github.html" class="nav-link">GitHub</a>
-        <button class="theme-toggle" aria-label="Toggle Theme"></button>
       </nav>
     </div>
   </header>
 
   <!-- Page Header -->
-  <section class="reveal-on-scroll hero" style="padding: 4rem 0 2rem;">
+  <section class="reveal-on-scroll hero" style="padding: 9rem 0 2rem;">
     <div class="container">
       <span class="hero-tag">OPEN SOURCE HUB</span>
       <h1>FilePilot on GitHub</h1>
       <p class="hero-subtitle">
-        FilePilot is 100% open-source under the MIT License. Explore our codebases, submit pull requests, or compile binaries locally.
+        FilePilot is 100% free and open source. Browse the code, suggest changes, or build the apps yourself.
       </p>
     </div>
   </section>
@@ -44,14 +49,14 @@
   <!-- Repository Dual Links -->
   <section class="reveal-on-scroll">
     <div class="container">
-      <div class="grid-2 mb-3">
+      <div class="grid-3 mb-3">
         <!-- Client Repository -->
         <div class="card reveal-on-scroll" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
-            <div style="font-size: 2rem; margin-bottom: 0.5rem;">🖥️</div>
+            <div style="margin-bottom: 1rem;"><i data-lucide="monitor" style="width:36px;height:36px;stroke:var(--accent);stroke-width:1.5;"></i></div>
             <h3 class="card-title">filepilot-ftp-client</h3>
             <p style="font-size: 0.95rem; color: var(--text-secondary); margin-bottom: 1.5rem;">
-              The Tauri/Rust desktop client repository. Contains the parallel Tokio transfer worker engine, the React UI dashboard components, and local cryptographic seals.
+              The desktop app&#x27;s source code &mdash; the transfer engine, the interface, and the on-device encryption that keeps your passwords private.
             </p>
           </div>
           <div>
@@ -63,13 +68,32 @@
           </div>
         </div>
 
+
+        <!-- Shell Repository -->
+        <div class="card reveal-on-scroll" style="display: flex; flex-direction: column; justify-content: space-between;">
+          <div>
+            <div style="margin-bottom: 1rem;"><i data-lucide="terminal" style="width:36px;height:36px;stroke:var(--accent);stroke-width:1.5;"></i></div>
+            <h3 class="card-title">filepilot-shell</h3>
+            <p style="font-size: 0.95rem; color: var(--text-secondary); margin-bottom: 1.5rem;">
+              The terminal emulator's source code &mdash; the PTY shell engine, multi-tab window UI, group input sync, and connection profiles.
+            </p>
+          </div>
+          <div>
+            <span class="badge accent">Rust</span>
+            <span class="badge accent">TypeScript</span>
+            <span class="badge">Tauri SDK</span>
+            <span class="badge">React</span>
+            <a href="https://github.com/abhibagul/filepilot-shell" class="btn btn-secondary" style="display: block; text-align: center; margin-top: 1.5rem;">View Shell Repository &rarr;</a>
+          </div>
+        </div>
+
         <!-- Enterprise Vault Repository -->
         <div class="card reveal-on-scroll" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
-            <div style="font-size: 2rem; margin-bottom: 0.5rem;">🏢</div>
+            <div style="margin-bottom: 1rem;"><i data-lucide="server" style="width:36px;height:36px;stroke:var(--accent);stroke-width:1.5;"></i></div>
             <h3 class="card-title">filepilot-enterprise-vault</h3>
             <p style="font-size: 0.95rem; color: var(--text-secondary); margin-bottom: 1.5rem;">
-              The centralized credential provisioning server repository. Holds Express middleware routines, the database integration drivers, key wrappers, and the admin panel dashboard.
+              The team server&#x27;s source code &mdash; the API, database drivers, encryption, and the web admin dashboard.
             </p>
           </div>
           <div>
@@ -92,7 +116,7 @@
         <p>Follow these instructions to compile or test either component inside your development sandbox.</p>
       </div>
 
-      <div class="grid-2">
+      <div class="grid-3">
         <!-- Client build guide -->
         <div>
           <h3>Compiling the Desktop Client</h3>
@@ -106,6 +130,29 @@ cd filepilot-ftp-client
 npm install
 
 # 3. Launch desktop client in hot-reload dev mode
+npm run tauri dev
+
+# 4. Compile optimized native installer for your OS
+npm run tauri build</code></pre>
+          <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 1rem;">
+            Note: Compiled binaries are written to <code>src-tauri/target/release/bundle</code>.
+          </p>
+        </div>
+
+
+        <!-- Shell build guide -->
+        <div>
+          <h3>Compiling the Terminal Shell</h3>
+          <p class="mb-2">Prerequisites: Node.js v18+ and the Rust compiler toolchain (cargo, rustc).</p>
+          
+          <pre><code># 1. Clone shell repository
+git clone https://github.com/abhibagul/filepilot-shell.git
+cd filepilot-shell
+
+# 2. Install node dependencies
+npm install
+
+# 3. Launch terminal emulator in hot-reload dev mode
 npm run tauri dev
 
 # 4. Compile optimized native installer for your OS
@@ -147,7 +194,7 @@ npm run dev</code></pre>
         <div>
           <h2>Contributing to FilePilot</h2>
           <p>
-            We welcome contributions from system administrators, security engineers, and frontend developers alike. You can participate by checking code quality, reporting vulnerabilities, or submitting pull requests.
+            Everyone&#x27;s welcome to help &mdash; whether you review code, report a security issue, or submit an improvement, contributions of every size are appreciated.
           </p>
           <div style="font-family: var(--font-mono); font-size: 0.9rem; line-height: 1.8; color: var(--text-secondary); margin-top: 1.5rem;">
             <div style="color: var(--text-primary); font-weight: bold;">[i] Pull Request Rules</div>
@@ -166,6 +213,10 @@ npm run dev</code></pre>
               <span class="text-accent">&gt;</span> 
               <a href="https://github.com/abhibagul/filepilot-ftp-client/issues" target="_blank">FilePilot Client Issues</a>
             </li>
+            <li class="mb-1">
+              <span class="text-accent">&gt;</span> 
+              <a href="https://github.com/abhibagul/filepilot-shell/issues" target="_blank">FilePilot Shell Issues</a>
+            </li>
             <li>
               <span class="text-accent">&gt;</span> 
               <a href="https://github.com/abhibagul/filepilot-enterprise-vault/issues" target="_blank">FilePilot Vault Issues</a>
@@ -180,20 +231,63 @@ npm run dev</code></pre>
   </section>
 
   <!-- Footer -->
+    <!-- Next-Step Flow CTA -->
+  <section class="reveal-on-scroll flow-cta-section">
+    <div class="container">
+      <div class="flow-cta">
+        <span class="flow-cta-eyebrow">GETTING STARTED</span>
+        <h2>Cloned it? Now run it</h2>
+        <p>Explore our installation instructions to build the desktop client or terminal shell from source.</p>
+        <div class="flow-cta-actions">
+          <a href="download.html" class="btn btn-primary">Go to Downloads →</a>
+          <a href="faq.html" class="btn btn-secondary">Read FAQ & Wiki →</a>
+        </div>
+        <div class="flow-journey">
+          <a class="flow-step" href="client.html">
+            <span class="flow-step-num">STEP 01</span>
+            <span class="flow-step-title">Desktop Client</span>
+            <span class="flow-step-desc">Blazing-fast dual-pane visual file transfers.</span>
+          </a>
+          <div class="flow-arrow"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></div>
+          
+          <a class="flow-step" href="shell.html">
+            <span class="flow-step-num">STEP 02</span>
+            <span class="flow-step-title">Terminal Shell</span>
+            <span class="flow-step-desc">Vibrant multi-tab command terminal splits.</span>
+          </a>
+          <div class="flow-arrow"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></div>
+          
+          <a class="flow-step" href="enterprise.html">
+            <span class="flow-step-num">STEP 03</span>
+            <span class="flow-step-title">Enterprise Vault</span>
+            <span class="flow-step-desc">Centralized credential sync, policy, & audit.</span>
+          </a>
+          <div class="flow-arrow"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></div>
+          
+          <a class="flow-step" href="download.html">
+            <span class="flow-step-num">STEP 04</span>
+            <span class="flow-step-title">Download &amp; Deploy</span>
+            <span class="flow-step-desc">Get native installers for Windows, macOS, &amp; Linux.</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <footer>
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
           <div class="footer-logo">
-            <img src="logo/client.png" alt="FilePilot Logo">
-            <span>FILEPILOT</span>
+            <img src="logo/filepilotico.png" alt="FilePilot Logo" class="flashy-logo">
           </div>
-          <p>Blazing-fast file transfers secured by zero-knowledge local cryptography and centralized access vault control.</p>
+          <p>Fast, secure file transfers &mdash; your passwords stay encrypted on your own device, and your team&#x27;s server access is managed from one place.</p>
         </div>
         <div>
           <h4 class="footer-links-title">Products</h4>
           <ul class="footer-links">
             <li><a href="client.html">Desktop Client</a></li>
+            <li><a href="shell.html">Terminal Shell</a></li>
             <li><a href="enterprise.html">Enterprise Vault</a></li>
             <li><a href="products.html">Product Guide</a></li>
             <li><a href="download.html">Downloads</a></li>
@@ -209,12 +303,12 @@ npm run dev</code></pre>
           </ul>
         </div>
         <div>
-          <h4 class="footer-links-title">System Status</h4>
-          <ul class="footer-links text-mono" style="font-size: 0.85rem; color: var(--accent);">
-            <li>SEAL_STATE: LOCKED</li>
-            <li>VAULT: OPERATIONAL</li>
-            <li>CORE: RUST_ASYNC</li>
-            <li>LICENSE: MIT</li>
+          <h4 class="footer-links-title">Why FilePilot</h4>
+          <ul class="footer-links">
+            <li>100% free &amp; open source</li>
+            <li>No accounts, no tracking</li>
+            <li>Passwords never leave your device</li>
+            <li>Windows, macOS &amp; Linux</li>
           </ul>
         </div>
       </div>

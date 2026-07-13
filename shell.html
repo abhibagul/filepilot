@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FilePilot Shell — Premium Multi-Tab Terminal Emulator</title>
+  <meta name="description"
+    content="Accelerate your command line workflow with a lightning-fast, secure, and customizable terminal emulator built on Tauri and Rust. Ready for local shells and stateful SSH connections.">
+  <link rel="stylesheet" href="css/style.css?v=3">
+  <link rel="shortcut icon" type="image/png" href="logo/filepilotico.png">
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body>
+  <!-- Header -->
+  <header>
+    <div class="container nav-container">
+      <a href="index.html" class="logo-link">
+        <img src="logo/filepilotico.png" alt="FilePilot Logo" class="flashy-logo">
+      </a>
+      <button class="menu-toggle">[ MENU ]</button>
+      <nav>
+        <a href="index.html" class="nav-link">Home</a>
+        <div class="dropdown">
+          <a href="products.html" class="nav-link dropdown-toggle">Products <span style="font-size: 0.75rem;">▼</span></a>
+          <div class="dropdown-menu">
+            <a href="client.html" class="dropdown-item">Desktop Client</a>
+            <a href="shell.html" class="dropdown-item">Terminal Shell</a>
+            <a href="enterprise.html" class="dropdown-item">Enterprise Vault</a>
+          </div>
+        </div>
+        <a href="download.html" class="nav-link">Download</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="faq.html" class="nav-link">FAQ</a>
+        <a href="github.html" class="nav-link">GitHub</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Page Header / Hero -->
+  <section class="reveal-on-scroll hero shell-hero" style="padding: 9rem 0 2rem;">
+    <div class="hero-canvas-container">
+      <canvas id="hero-waterfall-canvas"></canvas>
+    </div>
+    <div class="container">
+      <div class="hero-header-box">
+        <div class="hero-tag-container">
+          <span class="hero-tag glitch-text crt-glow" data-glitch="TERMINAL EMULATOR">TERMINAL EMULATOR</span>
+        </div>
+        <h1 class="glitch-text crt-glow" data-glitch="FilePilot Shell">
+          FilePilot <span style="color: var(--accent);">Shell</span><span class="shell-cursor">_</span>
+        </h1>
+        <p class="hero-subtitle">
+          Accelerate your shell workflow with FilePilot. A premium, lightning-fast multi-tab terminal emulator built on
+          Tauri and Rust.
+        </p>
+        <div class="hero-cta mb-3">
+          <a href="download.html" class="btn btn-primary">[ DOWNLOAD SHELL ]</a>
+          <a href="https://github.com/abhibagul/filepilot-shell" class="btn btn-secondary" target="_blank">View GitHub
+            Repo</a>
+        </div>
+      </div>
+
+      <div class="terminal-window" style="max-width: 1000px; cursor: pointer;">
+        <div class="terminal-header">
+          <div class="terminal-buttons">
+            <span class="terminal-button red"></span>
+            <span class="terminal-button yellow"></span>
+            <span class="terminal-button green"></span>
+          </div>
+          <div class="terminal-title">FilePilot Shell Workspace - terminal_emulator</div>
+          <div style="width: 50px;"></div>
+        </div>
+        <div class="screenshot-container" data-caption="FilePilot Shell Main Workspace Dashboard">
+          <img src="shell/application_home.jpg" alt="FilePilot Shell Workspace Interface"
+            style="width: 100%; height: auto; display: block;">
+          <div class="screenshot-overlay">
+            <span class="zoom-icon">[ ZOOM VIEW ]</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why We Built FilePilot Shell -->
+  <section class="marketing-section bg-secondary reveal-on-scroll" style="padding: 6rem 0;">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="marketing-title">Why FilePilot Shell?</h2>
+        <div class="marketing-accent-line"></div>
+      </div>
+      <div class="grid-3" style="gap: 2rem;">
+        <div class="marketing-card">
+          <div class="marketing-icon"><i data-lucide="terminal" class="marketing-icon"></i></div>
+          <h3>Modern Multi-Tab Splits</h3>
+          <p>Traditional terminal apps get cluttered easily. FilePilot Shell offers built-in multi-tab layout and pane
+            splits with group synchronization.</p>
+        </div>
+        <div class="marketing-card">
+          <div class="marketing-icon"><i data-lucide="shield-check" class="marketing-icon"></i></div>
+          <h3>Zero-Knowledge Security</h3>
+          <p>Retrieve and store SSH keys and remote profiles safely. Seamless integration with local encryption or
+            enterprise central vault overlays.</p>
+        </div>
+        <div class="marketing-card">
+          <div class="marketing-icon"><i data-lucide="sparkles" class="marketing-icon"></i></div>
+          <h3>Automation & Intelligence</h3>
+          <p>Write custom environment startup macros in JavaScript or Shell, view command suggestions, and run workflows
+            in parallel instantly.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Feature 1: Unified Sync Manager (Z-Pattern) -->
+  <section id="sync-manager" class="story-section" style="padding: 6rem 0;">
+    <div class="container" style="position: relative; z-index: 2;">
+      <div class="story-grid">
+        <div class="story-image reveal-on-scroll">
+          <div class="screenshot-showcase" data-caption="Unified Sync Manager Interface">
+            <img src="shell/multipanel.jpg" alt="Unified Sync Manager and Multi-Pane Grid">
+            <div class="screenshot-overlay"><span class="zoom-icon">[ ZOOM ]</span></div>
+          </div>
+        </div>
+        <div class="story-content reveal-on-scroll">
+          <div class="section-label" style="margin-bottom: 1rem;">01 — MULTIPANEL SYNC</div>
+          <h2 class="marketing-title" style="text-align: left; font-size: 2.2rem;">Unified Sync Manager</h2>
+          <div class="marketing-accent-line" style="margin: 0 0 1.5rem 0;"></div>
+          <p style="color: var(--text-secondary); font-size: 1rem; line-height: 1.7; margin-bottom: 1.5rem;">
+            Broadcasting commands to multiple hosts can be complex. FilePilot Shell introduces a dropdown Sync Manager
+            directly on each split pane, enabling partial and cross-tab synchronization.
+          </p>
+          <div class="bento-grid">
+            <div class="bento-card">
+              <div class="bento-card-header"><i data-lucide="check" class="bento-icon"></i> <strong>Sync Groups</strong>
+              </div>
+              <div class="bento-desc">Group splits into Group A, Group B, Group C, or create named custom groups on the
+                fly.</div>
+            </div>
+            <div class="bento-card">
+              <div class="bento-card-header"><i data-lucide="check" class="bento-icon"></i> <strong>Real-time
+                  Broadcast</strong></div>
+              <div class="bento-desc">Direct terminal data forwarding with ultra-low latency (&lt;0.2ms) powered by Rust
+                backends.</div>
+            </div>
+            <div class="bento-card">
+              <div class="bento-card-header"><i data-lucide="check" class="bento-icon"></i> <strong>Color-Coded
+                  Status</strong></div>
+              <div class="bento-desc">The sync button reflects your active sync group dynamically so you never broadcast
+                to the wrong pane.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Feature 2: Session Replay & Recording Logs (Z-Pattern Reversed) -->
+  <section id="session-replay" class="story-section bg-secondary" style="padding: 6rem 0;">
+    <div class="container" style="position: relative; z-index: 2;">
+      <div class="story-grid reverse">
+        <div class="story-image reveal-on-scroll">
+          <div class="screenshot-showcase" data-caption="Session Recording & Replay Manager">
+            <img src="shell/collabmode.jpg" alt="Session Recording and Sharing Panel">
+            <div class="screenshot-overlay"><span class="zoom-icon">[ ZOOM ]</span></div>
+          </div>
+        </div>
+        <div class="story-content reveal-on-scroll">
+          <div class="section-label" style="margin-bottom: 1rem;">02 — RECORDING LOGS</div>
+          <h2 class="marketing-title" style="text-align: left; font-size: 2.2rem;">PTY Session Recording & Replay</h2>
+          <div class="marketing-accent-line" style="margin: 0 0 1.5rem 0;"></div>
+          <p style="color: var(--text-secondary); font-size: 1rem; line-height: 1.7; margin-bottom: 1.5rem;">
+            Analyze terminal outputs post-connection. FilePilot continuously gathers stdout streams when active, saving
+            audit logs locally or streaming to remote servers.
+          </p>
+          <div class="bento-grid">
+            <div class="bento-card">
+              <div class="bento-card-header"><i data-lucide="check" class="bento-icon"></i> <strong>One-Click
+                  Playback</strong></div>
+              <div class="bento-desc">Click the green PLAY button next to the REC badge to replay stdout history
+                frame-by-frame.</div>
+            </div>
+            <div class="bento-card">
+              <div class="bento-card-header"><i data-lucide="check" class="bento-icon"></i> <strong>Standard
+                  Logging</strong></div>
+              <div class="bento-desc">Save complete transcripts to local log files automatically for security auditing
+                and debugging.</div>
+            </div>
+            <div class="bento-card">
+              <div class="bento-card-header"><i data-lucide="check" class="bento-icon"></i> <strong>Collaboration
+                  Ready</strong></div>
+              <div class="bento-desc">Share terminal sessions safely or stream command logs with teammates via secure
+                overlays.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Feature 3: Startup Automation Macros (Z-Pattern) -->
+  <section id="automation-macros" class="story-section" style="padding: 6rem 0;">
+    <div class="container" style="position: relative; z-index: 2;">
+      <div class="story-grid">
+        <div class="story-image reveal-on-scroll">
+          <div class="screenshot-showcase" data-caption="Startup Automation and Command Suggestions">
+            <img src="shell/commands-autosuggest.jpg" alt="Automation script editor and terminal command suggestions">
+            <div class="screenshot-overlay"><span class="zoom-icon">[ ZOOM ]</span></div>
+          </div>
+        </div>
+        <div class="story-content reveal-on-scroll">
+          <div class="section-label" style="margin-bottom: 1rem;">03 — MACRO SCRIPTS</div>
+          <h2 class="marketing-title" style="text-align: left; font-size: 2.2rem;">Startup Automation Macros</h2>
+          <div class="marketing-accent-line" style="margin: 0 0 1.5rem 0;"></div>
+          <p style="color: var(--text-secondary); font-size: 1rem; line-height: 1.7; margin-bottom: 1.5rem;">
+            Save time typing the same setups on connection startup. Run macros that initialize environment variables,
+            aliases, or connect SSH sub-sessions automatically.
+          </p>
+          <div class="bento-grid">
+            <div class="bento-card">
+              <div class="bento-card-header"><i data-lucide="check" class="bento-icon"></i> <strong>Sandbox
+                  Editor</strong></div>
+              <div class="bento-desc">Write custom JavaScript or Shell macro snippets directly in the terminal
+                configuration console.</div>
+            </div>
+            <div class="bento-card">
+              <div class="bento-card-header"><i data-lucide="check" class="bento-icon"></i> <strong>Startup
+                  Trigger</strong></div>
+              <div class="bento-desc">Bind macros to run automatically during the on_startup connection event.</div>
+            </div>
+            <div class="bento-card">
+              <div class="bento-card-header"><i data-lucide="check" class="bento-icon"></i> <strong>Local
+                  Profiles</strong></div>
+              <div class="bento-desc">Sync personal aliases, directories, and configuration settings seamlessly on
+                launch.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Feature 4: AI Command Assistant (Z-Pattern Reversed) -->
+  <section id="ai-integration" class="story-section bg-secondary" style="padding: 6rem 0;">
+    <div class="container" style="position: relative; z-index: 2;">
+      <div class="story-grid reverse">
+        <div class="story-image reveal-on-scroll">
+          <div class="screenshot-showcase" data-caption="Built-in AI Assistant Integration">
+            <img src="shell/ai_integration.jpg" alt="AI-based terminal commands auto-completion">
+            <div class="screenshot-overlay"><span class="zoom-icon">[ ZOOM ]</span></div>
+          </div>
+        </div>
+        <div class="story-content reveal-on-scroll">
+          <div class="section-label" style="margin-bottom: 1rem;">04 — INTELLIGENT SHELL</div>
+          <h2 class="marketing-title" style="text-align: left; font-size: 2.2rem;">AI Integration & Smart Prompts</h2>
+          <div class="marketing-accent-line" style="margin: 0 0 1.5rem 0;"></div>
+          <p style="color: var(--text-secondary); font-size: 1rem; line-height: 1.7; margin-bottom: 1.5rem;">
+            Never forget a complex command-line syntax again. Build and debug command lines using the built-in AI shell
+            copilot directly inside the terminal window.
+          </p>
+          <div class="bento-grid">
+            <div class="bento-card">
+              <div class="bento-card-header"><i data-lucide="check" class="bento-icon"></i>
+                <strong>Auto-completion</strong>
+              </div>
+              <div class="bento-desc">Context-aware CLI suggestions populate directly inside the command line as you
+                type.</div>
+            </div>
+            <div class="bento-card">
+              <div class="bento-card-header"><i data-lucide="check" class="bento-icon"></i> <strong>Error
+                  Correction</strong></div>
+              <div class="bento-desc">If a command exits with a non-zero code, the AI suggests the correct syntax with a
+                single click.</div>
+            </div>
+            <div class="bento-card">
+              <div class="bento-card-header"><i data-lucide="check" class="bento-icon"></i> <strong>Natural Language to
+                  CLI</strong></div>
+              <div class="bento-desc">Type your goal in plain English, and the terminal generates the command using
+                local models.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Advanced Highlights (Bento Grid) -->
+  <section class="marketing-section reveal-on-scroll" style="padding: 6rem 0;">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="marketing-title">Advanced Shell Highlights</h2>
+        <p class="marketing-subtitle"
+          style="text-align: center; color: var(--text-secondary); max-width: 600px; margin: 0 auto 3rem auto;">
+          FilePilot Shell contains powerful configurations designed for system administrators and command line power
+          users.
+        </p>
+      </div>
+
+      <div class="marketing-bento">
+        <!-- Big Card -->
+        <div class="bento-feature highlight">
+          <h3>Classic Paste Protection</h3>
+          <p>Prevent accidental command execution. Configure built-in paste warnings, auto-strip trailing newlines, and
+            control right-click vs copy-on-select behaviors.</p>
+          <div class="bento-visual">
+            <i data-lucide="clipboard-copy" style="font-size: 3rem; color: var(--accent);"></i>
+          </div>
+        </div>
+        <!-- Normal Cards -->
+        <div class="bento-feature">
+          <h3>Multi-Tag Sidebar</h3>
+          <p>Filter connections with tag intersection, organize remote hosts in folders, and expand profile trees
+            automatically.</p>
+        </div>
+        <div class="bento-feature">
+          <h3>Enterprise Vault Lock</h3>
+          <p>Fetch credentials securely from HashiCorp Vault. Tokens and private keys are decrypted on-the-fly and
+            hidden behind lock overlays.</p>
+        </div>
+        <!-- Wide Card -->
+        <div class="bento-feature wide">
+          <h3>Nerd Fonts & Ligatures</h3>
+          <p>Built-in support for JetBrains Mono Nerd Font and Fira Code. Renders programming ligatures (like
+            <code>-&gt;</code> to <code>&rarr;</code> and <code>!=</code> to <code>&ne;</code>) on mount with zero
+            performance hit.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Connection Customizations List -->
+  <section class="marketing-section bg-secondary reveal-on-scroll" style="padding: 6rem 0;">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="marketing-title">SSH Connection Customizations</h2>
+        <div class="marketing-accent-line"></div>
+        <p
+          style="max-width: 650px; margin: 0 auto; color: var(--text-secondary); font-size: 1.05rem; line-height: 1.7;">
+          Configure SSH connections using dashboard switch cards. Customize routing, validation, and credentials in
+          seconds.
+        </p>
+      </div>
+      <div class="grid-2" style="gap: 2rem; max-width: 900px; margin: 0 auto;">
+        <div class="card" style="padding: 1.5rem;">
+          <h3 style="display: flex; align-items: center; gap: 0.75rem;"><i data-lucide="key"
+              style="color: var(--accent);"></i> Agent Forwarding</h3>
+          <p style="font-size: 0.95rem; margin-top: 0.5rem; color: var(--text-secondary);">
+            Forward ssh-agent credentials securely. Keep your private keys on your local machine and use them to jump
+            between remote servers.
+          </p>
+        </div>
+        <div class="card" style="padding: 1.5rem;">
+          <h3 style="display: flex; align-items: center; gap: 0.75rem;"><i data-lucide="shield-alert"
+              style="color: var(--accent);"></i> Skip Verification</h3>
+          <p style="font-size: 0.95rem; margin-top: 0.5rem; color: var(--text-secondary);">
+            Speed up connection testing in internal subnets by bypassing host key verification when connecting to
+            temporary containers.
+          </p>
+        </div>
+        <div class="card" style="padding: 1.5rem;">
+          <h3 style="display: flex; align-items: center; gap: 0.75rem;"><i data-lucide="route"
+              style="color: var(--accent);"></i> Proxy Routing</h3>
+          <p style="font-size: 0.95rem; margin-top: 0.5rem; color: var(--text-secondary);">
+            Seamlessly route your SSH traffic over SOCKS5 or HTTP proxies, maintaining access to private servers through
+            bastions.
+          </p>
+        </div>
+        <div class="card" style="padding: 1.5rem;">
+          <h3 style="display: flex; align-items: center; gap: 0.75rem;"><i data-lucide="refresh-cw"
+              style="color: var(--accent);"></i> Keepalive Interval</h3>
+          <p style="font-size: 0.95rem; margin-top: 0.5rem; color: var(--text-secondary);">
+            Set precise keepalive thresholds to prevent firewall timeouts and keep terminal connections alive during
+            idle periods.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Technical Specifications -->
+  <section class="marketing-section reveal-on-scroll" style="padding: 6rem 0;">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="marketing-title">Technical Specifications</h2>
+        <p>Optimized for low footprint and fast text layout rendering.</p>
+      </div>
+      <div class="table-container" style="max-width: 800px; margin: 0 auto;">
+        <table>
+          <thead>
+            <tr>
+              <th>Parameter</th>
+              <th>Specification</th>
+              <th>Details</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Backend Engine</strong></td>
+              <td>Tauri & Rust</td>
+              <td>Native OS execution, no heavy VM wrappers.</td>
+            </tr>
+            <tr>
+              <td><strong>PTY allocation</strong></td>
+              <td><code>portable-pty</code></td>
+              <td>Low memory footprint (&lt;45 MB idle).</td>
+            </tr>
+            <tr>
+              <td><strong>Renderer</strong></td>
+              <td>WebGL / Canvas</td>
+              <td>Fast stdout text layout rendering.</td>
+            </tr>
+            <tr>
+              <td><strong>Encryptions</strong></td>
+              <td>AES-256-GCM</td>
+              <td>Zero-knowledge client-side encryption.</td>
+            </tr>
+            <tr>
+              <td><strong>Database</strong></td>
+              <td>SQLite</td>
+              <td>Saved profiles and configs stored locally.</td>
+            </tr>
+            <tr>
+              <td><strong>SSH Standard</strong></td>
+              <td>SSH-2 (RFC 4251)</td>
+              <td>Universal compatibility with remote servers.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- OS Compatibility -->
+  <section class="marketing-section bg-secondary reveal-on-scroll" style="padding: 6rem 0;">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-label">COMPATIBILITY</div>
+        <h2 class="marketing-title">Operating System Support</h2>
+        <div class="marketing-accent-line"></div>
+      </div>
+      <div class="grid-4" style="gap: 1.5rem; text-align: center;">
+        <div class="card" style="padding: 2rem;">
+          <i data-lucide="monitor" style="width: 40px; height: 40px; color: var(--accent); margin: 0 auto 1.25rem; display: block;"></i>
+          <h3>Windows</h3>
+          <p style="font-size: 0.9rem; margin-bottom: 0;">PowerShell Core, CMD, and Windows Subsystem for Linux (WSL).
+          </p>
+        </div>
+        <div class="card" style="padding: 2rem;">
+          <i data-lucide="apple" style="width: 40px; height: 40px; color: var(--accent); margin: 0 auto 1.25rem; display: block;"></i>
+          <h3>macOS</h3>
+          <p style="font-size: 0.9rem; margin-bottom: 0;">Native zsh, bash, fish, and custom remote SSH connections.</p>
+        </div>
+        <div class="card" style="padding: 2rem;">
+          <i data-lucide="terminal" style="width: 40px; height: 40px; color: var(--accent); margin: 0 auto 1.25rem; display: block;"></i>
+          <h3>Linux</h3>
+          <p style="font-size: 0.9rem; margin-bottom: 0;">Native terminal execution (bash, sh) and remote server
+            tunnels.</p>
+        </div>
+        <div class="card" style="padding: 2rem;">
+          <i data-lucide="plug" style="width: 40px; height: 40px; color: var(--accent); margin: 0 auto 1.25rem; display: block;"></i>
+          <h3>Serial Comm</h3>
+          <p style="font-size: 0.9rem; margin-bottom: 0;">Direct COM and SerialPort communication for hardware devices.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Installation & Getting Started -->
+  <section class="marketing-section reveal-on-scroll" style="padding: 6rem 0;">
+    <div class="container" style="max-width: 900px;">
+      <div class="section-header">
+        <h2 class="marketing-title">Installation & Getting Started</h2>
+        <div class="marketing-accent-line"></div>
+      </div>
+
+      <h3 style="margin-bottom: 1rem;">CLI Launch</h3>
+      <p style="margin-bottom: 1rem;">
+        Launch FilePilot Shell directly from your terminal and auto-connect to any saved profile by name or ID:
+      </p>
+      <pre><code># Auto-connect to a saved connection profile named "production-db"
+filepilot-shell --profile "production-db"
+
+# Or using shorthand arguments
+filepilot-shell -p "prod-vault-node"</code></pre>
+
+      <h3 style="margin: 2rem 0 1rem;">Building From Source</h3>
+      <p style="margin-bottom: 1rem;">
+        If you wish to build FilePilot Shell locally, ensure you have Rust, Node.js, and npm installed:
+      </p>
+      <pre><code># Clone the repository
+git clone https://github.com/abhibagul/filepilot-shell.git
+cd filepilot-shell
+
+# Install frontend dependencies
+npm install
+
+# Run the developer version (launches Tauri window)
+npm run dev
+
+# Compile production binary bundles
+npm run build</code></pre>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="marketing-section bg-secondary reveal-on-scroll" style="padding: 6rem 0;">
+    <div class="container" style="max-width: 800px;">
+      <div class="section-header">
+        <div class="section-label">FAQ</div>
+        <h2 class="marketing-title">Frequently Asked Questions</h2>
+        <div class="marketing-accent-line"></div>
+      </div>
+      <div class="faq-accordion">
+        <div class="faq-item">
+          <button class="faq-question">How do I zoom in and out on individual terminal splits?</button>
+          <div class="faq-answer">
+            <p>
+              FilePilot Shell supports independent pane zooming. Focus on a specific split pane and press:
+            <ul>
+              <li><code>Ctrl</code> + <code>+</code> (or <code>=</code>) to zoom in (up to size 36).</li>
+              <li><code>Ctrl</code> + <code>-</code> to zoom out (down to size 6).</li>
+              <li><code>Ctrl</code> + <code>0</code> to reset to the default font size.</li>
+            </ul>
+            </p>
+          </div>
+        </div>
+                <div class="faq-item">
+          <button class="faq-question">What terminal shells are supported natively?</button>
+          <div class="faq-answer">
+            <p>
+              FilePilot Shell supports native Command Prompt, PowerShell, and WSL on Windows, and zsh, bash, and fish on macOS and Linux, alongside secure remote SSH terminals.
+            </p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">How does tab rearranging work?</button>
+          <div class="faq-answer">
+            <p>
+              FilePilot implements HTML5 Drag and Drop triggers, allowing you to drag and reorder terminal tab headers
+              dynamically.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+    <!-- Next-Step Flow CTA -->
+  <section class="reveal-on-scroll flow-cta-section">
+    <div class="container">
+      <div class="flow-cta">
+        <span class="flow-cta-eyebrow">PRODUCT ECOSYSTEM</span>
+        <h2>Command and transfer in one view</h2>
+        <p>Focus on your shell splits and let the background queue handle your remote file transfers.</p>
+        <div class="flow-cta-actions">
+          <a href="download.html" class="btn btn-primary">Download Terminal Shell →</a>
+          <a href="client.html" class="btn btn-secondary">Explore Desktop Client →</a>
+        </div>
+        <div class="flow-journey">
+          <a class="flow-step" href="client.html">
+            <span class="flow-step-num">STEP 01</span>
+            <span class="flow-step-title">Desktop Client</span>
+            <span class="flow-step-desc">Blazing-fast dual-pane visual file transfers.</span>
+          </a>
+          <div class="flow-arrow"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></div>
+          
+          <a class="flow-step active" href="shell.html">
+            <span class="flow-step-num">STEP 02</span>
+            <span class="flow-step-title">Terminal Shell</span>
+            <span class="flow-step-desc">Vibrant multi-tab command terminal splits.</span>
+          </a>
+          <div class="flow-arrow"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></div>
+          
+          <a class="flow-step" href="enterprise.html">
+            <span class="flow-step-num">STEP 03</span>
+            <span class="flow-step-title">Enterprise Vault</span>
+            <span class="flow-step-desc">Centralized credential sync, policy, & audit.</span>
+          </a>
+          <div class="flow-arrow"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></div>
+          
+          <a class="flow-step" href="download.html">
+            <span class="flow-step-num">STEP 04</span>
+            <span class="flow-step-title">Download &amp; Deploy</span>
+            <span class="flow-step-desc">Get native installers for Windows, macOS, &amp; Linux.</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-logo">
+            <img src="logo/filepilotico.png" alt="FilePilot Logo" class="flashy-logo">
+          </div>
+          <p>Blazing-fast file transfers and terminal execution secured by zero-knowledge local cryptography and
+            centralized access vault control.</p>
+        </div>
+        <div>
+          <h4 class="footer-links-title">Products</h4>
+          <ul class="footer-links">
+            <li><a href="client.html">Desktop Client</a></li>
+            <li><a href="shell.html">Terminal Shell</a></li>
+            <li><a href="enterprise.html">Enterprise Vault</a></li>
+            <li><a href="products.html">Product Guide</a></li>
+            <li><a href="download.html">Downloads</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer-links-title">Resources</h4>
+          <ul class="footer-links">
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="github.html">GitHub</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 FilePilot. All rights reserved. Open source under the MIT License.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+
+  <div id="premium-bg-mesh"></div>
+  <div id="grain-overlay"></div>
+
+  <script src="js/shell-topo-mesh-backup.js?v=16"></script>
+  <script>if (typeof lucide !== "undefined") lucide.createIcons();</script>
+</body>
+
+</html>

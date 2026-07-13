@@ -1,41 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
-  // --- Theme Switching System ---
-  const themeToggle = document.querySelector('.theme-toggle');
-  
-  // Set up theme toggle HTML if not present
-  if (themeToggle) {
-    const updateThemeIcon = (theme) => {
-      if (theme === 'dark') {
-        themeToggle.innerHTML = `
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/>
-          </svg>`;
-      } else {
-        themeToggle.innerHTML = `
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
-          </svg>`;
-      }
-    };
-
-    // Retrieve active theme
-    const activeTheme = localStorage.getItem('theme') || 'dark';
-    document.documentElement.setAttribute('data-theme', activeTheme);
-    updateThemeIcon(activeTheme);
-
-    themeToggle.addEventListener('click', () => {
-      const currentTheme = document.documentElement.getAttribute('data-theme');
-      const targetTheme = currentTheme === 'dark' ? 'light' : 'dark';
-      
-      document.documentElement.setAttribute('data-theme', targetTheme);
-      localStorage.setItem('theme', targetTheme);
-      updateThemeIcon(targetTheme);
-    });
-  } else {
-    // If button doesn't exist, still load correct theme from storage
-    const activeTheme = localStorage.getItem('theme') || 'dark';
-    document.documentElement.setAttribute('data-theme', activeTheme);
-  }
+  // --- Force Dark Mode ---
+  document.documentElement.setAttribute('data-theme', 'dark');
 
   // --- Mobile Navigation Toggle ---
   const menuToggle = document.querySelector('.menu-toggle');
@@ -48,14 +13,82 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // --- Homepage Hero Carousel ---
+  const carouselTabs = document.querySelectorAll('.terminal-carousel-tabs .terminal-tab');
+  const carouselTitle = document.getElementById('terminal-carousel-title');
+  if (carouselTabs.length > 0) {
+    let rotationInterval;
+    
+    const selectTab = (tab) => {
+      // Remove active state from all tabs
+      carouselTabs.forEach(t => {
+        t.classList.remove('active');
+        t.style.color = 'var(--text-muted)';
+        t.style.borderColor = 'transparent';
+      });
+      
+      // Set active tab styling
+      tab.classList.add('active');
+      tab.style.color = 'var(--accent)';
+      tab.style.borderColor = 'var(--accent)';
+      
+      // Switch active screenshot-container
+      const targetId = tab.getAttribute('data-target');
+      const containers = document.querySelectorAll('.terminal-window .screenshot-container');
+      containers.forEach(container => {
+        if (container.id === targetId) {
+          container.style.display = 'block';
+          container.classList.add('active');
+        } else {
+          container.style.display = 'none';
+          container.classList.remove('active');
+        }
+      });
+      
+      // Update header subtitle right-aligned label
+      if (targetId === 'carousel-client') {
+        carouselTitle.textContent = 'client_view';
+      } else if (targetId === 'carousel-shell') {
+        carouselTitle.textContent = 'terminal_view';
+      } else if (targetId === 'carousel-vault') {
+        carouselTitle.textContent = 'vault_view';
+      }
+    };
+
+    carouselTabs.forEach((tab, index) => {
+      tab.addEventListener('click', (e) => {
+        e.stopPropagation(); // prevent lightbox trigger on tab click
+        if (rotationInterval) {
+          clearInterval(rotationInterval); // Stop auto-rotation if user interacts
+        }
+        selectTab(tab);
+      });
+    });
+
+    // Start auto-rotation (rotate every 5 seconds)
+    let currentIdx = 0;
+    rotationInterval = setInterval(() => {
+      currentIdx = (currentIdx + 1) % carouselTabs.length;
+      selectTab(carouselTabs[currentIdx]);
+    }, 5000);
+  }
+
+
   // --- Active Link Highlighting ---
   const currentPath = window.location.pathname;
-  const navLinks = document.querySelectorAll('.nav-link');
+  const navLinks = document.querySelectorAll('.nav-link, .dropdown-item');
   
   navLinks.forEach(link => {
     const href = link.getAttribute('href');
     if (currentPath.endsWith(href) || (href === 'index.html' && (currentPath.endsWith('/') || currentPath === ''))) {
       link.classList.add('active');
+      // If it's a dropdown item, also highlight the parent Products dropdown toggle
+      if (link.classList.contains('dropdown-item')) {
+        const parentToggle = link.closest('.dropdown')?.querySelector('.dropdown-toggle');
+        if (parentToggle) {
+          parentToggle.classList.add('active');
+        }
+      }
     }
   });
 
@@ -176,5 +209,60 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     
     revealElements.forEach(el => observer.observe(el));
+  }
+
+  // --- Click to Copy for pre code blocks ---
+  document.querySelectorAll('pre').forEach(block => {
+    // Skip if it is already styled differently
+    if (block.querySelector('.copy-btn')) return;
+
+    const button = document.createElement('button');
+    button.className = 'copy-btn';
+    button.textContent = 'COPY';
+    block.appendChild(button);
+
+    button.addEventListener('click', () => {
+      const code = block.querySelector('code');
+      const text = code ? code.innerText : block.innerText.replace('COPY', '').trim();
+      
+      navigator.clipboard.writeText(text).then(() => {
+        button.textContent = 'COPIED!';
+        button.style.color = 'var(--accent)';
+        setTimeout(() => {
+          button.textContent = 'COPY';
+          button.style.color = '';
+        }, 2000);
+      });
+    });
+  });
+});
+
+// FAQ Accordion
+document.addEventListener('DOMContentLoaded', () => {
+  const faqQuestions = document.querySelectorAll('.faq-question');
+
+  faqQuestions.forEach(question => {
+    question.addEventListener('click', () => {
+      const parent = question.parentElement;
+      const isActive = parent.classList.contains('active');
+      
+      // Close all other accordions
+      document.querySelectorAll('.faq-item').forEach(item => {
+        item.classList.remove('active');
+      });
+      
+      // Toggle current
+      if (!isActive) {
+        parent.classList.add('active');
+      }
+    });
+  });
+});
+
+
+// Initialize Lucide Icons
+document.addEventListener("DOMContentLoaded", () => {
+  if (typeof lucide !== "undefined") {
+    lucide.createIcons();
   }
 });

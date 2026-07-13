@@ -395,4 +395,69 @@
 
 ---
 
-> **Both products are 100% free and open source under the MIT License.** No premium tiers, no telemetry, no ads.
+## 🐚 FilePilot Shell (Terminal Emulator)
+
+> Built with **Tauri (Rust)** backend + **React/TypeScript** frontend. Lightweight and high-performance native terminal emulator.
+
+---
+
+### 17. Unified Sync Manager
+
+| Feature | Description |
+|---|---|
+| **Sync Groups** | Group terminal split panes into Group A, Group B, or Group C for synchronous command dispatching |
+| **Real-Time Broadcast** | Forward keyboard input data to multiple remote/local split terminals with low latency (<0.2ms) |
+| **Color-Coded Status** | Interactive pane status indicators dynamically showing active sync group memberships |
+
+---
+
+### 18. Session Replay & Recording Logs
+
+| Feature | Description |
+|---|---|
+| **One-Click Playback** | Replay terminal session stdout streams frame-by-frame using the inline playback panel |
+| **Local Log Transcripts** | Write complete terminal interaction histories to local log files automatically |
+| **PTY Session Capture** | High-performance, zero-overhead background stdout stream recording |
+
+---
+
+### 19. Startup Automation Macros
+
+| Feature | Description |
+|---|---|
+| **Sandbox Macro Editor** | Inline JavaScript and Shell script editor to define automated connection commands |
+| **Startup Trigger Hook** | Execute custom macros automatically on the `on_startup` connection event |
+| **Profile Syncing** | Load personal aliases, environment variables, and directories automatically |
+
+---
+
+### 20. Connection Customizations
+
+| Feature | Description |
+|---|---|
+| **Agent Forwarding** | Forward ssh-agent credentials securely across SSH jumps |
+| **Skip Host Verification** | Skip host key verification to speed up connections in trusted subnets |
+| **Proxy Routing** | Route terminal SSH sessions through SOCKS5 or HTTP proxies |
+| **Keepalive Interval** | Maintain connection states with customizable keepalive packets |
+
+---
+
+### 21. Nerd Fonts & Ligature Rendering
+
+| Feature | Description |
+|---|---|
+| **Nerd Fonts Bundle** | Built-in font stacks for JetBrains Mono Nerd Font and Fira Code Nerd Font |
+| **Deferred Ligature Loading** | Renders programming ligatures on-mount for code clarity |
+
+---
+
+### 22. Terminal Security & Integrations
+
+| Feature | Description |
+|---|---|
+| **Paste Protection** | Prevents accidental multi-line execution with paste confirmation alerts |
+| **Enterprise Vault Sync** | Integrates with HashiCorp Vault to retrieve credentials dynamically via E2EE API |
+
+---
+
+> **All products are 100% free and open source under the MIT License.** No premium tiers, no telemetry, no ads.

@@ -3,40 +3,45 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Frequently Asked Questions - FilePilot Wiki & comparisons</title>
-  <meta name="description" content="Read frequently asked questions about FilePilot security, master passwords, cloud KMS, database support, and comparison features.">
+  <title>FilePilot FAQ — Plain Answers About How It Works</title>
+  <meta name="description" content="Plain answers about FilePilot — what it is, whether it is free, where your passwords are stored, how team sharing works, and how the audit log stays tamper-proof.">
   <link rel="stylesheet" href="css/style.css">
+  <link rel="shortcut icon" type="image/png" href="logo/filepilotico.png">
+  <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body>
   <!-- Header -->
   <header>
     <div class="container nav-container">
       <a href="index.html" class="logo-link">
-        <img src="logo/client.png" alt="FilePilot Logo">
-        <span>FILEPILOT<span class="logo-prompt">:/$</span></span>
+        <img src="logo/filepilotico.png" alt="FilePilot Logo" class="flashy-logo">
       </a>
       <button class="menu-toggle">[ MENU ]</button>
       <nav>
         <a href="index.html" class="nav-link">Home</a>
-        <a href="products.html" class="nav-link">Products</a>
-        <a href="client.html" class="nav-link">Desktop Client</a>
-        <a href="enterprise.html" class="nav-link">Enterprise Vault</a>
+        <div class="dropdown">
+          <a href="products.html" class="nav-link dropdown-toggle">Products <span style="font-size: 0.75rem;">▼</span></a>
+          <div class="dropdown-menu">
+            <a href="client.html" class="dropdown-item">Desktop Client</a>
+            <a href="shell.html" class="dropdown-item">Terminal Shell</a>
+            <a href="enterprise.html" class="dropdown-item">Enterprise Vault</a>
+          </div>
+        </div>
         <a href="download.html" class="nav-link">Download</a>
         <a href="about.html" class="nav-link">About</a>
         <a href="faq.html" class="nav-link">FAQ</a>
         <a href="github.html" class="nav-link">GitHub</a>
-        <button class="theme-toggle" aria-label="Toggle Theme"></button>
       </nav>
     </div>
   </header>
 
   <!-- Page Header -->
-  <section class="reveal-on-scroll hero" style="padding: 4rem 0 2rem;">
+  <section class="reveal-on-scroll hero" style="padding: 9rem 0 2rem;">
     <div class="container">
       <span class="hero-tag">SUPPORT & WIKI</span>
       <h1>Frequently Asked Questions</h1>
       <p class="hero-subtitle">
-        Everything you need to know about FilePilot's encryption architecture, deployment models, and features.
+        Straight answers about how FilePilot works, what it costs, and how it keeps your passwords safe.
       </p>
     </div>
   </section>
@@ -48,135 +53,60 @@
         
         <!-- Q1 -->
         <div class="faq-item">
-          <div class="faq-question">1. What is FilePilot and how are the two components related?</div>
+          <div class="faq-question">1. What is FilePilot?</div>
           <div class="faq-answer">
             <p>
-              FilePilot is an open-source project consisting of a high-speed desktop client (Tauri/Rust) and an optional centralized provisioning server (Node.js/Express) called the Enterprise Vault.
-            </p>
-            <p>
-              You can run the Desktop Client standalone to manage local and remote connections. If you work in a team, you can link the Desktop Client to an Enterprise Vault server to sync connection profiles, automate backups, log security audit events, and enforce security policies.
+              FilePilot is an open-source project featuring a visual dual-pane file transfer client and a premium multi-tab terminal emulator built natively for performance and security using Rust and Tauri.
             </p>
           </div>
         </div>
 
         <!-- Q2 -->
         <div class="faq-item">
-          <div class="faq-question">2. How does Zero-Knowledge local encryption protect my passwords?</div>
+          <div class="faq-question">2. Is FilePilot free to use?</div>
           <div class="faq-answer">
             <p>
-              When you launch the client, you define a local Master Password. This password is run through 600,000 iterations of PBKDF2 to derive a strong encryption key. This key is used to seal your connection credentials (passwords, private SSH keys, cloud keys) at rest using AES-256-GCM envelope encryption.
-            </p>
-            <p>
-              The master password is never stored on disk and never sent to any external server. Without it, your connection configuration remains completely encrypted, protecting you even if the local database file is extracted from your machine.
+              Yes. Both FilePilot Client and FilePilot Shell are 100% free and open-source under the MIT License. There are no paid tiers, no per-user licensing fees, and no hidden subscriptions.
             </p>
           </div>
         </div>
 
         <!-- Q3 -->
         <div class="faq-item">
-          <div class="faq-question">3. How does the Enterprise Vault distribute credentials safely?</div>
+          <div class="faq-question">3. Where are my connection profiles and credentials stored?</div>
           <div class="faq-answer">
             <p>
-              When using the Enterprise Vault, raw passwords are encrypted in the central database using AWS KMS, Azure Key Vault, Google Cloud KMS, or HashiCorp Vault.
-            </p>
-            <p>
-              When a Desktop Client requests synchronization, the server validates the client's token, audits the access log, and verifies IP access rules. If cleared, the encrypted secrets are transferred over a secure TLS WebSocket connection, decrypted in-memory on the client, and immediately sealed into the client's local database using the client's master key. Raw passwords are never visible to the developer in transit or in the UI.
+              Your credentials (passwords, private SSH keys, bucket keys) are stored locally on your workstation inside a sealed SQLite database. They are encrypted at rest using AES-256-GCM, with a key derived from your local Master Password via PBKDF2. FilePilot operates on a zero-knowledge model and never uploads your keys.
             </p>
           </div>
         </div>
 
         <!-- Q4 -->
         <div class="faq-item">
-          <div class="faq-question">4. What databases can I run the Enterprise Vault server on?</div>
+          <div class="faq-question">4. Which protocols does the Desktop Client support?</div>
           <div class="faq-answer">
             <p>
-              FilePilot Enterprise Vault is designed with runtime database configuration. You can switch between SQLite, PostgreSQL, and MySQL backends directly from the system admin panel. Database configuration settings are verified using a connection tester wizard before committing.
+              The desktop client supports high-throughput parallel file transfers and directory synchronization over SFTP, FTP, and Amazon S3 buckets.
             </p>
           </div>
         </div>
 
         <!-- Q5 -->
         <div class="faq-item">
-          <div class="faq-question">5. How does KEK Rotation prevent downtime or data corruption?</div>
+          <div class="faq-question">5. What terminal shells can I run in the FilePilot Shell?</div>
           <div class="faq-answer">
             <p>
-              The Vault Server uses envelope encryption: a Master Key Encryption Key (KEK) wraps individual Data Encryption Keys (DEKs) for each group, which then encrypt individual connection profiles.
-            </p>
-            <p>
-              When KEK rotation is triggered, the server decrypts the Group DEKs with the old KEK and wraps them under the new KEK. The actual profile credentials are never modified, avoiding any performance degradation or data corruption.
+              You can run local PTY shells (such as Command Prompt, PowerShell, and WSL on Windows; zsh, bash, and fish on macOS and Linux) as well as secure remote SSH terminals with custom tab layouts.
             </p>
           </div>
         </div>
 
         <!-- Q6 -->
         <div class="faq-item">
-          <div class="faq-question">6. What is a blockchain-style audit trail?</div>
+          <div class="faq-question">6. Does FilePilot collect any telemetry or user data?</div>
           <div class="faq-answer">
             <p>
-              Every transaction logged in the Enterprise Vault features a SHA-256 signature chain. Each entry contains a hash of its own metadata combined with the hash of the preceding entry (<code>prev_hash</code>).
-            </p>
-            <p>
-              The admin panel provides a validation task that scans the log table. If a malicious attacker edits or deletes a row, the cryptographic signature chain is broken, pointing to the exact row that was modified.
-            </p>
-          </div>
-        </div>
-
-        <!-- Q7 -->
-        <div class="faq-item">
-          <div class="faq-question">7. How do JavaScript macros automate transfer workflows?</div>
-          <div class="faq-answer">
-            <p>
-              The Desktop Client includes a sandboxed JavaScript runtime environment. You can write custom scripts using a built-in API (<code>fp.copy()</code>, <code>fp.list()</code>, <code>fp.rename()</code>, <code>fp.delete()</code>, <code>fp.notify()</code>) and trigger them on app launch, when connecting to a profile, or when disconnecting.
-            </p>
-          </div>
-        </div>
-
-        <!-- Q8 -->
-        <div class="faq-item">
-          <div class="faq-question">8. Can I run FilePilot Client without the Enterprise Vault?</div>
-          <div class="faq-answer">
-            <p>
-              Yes, stand-alone mode is fully supported. By default, the Desktop Client acts as a self-contained manager storing profiles inside a local sealed SQLite file.
-            </p>
-          </div>
-        </div>
-
-        <!-- Q9 -->
-        <div class="faq-item">
-          <div class="faq-question">9. Does FilePilot collect telemetry or transfer usage logs?</div>
-          <div class="faq-answer">
-            <p>
-              Never. We have zero telemetry, zero analytics tracking, and no external calls. All configurations and operations are processed on your workstation or inside your private Enterprise Vault server.
-            </p>
-          </div>
-        </div>
-
-        <!-- Q10 -->
-        <div class="faq-item">
-          <div class="faq-question">10. How does the folder synchronization resolve file differences?</div>
-          <div class="faq-answer">
-            <p>
-              The folder sync module compares directory structures on both sides. If the same file was modified on both local and remote nodes, a conflict resolution modal launches, showing side-by-side snippet previews so you can decide which version to retain.
-            </p>
-          </div>
-        </div>
-
-        <!-- Q11 -->
-        <div class="faq-item">
-          <div class="faq-question">11. How are SSH private keys and passphrases secured by FilePilot?</div>
-          <div class="faq-answer">
-            <p>
-              SSH keys are loaded, encrypted via AES-256-GCM using your PBKDF2 derived master key, and written to the sealed local database. During transfer loops, keys are decrypted directly in-memory and passed to the SSH authentication channel. Raw key files are never written to temporary folders.
-            </p>
-          </div>
-        </div>
-
-        <!-- Q12 -->
-        <div class="faq-item">
-          <div class="faq-question">12. How does the Plugin SDK guarantee system security?</div>
-          <div class="faq-answer">
-            <p>
-              Plugins must declare all network and filesystem permissions within a static <code>plugin.json</code> manifest. The Tauri core enforces sandbox isolation based on these declarations, preventing unauthorized plugins from accessing local credentials or making external network requests.
+              No. FilePilot is built on privacy-first principles. We collect zero telemetry, zero usage analytics, and zero crash logs. Your transfer sessions and commands happen completely offline and local to your workstation.
             </p>
           </div>
         </div>
@@ -268,20 +198,63 @@
   </section>
 
   <!-- Footer -->
+    <!-- Next-Step Flow CTA -->
+  <section class="reveal-on-scroll flow-cta-section">
+    <div class="container">
+      <div class="flow-cta">
+        <span class="flow-cta-eyebrow">GETTING STARTED</span>
+        <h2>The best answer is to try it yourself</h2>
+        <p>Download the standalone desktop apps in seconds. No accounts or configurations required to start.</p>
+        <div class="flow-cta-actions">
+          <a href="download.html" class="btn btn-primary">Go to Downloads →</a>
+          <a href="github.html" class="btn btn-secondary">View GitHub Repos →</a>
+        </div>
+        <div class="flow-journey">
+          <a class="flow-step" href="client.html">
+            <span class="flow-step-num">STEP 01</span>
+            <span class="flow-step-title">Desktop Client</span>
+            <span class="flow-step-desc">Blazing-fast dual-pane visual file transfers.</span>
+          </a>
+          <div class="flow-arrow"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></div>
+          
+          <a class="flow-step" href="shell.html">
+            <span class="flow-step-num">STEP 02</span>
+            <span class="flow-step-title">Terminal Shell</span>
+            <span class="flow-step-desc">Vibrant multi-tab command terminal splits.</span>
+          </a>
+          <div class="flow-arrow"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></div>
+          
+          <a class="flow-step" href="enterprise.html">
+            <span class="flow-step-num">STEP 03</span>
+            <span class="flow-step-title">Enterprise Vault</span>
+            <span class="flow-step-desc">Centralized credential sync, policy, & audit.</span>
+          </a>
+          <div class="flow-arrow"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></div>
+          
+          <a class="flow-step" href="download.html">
+            <span class="flow-step-num">STEP 04</span>
+            <span class="flow-step-title">Download &amp; Deploy</span>
+            <span class="flow-step-desc">Get native installers for Windows, macOS, &amp; Linux.</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <footer>
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
           <div class="footer-logo">
-            <img src="logo/client.png" alt="FilePilot Logo">
-            <span>FILEPILOT</span>
+            <img src="logo/filepilotico.png" alt="FilePilot Logo" class="flashy-logo">
           </div>
-          <p>Blazing-fast file transfers secured by zero-knowledge local cryptography and centralized access vault control.</p>
+          <p>Fast, secure file transfers &mdash; your passwords stay encrypted on your own device, and your team&#x27;s server access is managed from one place.</p>
         </div>
         <div>
           <h4 class="footer-links-title">Products</h4>
           <ul class="footer-links">
             <li><a href="client.html">Desktop Client</a></li>
+            <li><a href="shell.html">Terminal Shell</a></li>
             <li><a href="enterprise.html">Enterprise Vault</a></li>
             <li><a href="products.html">Product Guide</a></li>
             <li><a href="download.html">Downloads</a></li>
@@ -297,12 +270,12 @@
           </ul>
         </div>
         <div>
-          <h4 class="footer-links-title">System Status</h4>
-          <ul class="footer-links text-mono" style="font-size: 0.85rem; color: var(--accent);">
-            <li>SEAL_STATE: LOCKED</li>
-            <li>VAULT: OPERATIONAL</li>
-            <li>CORE: RUST_ASYNC</li>
-            <li>LICENSE: MIT</li>
+          <h4 class="footer-links-title">Why FilePilot</h4>
+          <ul class="footer-links">
+            <li>100% free &amp; open source</li>
+            <li>No accounts, no tracking</li>
+            <li>Passwords never leave your device</li>
+            <li>Windows, macOS &amp; Linux</li>
           </ul>
         </div>
       </div>

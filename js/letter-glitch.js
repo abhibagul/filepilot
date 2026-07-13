@@ -56,8 +56,8 @@ document.addEventListener('DOMContentLoaded', () => {
   resize();
 
   function animate() {
-    const theme = document.documentElement.getAttribute('data-theme');
-    const isDark = theme !== 'light';
+    const computed = getComputedStyle(document.documentElement);
+    const accentColor = computed.getPropertyValue('--accent').trim();
     
     ctx.clearRect(0, 0, width, height);
     ctx.font = `bold ${fontSize}px "Fira Code", monospace`;
@@ -80,8 +80,28 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         
         if (cell.opacity > 0.05) {
-          ctx.fillStyle = isDark ? `rgba(0, 230, 96, ${cell.opacity})` : `rgba(0, 184, 87, ${cell.opacity})`;
-          ctx.fillText(cell.char, x * fontSize + fontSize/2, y * fontSize + fontSize/2);
+          const px = x * fontSize + fontSize/2;
+          const py = y * fontSize + fontSize/2;
+          
+          // Canvas Blackout Mask for Hero Text Readability
+          const dx = Math.abs(px - width / 2);
+          const dy = Math.abs(py - height / 2) / 0.5; // Flatten ellipse
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          const maskRadius = width * 0.25;
+          
+          let maskFade = 1;
+          if (dist < maskRadius) {
+            maskFade = Math.pow(dist / maskRadius, 4);
+          }
+          
+          const finalOpacity = cell.opacity * maskFade;
+          
+          if (finalOpacity > 0.02) {
+            ctx.globalAlpha = finalOpacity;
+            ctx.fillStyle = accentColor;
+            ctx.fillText(cell.char, px, py);
+            ctx.globalAlpha = 1.0;
+          }
         }
       }
     }

@@ -1,54 +1,59 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="dark">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>FilePilot Client - High-Speed Dual-Pane Desktop File Transfer Manager</title>
-  <meta name="description" content="FilePilot Client is a secure Tauri/Rust desktop app with multi-protocol support, dual-pane layout, zero-knowledge security, and JS macro automation.">
+  <title>FilePilot Desktop App — Move Files to Any Server, Safely</title>
+  <meta name="description"
+    content="A fast, free desktop app for uploading and downloading files over SFTP, FTP, S3, WebDAV and more. Your passwords stay encrypted on your own device.">
   <link rel="stylesheet" href="css/style.css">
+  <link rel="shortcut icon" type="image/png" href="logo/filepilotico.png">
+  <script src="https://unpkg.com/lucide@latest"></script>
 </head>
+
 <body>
   <!-- Header -->
   <header>
     <div class="container nav-container">
       <a href="index.html" class="logo-link">
-        <img src="logo/client.png" alt="FilePilot Logo">
-        <span>FILEPILOT<span class="logo-prompt">:/$</span></span>
+        <img src="logo/filepilotico.png" alt="FilePilot Logo" class="flashy-logo">
       </a>
       <button class="menu-toggle">[ MENU ]</button>
       <nav>
         <a href="index.html" class="nav-link">Home</a>
-        <a href="products.html" class="nav-link">Products</a>
-        <a href="client.html" class="nav-link">Desktop Client</a>
-        <a href="enterprise.html" class="nav-link">Enterprise Vault</a>
+        <div class="dropdown">
+          <a href="products.html" class="nav-link dropdown-toggle">Products <span style="font-size: 0.75rem;">▼</span></a>
+          <div class="dropdown-menu">
+            <a href="client.html" class="dropdown-item">Desktop Client</a>
+            <a href="shell.html" class="dropdown-item">Terminal Shell</a>
+            <a href="enterprise.html" class="dropdown-item">Enterprise Vault</a>
+          </div>
+        </div>
         <a href="download.html" class="nav-link">Download</a>
         <a href="about.html" class="nav-link">About</a>
         <a href="faq.html" class="nav-link">FAQ</a>
         <a href="github.html" class="nav-link">GitHub</a>
-        <button class="theme-toggle" aria-label="Toggle Theme"></button>
       </nav>
     </div>
   </header>
 
   <!-- Page Header -->
-  <section class="reveal-on-scroll hero" style="padding: 4rem 0 2rem;">
+  <section class="reveal-on-scroll hero" style="padding: 9rem 0 2rem;">
     <div class="container">
-      <span class="hero-tag">DESKTOP APPLICATION</span>
+      <span class="hero-tag">THE DESKTOP APP</span>
       <h1>FilePilot Desktop Client</h1>
       <p class="hero-subtitle">
-        A native, lightweight binary built with Tauri (Rust) and React. Engineered for speed, security, and developer automation.
+        A fast, lightweight desktop app for moving files to and from your servers &mdash; built for speed, security, and
+        automation.
       </p>
-      <div class="hero-cta">
+      <div class="hero-cta mb-3">
         <a href="download.html" class="btn btn-primary">[ DOWNLOAD CLIENT ]</a>
-        <a href="https://github.com/abhibagul/filepilot-ftp-client" class="btn btn-secondary" target="_blank">View GitHub Repo</a>
+        <a href="https://github.com/abhibagul/filepilot-ftp-client" class="btn btn-secondary" target="_blank">View
+          GitHub Repo</a>
       </div>
-    </div>
-  </section>
 
-  <!-- Visual Mock Interface showing GUI screenshot -->
-  <section class="reveal-on-scroll bg-secondary" style="padding: 3rem 0;">
-    <div class="container text-center">
-      <div class="terminal-window" style="max-width: 1000px; cursor: pointer; margin-top: 0;">
+      <div class="terminal-window" style="max-width: 1000px; cursor: pointer;">
         <div class="terminal-header">
           <div class="terminal-buttons">
             <span class="terminal-button red"></span>
@@ -59,7 +64,10 @@
           <div style="width: 50px;"></div>
         </div>
         <div class="screenshot-container" data-caption="FilePilot Desktop Client Split Pane Workspace">
-          <img src="client/pasted-1783311139724-0.png" alt="FilePilot Desktop Client Split Pane UI" style="width: 100%; height: auto; display: block;">
+          <img src="client/pasted-1783311009047-0.png" alt="FilePilot Desktop Client Split Pane UI"
+            style="width: 100%; height: auto; display: block;">
+          <!-- <img src="client/pasted-1783311102665-0.png" alt="FilePilot Desktop Client Split Pane UI"
+            style="width: 100%; height: auto; display: block;"> -->
           <div class="screenshot-overlay">
             <span class="zoom-icon">[ ZOOM VIEW ]</span>
           </div>
@@ -68,479 +76,777 @@
     </div>
   </section>
 
-      <section style="padding: 4rem 0;">
-    <div class="docs-layout">
-      <aside class="docs-sidebar">
-        <h3>Client Features</h3>
-        <ul class="docs-nav">
-          <li><a href="#section-1" class="docs-nav-link active">1. Multi-Protocol File Transfer Engine</a></li>
-          <li><a href="#section-2" class="docs-nav-link">2. Dual-Pane File Browser</a></li>
-          <li><a href="#section-3" class="docs-nav-link">3. File Operations</a></li>
-          <li><a href="#section-4" class="docs-nav-link">4. Transfer Management</a></li>
-          <li><a href="#section-5" class="docs-nav-link">5. Backup Scheduler & Folder Sync</a></li>
-          <li><a href="#section-6" class="docs-nav-link">6. Offline Sync Queue</a></li>
-          <li><a href="#section-7" class="docs-nav-link">7. Envelope Cryptography & Security</a></li>
-          <li><a href="#section-8" class="docs-nav-link">8. Connection Management</a></li>
-          <li><a href="#section-9" class="docs-nav-link">9. Macro Automation Engine</a></li>
-          <li><a href="#section-10" class="docs-nav-link">10. Plugin System</a></li>
-          <li><a href="#section-11" class="docs-nav-link">11. Built-in Terminal</a></li>
-          <li><a href="#section-12" class="docs-nav-link">12. UI / UX Features</a></li>
-        </ul>
-      </aside>
-      <main class="docs-content">
-        <div id="section-1" class="docs-section reveal-on-scroll">
-          <h2>1. Multi-Protocol File Transfer Engine</h2>
 
-            <div class="screenshot-container mb-2 reveal-on-scroll" data-caption="Multi-Protocol Workspace">
-              <img src="client/pasted-1783311139724-0.png" alt="Multi-Protocol Workspace">
-              <div class="screenshot-overlay"><span class="zoom-icon">[ ZOOM ]</span></div>
-            </div>
-            
-          <div class="feature-grid">
-            <div class="feature-item-card reveal-on-scroll">
-              <h4>**FTP**</h4>
-              <p>Classic file transfer with active/passive mode support</p>
-            </div>
-            <div class="feature-item-card reveal-on-scroll">
-              <h4>**SFTP (SSH)**</h4>
-              <p>SSH-secured transfers with password and key-based authentication</p>
-            </div>
-            <div class="feature-item-card reveal-on-scroll">
-              <h4>**FTPS (TLS/SSL)**</h4>
-              <p>FTP over TLS with certificate validation</p>
-            </div>
-            <div class="feature-item-card reveal-on-scroll">
-              <h4>**SCP**</h4>
-              <p>Lightweight secure copy over SSH tunnels</p>
-            </div>
-            <div class="feature-item-card reveal-on-scroll">
-              <h4>**Amazon S3**</h4>
-              <p>Native AWS S3 bucket browsing, uploads, and downloads</p>
-            </div>
-            <div class="feature-item-card reveal-on-scroll">
-              <h4>**WebDAV**</h4>
-              <p>HTTP-based distributed authoring and versioning</p>
-            </div>
-            <div class="feature-item-card reveal-on-scroll">
-              <h4>**Cloud Storage**</h4>
-              <p>Extensible cloud provider module ([cloud.rs](file:///d:/personalproj/filepilot/core/src/provider/cloud.rs)) supporting Google Drive, Dropbox, Azure Blob, OneDrive</p>
-            </div>
-            <div class="feature-item-card reveal-on-scroll">
-              <h4>**Plugin Protocols**</h4>
-              <p>Third-party protocols via the plugin SDK ([plugin.rs](file:///d:/personalproj/filepilot/core/src/provider/plugin.rs))</p>
-            </div>
-            <div class="feature-item-card reveal-on-scroll">
-              <h4>**Proxy / Jump Host**</h4>
-              <p>SOCKS/HTTP proxy tunneling and SSH jump-host chaining ([proxy.rs](file:///d:/personalproj/filepilot/core/src/provider/proxy.rs))</p>
-            </div>
-          </div>
+  <!-- The Problem / Why FilePilot -->
+  <section class="marketing-section bg-secondary reveal-on-scroll" style="padding: 6rem 0;">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="marketing-title">Why We Built FilePilot</h2>
+        <div class="marketing-accent-line"></div>
+      </div>
+      <div class="grid-3" style="gap: 2rem;">
+        <div class="marketing-card">
+          <div class="marketing-icon"><i data-lucide="zap" class="marketing-icon"></i></div>
+          <h3>Traditional Clients Freeze</h3>
+          <p>Older transfer apps hog memory and freeze when you move thousands of small files at once.</p>
         </div>
-        <div id="section-2" class="docs-section reveal-on-scroll">
-          <h2>2. Dual-Pane File Browser</h2>
+        <div class="marketing-card">
+          <div class="marketing-icon"><i data-lucide="unlock" class="marketing-icon"></i></div>
+          <h3>Insecure Credentials</h3>
+          <p>Most FTP apps save your passwords in plain text, so anyone with access to your computer can read them.</p>
+        </div>
+        <div class="marketing-card">
+          <div class="marketing-icon"><i data-lucide="snail" class="marketing-icon"></i></div>
+          <h3>No Automation</h3>
+          <p>To automate a simple nightly backup, you normally have to write scripts outside the app entirely.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-            <div class="screenshot-container mb-2 reveal-on-scroll" data-caption="Advanced Search">
-              <img src="client/detailed search.jpg" alt="Advanced Search">
-              <div class="screenshot-overlay"><span class="zoom-icon">[ ZOOM ]</span></div>
-            </div>
-            
-          <div class="feature-grid">
-            <div class="feature-item-card reveal-on-scroll">
-              <h4>**Split-Pane View**</h4>
-              <p>Side-by-side local ↔ remote file browser with resizable divider ([DualPaneView.tsx](file:///d:/personalproj/filepilot/src/views/DualPaneView.tsx))</p>
-            </div>
-            <div class="feature-item-card reveal-on-scroll">
-              <h4>**Breadcrumb Navigation**</h4>
-              <p>Clickable path breadcrumbs for quick directory traversal ([Breadcrumbs.tsx](file:///d:/personalproj/filepilot/src/components/file-browser/Breadcrumbs.tsx))</p>
-            </div>
-            <div class="feature-item-card reveal-on-scroll">
-              <h4>**Preview Sidebar**</h4>
-              <p>Inline file preview panel with metadata display ([PreviewSidebar.tsx](file:///d:/personalproj/filepilot/src/components/file-browser/PreviewSidebar.tsx))</p>
-            </div>
-            <div class="feature-item-card reveal-on-scroll">
-              <h4>**Image Preview**</h4>
-              <p>In-app image viewer for common formats (PNG, JPG, GIF, SVG, etc.) ([ImagePreviewModal.tsx](file:///d:/personalproj/filepilot/src/components/file-browser/ImagePreviewModal.tsx))</p>
-            </div>
-            <div class="feature-item-card reveal-on-scroll">
-              <h4>**File Preview**</h4>
-              <p>Quick-look file content preview without downloading ([FilePreviewModal.tsx](file:///d:/personalproj/filepilot/src/components/file-browser/FilePreviewModal.tsx))</p>
-            </div>
-            <div class="feature-item-card reveal-on-scroll">
-              <h4>**Native Drag & Drop**</h4>
-              <p>Drag files from your OS desktop directly into either pane; drop position determines local vs. remote target</p>
-            </div>
-            <div class="feature-item-card reveal-on-scroll">
-              <h4>**Pin Folders & Quick Connect**</h4>
-              <p>Pin frequently-used local or remote directories as bookmarks — click a pinned folder to instantly navigate (and auto-connect if it's a remote bookmark with saved credentials) ([bookmarkStore.ts](file:///d:/personalproj/filepilot/src/stores/bookmarkStore.ts))</p>
-            </div>
-            <div class="feature-item-card reveal-on-scroll">
-              <h4>**Folder Comparison Mode**</h4>
-              <p>Toggle the Compare Folders mode from the toolbar to visually highlight differences between local and remote directories — files unique to one side or modified are color-coded for quick identification</p>
-            </div>
-            <div class="feature-item-card reveal-on-scroll">
-              <h4>**Synchronized Browsing**</h4>
-              <p>Lock local and remote panes so navigating into a subfolder on one side automatically mirrors the navigation on the other — keeps both panes in sync for parallel directory exploration</p>
-            </div>
-            <div class="feature-item-card reveal-on-scroll">
-              <h4>**Directory Analysis & Charts**</h4>
-              <p>Open the Properties modal on any folder to see a full directory analysis dashboard with visual breakdowns: file type distribution (documents, images, media, archives, code), size distribution histogram (Tiny/Small/Medium/Large/Huge buckets), largest file, oldest/newest files, and total size metrics ([PropertiesModal.tsx](file:///d:/personalproj/filepilot/src/components/file-browser/PropertiesModal.tsx))</p>
-            </div>
-            <div class="feature-item-card reveal-on-scroll">
-              <h4>**Advanced Search**</h4>
-              <p>Full-featured search modal with filtering and recursive scanning ([SearchModal.tsx](file:///d:/personalproj/filepilot/src/components/file-browser/SearchModal.tsx))</p>
-            </div>
-          </div>
-        </div>
-        <div id="section-3" class="docs-section reveal-on-scroll">
-          <h2>3. File Operations</h2>
+  <section id="section-1" class="marketing-section  reveal-on-scroll" style="padding: 6rem 0;">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-label">01 — Protocols</div>
+        <h2 class="marketing-title">Connect to Any Server</h2>
+        <div class="marketing-accent-line"></div>
+        <p
+          style="max-width: 650px; margin: 0 auto; color: var(--text-secondary); font-size: 1.05rem; line-height: 1.7;">
+          One app replaces your FTP client, your S3 browser, and your cloud drives. Connect to any kind of server from a
+          single, familiar window.</p>
+      </div>
+      <div class="table-container" style="max-width: 900px; margin: 0 auto;">
+        <table>
+          <thead>
+            <tr>
+              <th>Protocol</th>
+              <th>What It Does</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>FTP</strong></td>
+              <td>Connect to any standard FTP server with active and passive mode support — works through firewalls and
+                NAT setups without extra configuration.</td>
+            </tr>
+            <tr>
+              <td><strong>SFTP (SSH)</strong></td>
+              <td>The gold standard for secure transfers. Connect over SSH using either a password or your existing SSH
+                key pair.</td>
+            </tr>
+            <tr>
+              <td><strong>FTPS (TLS/SSL)</strong></td>
+              <td>FTP wrapped in full TLS encryption with server certificate validation, so you know you&#x27;re talking
+                to the right host.</td>
+            </tr>
+            <tr>
+              <td><strong>SCP</strong></td>
+              <td>Blazing-fast file copy over SSH tunnels — great for quickly pushing files to a server without setting
+                up a full session.</td>
+            </tr>
+            <tr>
+              <td><strong>Amazon S3</strong></td>
+              <td>Browse S3 buckets like a file system. Upload, download, and manage objects across regions — including
+                MinIO and Ceph endpoints.</td>
+            </tr>
+            <tr>
+              <td><strong>WebDAV</strong></td>
+              <td>Connect to Nextcloud, ownCloud, NAS devices, or any HTTP-based file server with full read/write
+                access.</td>
+            </tr>
+            <tr>
+              <td><strong>Cloud Storage</strong></td>
+              <td>First-class support for Google Drive, Dropbox, OneDrive, and Azure Blob Storage inside the same
+                dual-pane interface.</td>
+            </tr>
+            <tr>
+              <td><strong>Plugin Protocols</strong></td>
+              <td>Need something else? Build your own protocol handler using the Plugin SDK and register it as a native
+                connection type.</td>
+            </tr>
+            <tr>
+              <td><strong>Proxy / Jump Host</strong></td>
+              <td>Tunnel through SOCKS5 or HTTP proxies, or chain through SSH jump hosts to reach servers on private
+                networks.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
 
-            <div class="screenshot-container mb-2 reveal-on-scroll" data-caption="Permission Editor">
-              <img src="client/filepermission.jpg" alt="Permission Editor">
-              <div class="screenshot-overlay"><span class="zoom-icon">[ ZOOM ]</span></div>
+  <section id="section-2" class="story-section bg-secondary" style="padding: 6rem 0;">
+    <div class="container" style="position: relative; z-index: 2;">
+      <div class="story-grid">
+        <div class="story-image reveal-on-scroll">
+          <div class="screenshot-showcase" data-caption="FilePilot Dual-Pane File Browser">
+            <img src="client/pasted-1783311139724-0.png" alt="FilePilot Dual-Pane File Browser">
+            <div class="screenshot-overlay"><span class="zoom-icon">[ ZOOM ]</span></div>
+          </div>
+        </div>
+        <div class="story-content reveal-on-scroll">
+          <div class="section-label" style="margin-bottom: 1rem;">02 — File Browser</div>
+          <h2 class="marketing-title" style="text-align: left; font-size: 2.2rem;">Dual-Pane File Browser</h2>
+          <div class="marketing-accent-line" style="margin: 0 0 1.5rem 0;"></div>
+          <p style="color: var(--text-secondary); font-size: 1rem; line-height: 1.7; margin-bottom: 1.5rem;">Your local
+            machine on the left, your server on the right. Everything you need to manage files on both sides — without
+            switching windows.</p>
+          <div class="bento-grid">
+            <div class="bento-card">
+              <div class="bento-card-header"><i data-lucide="check" class="bento-icon"></i> <strong>Split-Pane
+                  View</strong></div>
+              <div class="bento-desc">Side-by-side local and remote browsers with a resizable divider. Drag files
+                between panes to transfer them.</div>
             </div>
-            
-          <div class="feature-grid">
-            <div class="feature-item-card reveal-on-scroll">
-              <h4>**Built-in Text Editor**</h4>
-              <p>Edit remote files in-app with syntax-aware editing and save-back ([FileEditorModal.tsx](file:///d:/personalproj/filepilot/src/components/file-browser/FileEditorModal.tsx))</p>
+            <div class="bento-card">
+              <div class="bento-card-header"><i data-lucide="check" class="bento-icon"></i> <strong>Breadcrumb
+                  Navigation</strong></div>
+              <div class="bento-desc">Click any part of the path bar to jump directly to that directory, no typing
+                needed.</div>
             </div>
-            <div class="feature-item-card reveal-on-scroll">
-              <h4>**Diff Viewer**</h4>
-              <p>Side-by-side diff comparison between file versions ([DiffViewerModal.tsx](file:///d:/personalproj/filepilot/src/components/file-browser/DiffViewerModal.tsx))</p>
+            <div class="bento-card">
+              <div class="bento-card-header"><i data-lucide="check" class="bento-icon"></i> <strong>Preview
+                  Sidebar</strong></div>
+              <div class="bento-desc">Click any file to see its size, permissions, modification date, and a content
+                preview instantly.</div>
             </div>
-            <div class="feature-item-card reveal-on-scroll">
-              <h4>**Batch Rename**</h4>
-              <p>Rename multiple files at once using pattern rules (prefix, suffix, regex, find & replace, etc.) with live preview ([BatchRenameModal.tsx](file:///d:/personalproj/filepilot/src/components/file-browser/BatchRenameModal.tsx))</p>
+            <div class="bento-card">
+              <div class="bento-card-header"><i data-lucide="check" class="bento-icon"></i> <strong>Image &amp; File
+                  Preview</strong></div>
+              <div class="bento-desc">Open images and text files directly in the app without downloading them to your
+                desktop first.</div>
             </div>
-            <div class="feature-item-card reveal-on-scroll">
-              <h4>**Change Permissions**</h4>
-              <p>Set chmod/ownership on remote files with a visual permission editor ([ChangePermissionsModal.tsx](file:///d:/personalproj/filepilot/src/components/file-browser/ChangePermissionsModal.tsx))</p>
+            <div class="bento-card">
+              <div class="bento-card-header"><i data-lucide="check" class="bento-icon"></i> <strong>Drag &amp;
+                  Drop</strong></div>
+              <div class="bento-desc">Grab files from your OS file explorer and drop them straight into either pane.
+              </div>
             </div>
-            <div class="feature-item-card reveal-on-scroll">
-              <h4>**Server-Side Compress**</h4>
-              <p>Create .zip or .tar.gz archives directly on local or remote servers — remote compression executes via SSH commands on SFTP connections without downloading files first</p>
+            <div class="bento-card">
+              <div class="bento-card-header"><i data-lucide="check" class="bento-icon"></i> <strong>Pinned
+                  Folders</strong></div>
+              <div class="bento-desc">Bookmark directories and servers. One click to connect and navigate — no
+                re-entering credentials.</div>
             </div>
-            <div class="feature-item-card reveal-on-scroll">
-              <h4>**Server-Side Extract**</h4>
-              <p>Extract .zip, .tar.gz, and .tgz archives on local or remote servers — remote extraction runs server-side via SSH, no local download required</p>
+            <div class="bento-card">
+              <div class="bento-card-header"><i data-lucide="check" class="bento-icon"></i> <strong>Folder
+                  Comparison</strong></div>
+              <div class="bento-desc">Color-code files that exist only on one side or have changed, so you spot
+                differences instantly.</div>
             </div>
-            <div class="feature-item-card reveal-on-scroll">
-              <h4>**Fetch URL to Directory**</h4>
-              <p>Download a file from any URL directly into the active local or remote directory — fetches the resource and places it in your current pane without manual download-then-upload</p>
+            <div class="bento-card">
+              <div class="bento-card-header"><i data-lucide="check" class="bento-icon"></i> <strong>Synchronized
+                  Browsing</strong></div>
+              <div class="bento-desc">Lock both panes. Navigate into a subfolder on one side and the other follows
+                automatically.</div>
             </div>
-            <div class="feature-item-card reveal-on-scroll">
-              <h4>**Copy Between Servers**</h4>
-              <p>Transfer files from one remote server to another through the dual-pane interface — select files on one connection and push them to a different server connection</p>
+            <div class="bento-card">
+              <div class="bento-card-header"><i data-lucide="check" class="bento-icon"></i> <strong>Directory
+                  Analysis</strong></div>
+              <div class="bento-desc">Right-click any folder to see a breakdown: files by type, size distribution,
+                biggest files, and age.</div>
+            </div>
+            <div class="bento-card">
+              <div class="bento-card-header"><i data-lucide="check" class="bento-icon"></i> <strong>Advanced
+                  Search</strong></div>
+              <div class="bento-desc">Search for files by name, extension, size, or date across the entire directory
+                tree.</div>
             </div>
           </div>
         </div>
-        <div id="section-4" class="docs-section reveal-on-scroll">
-          <h2>4. Transfer Management</h2>
-          <div class="feature-grid">
-            <div class="feature-item-card reveal-on-scroll">
-              <h4>**Multi-Threaded Transfers**</h4>
-              <p>Concurrent transfer pipelines with configurable thread count — splits large transfers across multiple simultaneous streams for maximum throughput, powered by Rust's async runtime ([engine.rs](file:///d:/personalproj/filepilot/core/src/transfer/engine.rs) — 38 KB transfer engine)</p>
-            </div>
-            <div class="feature-item-card reveal-on-scroll">
-              <h4>**Real-Time Progress**</h4>
-              <p>Live progress bars with speed (B/s), ETA, and percentage via Tauri events</p>
-            </div>
-            <div class="feature-item-card reveal-on-scroll">
-              <h4>**Pause / Resume / Cancel**</h4>
-              <p>Full transfer lifecycle control per-item ([transferStore.ts](file:///d:/personalproj/filepilot/src/stores/transferStore.ts))</p>
-            </div>
-            <div class="feature-item-card reveal-on-scroll">
-              <h4>**Resumable Uploads**</h4>
-              <p>Resume interrupted uploads and downloads from the last successful byte offset — survives network drops, app restarts, and connection timeouts without re-transferring completed data</p>
-            </div>
-            <div class="feature-item-card reveal-on-scroll">
-              <h4>**Per-Transfer Speed Limiting**</h4>
-              <p>Throttle individual transfers to a specific bytes/sec cap</p>
-            </div>
-            <div class="feature-item-card reveal-on-scroll">
-              <h4>**Bandwidth Scheduler Throttling**</h4>
-              <p>Set a global bandwidth cap across all active transfers — schedule reduced throttle limits during business hours and full-speed during off-peak windows</p>
-            </div>
-            <div class="feature-item-card reveal-on-scroll">
-              <h4>**Post-Transfer Checksum Validation**</h4>
-              <p>Automatic SHA-256 checksum verification on every completed transfer — compares source and destination hashes to guarantee data integrity and detect silent corruption</p>
-            </div>
-            <div class="feature-item-card reveal-on-scroll">
-              <h4>**Completion Alerts Webhook**</h4>
-              <p>Fire webhook notifications (Slack, Discord, Teams, custom URL) when transfers complete or fail — integrates with `fp.notify()` in macros and triggers on transfer-completion events for automated alerting</p>
-            </div>
-            <div class="feature-item-card reveal-on-scroll">
-              <h4>**Speed Analytics**</h4>
-              <p>Real-time aggregate speed graph with 30-sample rolling history</p>
-            </div>
-            <div class="feature-item-card reveal-on-scroll">
-              <h4>**Transfer History**</h4>
-              <p>Completed/failed transfer log (last 100 entries) with status details</p>
-            </div>
-            <div class="feature-item-card reveal-on-scroll">
-              <h4>**Queue Export (XML)**</h4>
-              <p>Export the active transfer queue to a `FilePilot` XML file for later replay</p>
-            </div>
-            <div class="feature-item-card reveal-on-scroll">
-              <h4>**Queue Import (XML)**</h4>
-              <p>Import a saved XML queue and resume or replay transfers</p>
-            </div>
-          </div>
-        </div>
-        <div id="section-5" class="docs-section reveal-on-scroll">
-          <h2>5. Backup Scheduler & Folder Sync</h2>
-          <div class="feature-grid">
-            <div class="feature-item-card reveal-on-scroll">
-              <h4>**Backup Scheduler**</h4>
-              <p>Schedule automated backups and recurring file transfers at specific times/intervals — create, enable/disable, and delete scheduled tasks ([SchedulerTab.tsx](file:///d:/personalproj/filepilot/src/components/transfer/SchedulerTab.tsx))</p>
-            </div>
-            <div class="feature-item-card reveal-on-scroll">
-              <h4>**Folder Sync**</h4>
-              <p>Bidirectional (two-way), upload-only, or download-only folder synchronization with configurable ignore patterns (e.g., `node_modules`, `.git`) ([SyncTab.tsx](file:///d:/personalproj/filepilot/src/components/transfer/SyncTab.tsx))</p>
-            </div>
-            <div class="feature-item-card reveal-on-scroll">
-              <h4>**Directory Comparison**</h4>
-              <p>Compare local vs. remote directories via the Rust `compare_directories` backend — detects files that need uploading, downloading, are in-sync, or have conflicts</p>
-            </div>
-            <div class="feature-item-card reveal-on-scroll">
-              <h4>**Conflict Resolution**</h4>
-              <p>When sync detects conflicting files (same name, different content), a conflict resolution modal lets you preview local vs. remote file snippets side-by-side and choose which version to keep</p>
-            </div>
-            <div class="feature-item-card reveal-on-scroll">
-              <h4>**Selective Sync**</h4>
-              <p>After analysis, cherry-pick individual files to sync — all differences are selected by default, but you can toggle specific items on/off before executing</p>
-            </div>
-            <div class="feature-item-card reveal-on-scroll">
-              <h4>**Transfer Panel**</h4>
-              <p>Unified dashboard with tabs for active transfers, backup scheduler, and folder sync ([TransferPanel.tsx](file:///d:/personalproj/filepilot/src/components/transfer/TransferPanel.tsx))</p>
-            </div>
-          </div>
-        </div>
-        <div id="section-6" class="docs-section reveal-on-scroll">
-          <h2>6. Offline Sync Queue</h2>
-          <div class="feature-grid">
-            <div class="feature-item-card reveal-on-scroll">
-              <h4>**Offline Detection**</h4>
-              <p>Automatically detects online/offline state via browser `navigator.onLine`</p>
-            </div>
-            <div class="feature-item-card reveal-on-scroll">
-              <h4>**Queued Transfers**</h4>
-              <p>When offline, transfers are queued in memory and executed automatically when connectivity resumes</p>
-            </div>
-            <div class="feature-item-card reveal-on-scroll">
-              <h4>**Auto-Reconnect Processing**</h4>
-              <p>The offline queue is drained sequentially the moment the network comes back</p>
-            </div>
-          </div>
-        </div>
-        <div id="section-7" class="docs-section reveal-on-scroll">
-          <h2>7. Envelope Cryptography & Security</h2>
-          <div class="feature-grid">
-            <div class="feature-item-card reveal-on-scroll">
-              <h4>**System Credential Seal**</h4>
-              <p>A local master password is used to derive an encryption key via PBKDF2 (600,000 iterations) — the sealed vault protects all stored credentials and cannot be opened without the master password, even if the database file is stolen ([securityStore.ts](file:///d:/personalproj/filepilot/src/stores/securityStore.ts))</p>
-            </div>
-            <div class="feature-item-card reveal-on-scroll">
-              <h4>**Zero-Knowledge File Encryption**</h4>
-              <p>All saved connection passwords, SSH keys, and secrets are encrypted at rest using AES-256-GCM envelope encryption — the master password never leaves your device, FilePilot has zero knowledge of your credentials, and no data is sent to any external server ([crypto.rs](file:///d:/personalproj/filepilot/core/src/credentials/crypto.rs))</p>
-            </div>
-            <div class="feature-item-card reveal-on-scroll">
-              <h4>**Lock / Unlock**</h4>
-              <p>Lock the credential vault on demand; re-authentication required to unlock — auto-lock on app minimize or screen lock for enhanced security</p>
-            </div>
-            <div class="feature-item-card reveal-on-scroll">
-              <h4>**IP Access Allowlist Filters**</h4>
-              <p>Restrict which client IP addresses can pull provisioned profiles from the Enterprise Vault — supports exact IPs, wildcard prefixes (e.g., `192.168.1.*`), and CIDR subnet notation (e.g., `10.0.0.0/8`) per Vault Group</p>
-            </div>
-          </div>
-        </div>
-        <div id="section-8" class="docs-section reveal-on-scroll">
-          <h2>8. Connection Management</h2>
-          <div class="feature-grid">
-            <div class="feature-item-card reveal-on-scroll">
-              <h4>**Saved Profiles**</h4>
-              <p>Create, edit, and delete connection profiles with all protocol options ([ConnectionModal.tsx](file:///d:/personalproj/filepilot/src/components/connection/ConnectionModal.tsx))</p>
-            </div>
-            <div class="feature-item-card reveal-on-scroll">
-              <h4>**Quick Connect Bar**</h4>
-              <p>Fast-connect by typing `protocol://user@host:port` directly ([QuickConnectBar.tsx](file:///d:/personalproj/filepilot/src/components/layout/QuickConnectBar.tsx))</p>
-            </div>
-            <div class="feature-item-card reveal-on-scroll">
-              <h4>**Jump Server / Bastion Host**</h4>
-              <p>Route SFTP connections through an intermediate SSH jump host — configure separate jump host credentials (password or key-pair), port, and username per profile for secure bastion-host access patterns</p>
-            </div>
-            <div class="feature-item-card reveal-on-scroll">
-              <h4>**Enterprise Vault Sync**</h4>
-              <p>Pull provisioned connection profiles directly from an Enterprise Vault server using a single access token</p>
-            </div>
-            <div class="feature-item-card reveal-on-scroll">
-              <h4>**Vault Audit Reporting**</h4>
-              <p>Automatically reports upload/download events back to the Enterprise Vault audit log</p>
-            </div>
-            <div class="feature-item-card reveal-on-scroll">
-              <h4>**File Version Backup**</h4>
-              <p>On successful uploads to vault-linked profiles, the client sends a file version snapshot to the Vault for centralized backup</p>
-            </div>
-          </div>
-        </div>
-        <div id="section-9" class="docs-section reveal-on-scroll">
-          <h2>9. Macro Automation Engine</h2>
+      </div>
+    </div>
+  </section>
 
-            <div class="screenshot-container mb-2 reveal-on-scroll" data-caption="JS Macros">
-              <img src="client/macros.jpg" alt="JS Macros">
-              <div class="screenshot-overlay"><span class="zoom-icon">[ ZOOM ]</span></div>
-            </div>
-            
-          <div class="feature-grid">
-            <div class="feature-item-card reveal-on-scroll">
-              <h4>**JavaScript Macros**</h4>
-              <p>Write and run custom JavaScript automation scripts inside a sandboxed executor ([macroStore.ts](file:///d:/personalproj/filepilot/src/stores/macroStore.ts))</p>
-            </div>
-            <div class="feature-item-card reveal-on-scroll">
-              <h4>**Event Triggers**</h4>
-              <p>Macros can auto-execute on `on_startup`, `on_connect`, or `on_disconnect` events</p>
-            </div>
-            <div class="feature-item-card reveal-on-scroll">
-              <h4>**Built-in API**</h4>
-              <p>Macros have access to `fp.copy()`, `fp.list()`, `fp.rename()`, `fp.delete()`, `fp.notify()` for full file ops and webhook alerts</p>
-            </div>
-            <div class="feature-item-card reveal-on-scroll">
-              <h4>**Template Library**</h4>
-              <p>Pre-loaded templates: backup + webhook, batch rename, temp file cleanup</p>
-            </div>
-            <div class="feature-item-card reveal-on-scroll">
-              <h4>**Macro Editor**</h4>
-              <p>Full-featured code editor with live execution log output ([MacroEditorTabPane.tsx](file:///d:/personalproj/filepilot/src/components/layout/MacroEditorTabPane.tsx))</p>
-            </div>
-            <div class="feature-item-card reveal-on-scroll">
-              <h4>**Macro Docs**</h4>
-              <p>In-app macro API documentation and reference ([MacroDocsTabPane.tsx](file:///d:/personalproj/filepilot/src/components/layout/MacroDocsTabPane.tsx))</p>
-            </div>
-          </div>
+  <section id="section-3" class="marketing-section  reveal-on-scroll" style="padding: 6rem 0;">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-label">03 — File Operations</div>
+        <h2 class="marketing-title">Work on Files Without Leaving the App</h2>
+        <div class="marketing-accent-line"></div>
+        <p
+          style="max-width: 650px; margin: 0 auto; color: var(--text-secondary); font-size: 1.05rem; line-height: 1.7;">
+          Edit, compare, rename, compress, and move files — all directly from the dual-pane interface, on both local and
+          remote servers.</p>
+      </div>
+      <div class="grid-3" style="gap: 1.5rem;">
+        <div class="marketing-card">
+          <h3>Built-in Text Editor</h3>
+          <p>Edit any remote file directly in FilePilot. Changes are saved back to the server the moment you hit save —
+            no download/re-upload cycle.</p>
         </div>
-        <div id="section-10" class="docs-section reveal-on-scroll">
-          <h2>10. Plugin System</h2>
-          <div class="feature-grid">
-            <div class="feature-item-card reveal-on-scroll">
-              <h4>**Plugin SDK**</h4>
-              <p>Install, enable/disable, and delete plugins via a manifest-driven architecture ([pluginStore.ts](file:///d:/personalproj/filepilot/src/stores/pluginStore.ts))</p>
-            </div>
-            <div class="feature-item-card reveal-on-scroll">
-              <h4>**Custom Protocols**</h4>
-              <p>Plugins can register entirely new protocol handlers (e.g., custom cloud APIs) that integrate seamlessly with the dual-pane browser</p>
-            </div>
-            <div class="feature-item-card reveal-on-scroll">
-              <h4>**Custom Panels**</h4>
-              <p>Plugins can inject custom UI panels into the app layout</p>
-            </div>
-            <div class="feature-item-card reveal-on-scroll">
-              <h4>**Custom Settings**</h4>
-              <p>Plugins can register their own settings with typed inputs (text, password, number, boolean)</p>
-            </div>
-            <div class="feature-item-card reveal-on-scroll">
-              <h4>**Sandboxed Execution**</h4>
-              <p>Plugin scripts run in a scoped sandbox with a controlled API surface</p>
-            </div>
-            <div class="feature-item-card reveal-on-scroll">
-              <h4>**Plugin Docs**</h4>
-              <p>In-app plugin documentation and management UI ([PluginDocsTabPane.tsx](file:///d:/personalproj/filepilot/src/components/layout/PluginDocsTabPane.tsx))</p>
-            </div>
-          </div>
+        <div class="marketing-card">
+          <h3>Diff Viewer</h3>
+          <p>Compare two versions of a file side by side with highlighted differences. See exactly what changed before
+            deciding which to keep.</p>
         </div>
-        <div id="section-11" class="docs-section reveal-on-scroll">
-          <h2>11. Built-in Terminal</h2>
-          <div class="feature-grid">
-            <div class="feature-item-card reveal-on-scroll">
-              <h4>**Local Terminal**</h4>
-              <p>Integrated terminal emulator for running local shell commands ([TerminalPanel.tsx](file:///d:/personalproj/filepilot/src/components/layout/TerminalPanel.tsx))</p>
-            </div>
-            <div class="feature-item-card reveal-on-scroll">
-              <h4>**SSH Terminal**</h4>
-              <p>Remote SSH shell session directly within the app ([SshTerminalPanel.tsx](file:///d:/personalproj/filepilot/src/components/layout/SshTerminalPanel.tsx))</p>
-            </div>
-          </div>
+        <div class="marketing-card">
+          <h3>Batch Rename</h3>
+          <p>Rename dozens of files at once using patterns — add a prefix, strip a suffix, apply a regex, or
+            find-and-replace with a live preview.</p>
         </div>
-        <div id="section-12" class="docs-section reveal-on-scroll">
-          <h2>12. UI / UX Features</h2>
+        <div class="marketing-card">
+          <h3>Change Permissions</h3>
+          <p>Set Unix permissions with a visual editor. Toggle read, write, and execute per user, group, and others — no
+            memorizing chmod numbers.</p>
+        </div>
+        <div class="marketing-card">
+          <h3>Server-Side Compress</h3>
+          <p>Create ZIP or TAR.GZ archives on the server itself. The compression runs over SSH, so you&#x27;re not
+            downloading gigabytes just to zip them.</p>
+        </div>
+        <div class="marketing-card">
+          <h3>Server-Side Extract</h3>
+          <p>Unzip or untar archives directly on the server without downloading anything locally, saving bandwidth and
+            time.</p>
+        </div>
+        <div class="marketing-card">
+          <h3>Fetch URL to Directory</h3>
+          <p>Give FilePilot a URL and it downloads the file straight into whichever directory you have open — no
+            download-then-upload.</p>
+        </div>
+        <div class="marketing-card">
+          <h3>Copy Between Servers</h3>
+          <p>Transfer files directly from one server to another. SFTP on the left, S3 on the right — move files between
+            them in one drag.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-            <div class="screenshot-container mb-2 reveal-on-scroll" data-caption="Command Palette">
-              <img src="client/command pallet.jpg" alt="Command Palette">
-              <div class="screenshot-overlay"><span class="zoom-icon">[ ZOOM ]</span></div>
+  <section id="section-4" class="marketing-section bg-secondary reveal-on-scroll" style="padding: 6rem 0;">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-label">04 — Transfer Engine</div>
+        <h2 class="marketing-title">Built for Speed and Reliability</h2>
+        <div class="marketing-accent-line"></div>
+        <p
+          style="max-width: 650px; margin: 0 auto; color: var(--text-secondary); font-size: 1.05rem; line-height: 1.7;">
+          FilePilot&#x27;s Rust-powered transfer engine doesn&#x27;t just move files — it moves them as fast as
+          physically possible, and recovers gracefully when things go wrong.</p>
+      </div>
+      <div class="marketing-bento">
+        <div class="bento-feature highlight">
+          <h3>Multi-Threaded Transfers</h3>
+          <p>Splits large jobs across multiple parallel streams simultaneously. Instead of waiting for one file to
+            finish before starting the next, it maxes out your available bandwidth from the start.</p>
+          <div class="bento-visual"><i data-lucide="sparkles"></i></div>
+        </div>
+        <div class="bento-feature">
+          <h3>Real-Time Progress</h3>
+          <p>Watch every transfer in real time: current speed, estimated time remaining, and completion percentage — all
+            updating live.</p>
+        </div>
+        <div class="bento-feature">
+          <h3>Pause / Resume / Cancel</h3>
+          <p>Full control per item in the queue. Pause for a video call, resume later, or cancel outright.</p>
+        </div>
+        <div class="bento-feature wide">
+          <h3>Resumable Uploads</h3>
+          <p>If a transfer fails mid-way due to a network drop, FilePilot picks up from exactly where it left off — no
+            re-transferring completed bytes.</p>
+        </div>
+        <div class="bento-feature">
+          <h3>Bandwidth Scheduler</h3>
+          <p>Set automatic speed limits: slower during business hours, full speed overnight when no one else needs the
+            network.</p>
+        </div>
+        <div class="bento-feature">
+          <h3>Checksum Validation</h3>
+          <p>After every transfer, FilePilot computes SHA-256 hashes of both source and destination. If even one byte
+            got corrupted, it catches it.</p>
+        </div>
+        <div class="bento-feature">
+          <h3>Webhook Alerts</h3>
+          <p>Get notified in Slack, Discord, Teams, or any custom URL the moment a transfer succeeds or fails.</p>
+        </div>
+        <div class="bento-feature">
+          <h3>Speed Analytics</h3>
+          <p>A live speed graph showing your last 30 data points. Spot bottlenecks and verify your connection is
+            performing as expected.</p>
+        </div>
+        <div class="bento-feature">
+          <h3>Transfer History</h3>
+          <p>A log of your last 100 completed and failed transfers with full status details.</p>
+        </div>
+        <div class="bento-feature">
+          <h3>Queue Export &amp; Import</h3>
+          <p>Save your entire transfer queue to a file and reload it later — or share it with a colleague to replay a
+            complex batch job.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="section-5" class="story-section " style="padding: 6rem 0;">
+    <div class="container" style="position: relative; z-index: 2;">
+      <div class="story-grid reverse">
+        <div class="story-image reveal-on-scroll">
+          <div class="screenshot-showcase" data-caption="Folder Synchronization &amp; Conflict Resolution">
+            <img src="client/sync.png" alt="Folder Synchronization &amp; Conflict Resolution">
+            <div class="screenshot-overlay"><span class="zoom-icon">[ ZOOM ]</span></div>
+          </div>
+        </div>
+        <div class="story-content reveal-on-scroll">
+          <div class="section-label" style="margin-bottom: 1rem;">05 — Backup &amp; Sync</div>
+          <h2 class="marketing-title" style="text-align: left; font-size: 2.2rem;">Backup Scheduler &amp; Folder Sync
+          </h2>
+          <div class="marketing-accent-line" style="margin: 0 0 1.5rem 0;"></div>
+          <p style="color: var(--text-secondary); font-size: 1rem; line-height: 1.7; margin-bottom: 1.5rem;">Schedule
+            automated backups and keep directories synchronized between local and remote — with intelligent conflict
+            resolution when both sides have changed.</p>
+          <div class="bento-grid">
+            <div class="bento-card">
+              <div class="bento-card-header"><i data-lucide="check" class="bento-icon"></i> <strong>Backup
+                  Scheduler</strong></div>
+              <div class="bento-desc">Schedule any transfer to run automatically — daily backups, hourly log exports.
+                Enable or disable schedules without deleting them.</div>
             </div>
-            
-          <div class="feature-grid">
-            <div class="feature-item-card reveal-on-scroll">
-              <h4>**Command Palette**</h4>
-              <p>`Ctrl+K` / `Cmd+K` command palette for keyboard-driven power usage — quickly search and execute any action, navigate to files, switch connections, or toggle settings without touching the mouse ([CommandPalette.tsx](file:///d:/personalproj/filepilot/src/components/layout/CommandPalette.tsx))</p>
+            <div class="bento-card">
+              <div class="bento-card-header"><i data-lucide="check" class="bento-icon"></i> <strong>Folder Sync</strong>
+              </div>
+              <div class="bento-desc">Two-way, upload-only, or download-only sync. Exclude folders like node_modules or
+                .git with simple ignore patterns.</div>
             </div>
-            <div class="feature-item-card reveal-on-scroll">
-              <h4>**Dark / Light Theme**</h4>
-              <p>Toggle between dark and light themes; preference persisted in localStorage ([themeStore.ts](file:///d:/personalproj/filepilot/src/stores/themeStore.ts))</p>
+            <div class="bento-card">
+              <div class="bento-card-header"><i data-lucide="check" class="bento-icon"></i> <strong>Directory
+                  Comparison</strong></div>
+              <div class="bento-desc">Before syncing, see exactly which files need to go up, which need to come down,
+                and which have conflicts.</div>
             </div>
-            <div class="feature-item-card reveal-on-scroll">
-              <h4>**Tab Bar**</h4>
-              <p>Multi-tab interface for working with multiple connections simultaneously ([TabBar.tsx](file:///d:/personalproj/filepilot/src/components/layout/TabBar.tsx))</p>
+            <div class="bento-card">
+              <div class="bento-card-header"><i data-lucide="check" class="bento-icon"></i> <strong>Conflict
+                  Resolution</strong></div>
+              <div class="bento-desc">When the same file changed on both sides, see a preview of both versions and
+                choose which one wins — no blind overwrite.</div>
             </div>
-            <div class="feature-item-card reveal-on-scroll">
-              <h4>**Sidebar Navigation**</h4>
-              <p>Collapsible sidebar with bookmarks, connections, and panel navigation ([Sidebar.tsx](file:///d:/personalproj/filepilot/src/components/layout/Sidebar.tsx))</p>
-            </div>
-            <div class="feature-item-card reveal-on-scroll">
-              <h4>**Keyboard Shortcuts**</h4>
-              <p>Full keyboard shortcut system with a reference modal ([ShortcutsModal.tsx](file:///d:/personalproj/filepilot/src/components/layout/ShortcutsModal.tsx))</p>
-            </div>
-            <div class="feature-item-card reveal-on-scroll">
-              <h4>**Onboarding Wizard**</h4>
-              <p>First-launch onboarding flow for new users ([OnboardingModal.tsx](file:///d:/personalproj/filepilot/src/components/layout/OnboardingModal.tsx))</p>
-            </div>
-            <div class="feature-item-card reveal-on-scroll">
-              <h4>**Migration Wizard**</h4>
-              <p>Import settings, saved sites, and connection profiles from other FTP clients — supports FileZilla, WinSCP, and other common clients so you can switch to FilePilot without re-entering all your credentials ([MigrationWizardModal.tsx](file:///d:/personalproj/filepilot/src/components/layout/MigrationWizardModal.tsx))</p>
-            </div>
-            <div class="feature-item-card reveal-on-scroll">
-              <h4>**Toast Notifications**</h4>
-              <p>Non-blocking toast messages for success/error/info alerts ([ToastContainer.tsx](file:///d:/personalproj/filepilot/src/components/layout/ToastContainer.tsx))</p>
-            </div>
-            <div class="feature-item-card reveal-on-scroll">
-              <h4>**Alert Banners**</h4>
-              <p>Persistent alert banners for important system messages ([AlertContainer.tsx](file:///d:/personalproj/filepilot/src/components/layout/AlertContainer.tsx))</p>
-            </div>
-            <div class="feature-item-card reveal-on-scroll">
-              <h4>**Message Log**</h4>
-              <p>Scrollable operations log panel ([MessageLogPanel.tsx](file:///d:/personalproj/filepilot/src/components/layout/MessageLogPanel.tsx))</p>
-            </div>
-            <div class="feature-item-card reveal-on-scroll">
-              <h4>**Settings Modal**</h4>
-              <p>Comprehensive settings panel (89 KB — covers all configurable options) ([SettingsModal.tsx](file:///d:/personalproj/filepilot/src/components/layout/SettingsModal.tsx))</p>
-            </div>
-            <div class="feature-item-card reveal-on-scroll">
-              <h4>**Splashscreen**</h4>
-              <p>Native splashscreen during app initialization with smooth transition to main window</p>
-            </div>
-            <div class="feature-item-card reveal-on-scroll">
-              <h4>**Cross-Platform**</h4>
-              <p>Windows 10+, macOS Big Sur+, Linux (Debian, Ubuntu, Fedora, Arch) from a single codebase</p>
+            <div class="bento-card">
+              <div class="bento-card-header"><i data-lucide="check" class="bento-icon"></i> <strong>Selective
+                  Sync</strong></div>
+              <div class="bento-desc">Uncheck any files you don&#x27;t want to sync. All differences are pre-selected,
+                but you can be surgical about what moves.</div>
             </div>
           </div>
         </div>
-      </main>
+      </div>
+    </div>
+  </section>
+
+  <section id="section-6" class="marketing-section bg-secondary reveal-on-scroll" style="padding: 6rem 0;">
+    <div class="container">
+      <div
+        style="background: linear-gradient(135deg, rgba(0,230,96,0.08) 0%, rgba(13,18,22,0.98) 100%); border: 1px solid rgba(0,230,96,0.25); border-radius: var(--radius-lg); padding: 3rem 3.5rem;">
+        <div class="section-label" style="margin-bottom: 1rem;">06 — Offline Queue</div>
+        <h2 style="font-size: 2rem; margin-bottom: 0.75rem; color: #fff;">Offline Sync Queue</h2>
+        <p style="color: var(--text-secondary); margin-bottom: 2rem; max-width: 700px;">Transfers that fail because you
+          lost connectivity are not lost. FilePilot detects the outage instantly and holds every pending transfer in a
+          safe queue until you are back online.</p>
+        <div class="grid-3" style="text-align: left; gap: 1.5rem;">
+          <div style="border-left: 2px solid rgba(0,230,96,0.4); padding-left: 1.25rem;">
+            <strong style="color:var(--accent); display: block; margin-bottom: 0.4rem;">Offline Detection</strong>
+            <span style="color:var(--text-secondary); font-size: 0.9rem; line-height: 1.6;">FilePilot monitors your
+              network in real time. The moment your internet drops, it holds all pending transfers safely in a
+              queue.</span>
+          </div>
+          <div style="border-left: 2px solid rgba(0,230,96,0.4); padding-left: 1.25rem;">
+            <strong style="color:var(--accent); display: block; margin-bottom: 0.4rem;">Queued Transfers</strong>
+            <span style="color:var(--text-secondary); font-size: 0.9rem; line-height: 1.6;">Any transfer triggered while
+              offline is queued rather than failing. They wait safely for the connection to return.</span>
+          </div>
+          <div style="border-left: 2px solid rgba(0,230,96,0.4); padding-left: 1.25rem;">
+            <strong style="color:var(--accent); display: block; margin-bottom: 0.4rem;">Auto-Reconnect</strong>
+            <span style="color:var(--text-secondary); font-size: 0.9rem; line-height: 1.6;">The instant your network
+              comes back, FilePilot drains the queue in order — no manual retry needed.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="section-7" class="story-section " style="padding: 6rem 0;">
+    <div class="container" style="position: relative; z-index: 2;">
+      <div class="story-grid">
+        <div class="story-image reveal-on-scroll">
+          <div class="screenshot-showcase" data-caption="Credential Security &amp; Vault Lock">
+            <img src="client/pasted-1783311054101-0.png" alt="Credential Security &amp; Vault Lock">
+            <div class="screenshot-overlay"><span class="zoom-icon">[ ZOOM ]</span></div>
+          </div>
+        </div>
+        <div class="story-content reveal-on-scroll">
+          <div class="section-label" style="margin-bottom: 1rem;">07 — Security</div>
+          <h2 class="marketing-title" style="text-align: left; font-size: 2.2rem;">Your Passwords Stay Private</h2>
+          <div class="marketing-accent-line" style="margin: 0 0 1.5rem 0;"></div>
+          <p style="color: var(--text-secondary); font-size: 1rem; line-height: 1.7; margin-bottom: 1.5rem;">Your
+            passwords are locked with strong encryption on your own device. FilePilot never sees them, and nothing is
+            ever sent to an outside server.</p>
+          <div class="bento-grid">
+            <div class="bento-card">
+              <div class="bento-card-header"><i data-lucide="check" class="bento-icon"></i> <strong>Master Password
+                  Seal</strong></div>
+              <div class="bento-desc">One master password derives an encryption key through 600,000 rounds of PBKDF2. If
+                someone steals the database, it&#x27;s worthless without your password.</div>
+            </div>
+            <div class="bento-card">
+              <div class="bento-card-header"><i data-lucide="check" class="bento-icon"></i> <strong>AES-256-GCM
+                  Encryption</strong></div>
+              <div class="bento-desc">Every password, SSH key, and secret is encrypted on-device using AES-256-GCM
+                before being stored. FilePilot has zero knowledge of your credentials.</div>
+            </div>
+            <div class="bento-card">
+              <div class="bento-card-header"><i data-lucide="check" class="bento-icon"></i> <strong>Lock /
+                  Unlock</strong></div>
+              <div class="bento-desc">Lock the vault with one click. Configure auto-lock on minimize or screen lock.
+                When locked, no connections can be made.</div>
+            </div>
+            <div class="bento-card">
+              <div class="bento-card-header"><i data-lucide="check" class="bento-icon"></i> <strong>IP
+                  Allowlisting</strong></div>
+              <div class="bento-desc">When using the Enterprise Vault, restrict which IP addresses or subnets can pull
+                provisioned profiles — block everyone outside your VPN.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="section-8" class="story-section bg-secondary" style="padding: 6rem 0;">
+    <div class="container" style="position: relative; z-index: 2;">
+      <div class="story-grid reverse">
+        <div class="story-image reveal-on-scroll">
+          <div class="screenshot-showcase" data-caption="Connection Profiles &amp; Quick Connect">
+            <img src="client/pasted-1783311121266-0.png" alt="Connection Profiles &amp; Quick Connect">
+            <div class="screenshot-overlay"><span class="zoom-icon">[ ZOOM ]</span></div>
+          </div>
+        </div>
+        <div class="story-content reveal-on-scroll">
+          <div class="section-label" style="margin-bottom: 1rem;">08 — Connections</div>
+          <h2 class="marketing-title" style="text-align: left; font-size: 2.2rem;">Connection Management</h2>
+          <div class="marketing-accent-line" style="margin: 0 0 1.5rem 0;"></div>
+          <p style="color: var(--text-secondary); font-size: 1rem; line-height: 1.7; margin-bottom: 1.5rem;">Save,
+            organize, and instantly connect to all your servers from one place — or let your IT team push profiles to
+            you automatically via the Enterprise Vault.</p>
+          <div class="bento-grid">
+            <div class="bento-card">
+              <div class="bento-card-header"><i data-lucide="check" class="bento-icon"></i> <strong>Saved
+                  Profiles</strong></div>
+              <div class="bento-desc">Save all your server connections as named profiles. One click to connect — no
+                re-typing anything.</div>
+            </div>
+            <div class="bento-card">
+              <div class="bento-card-header"><i data-lucide="check" class="bento-icon"></i> <strong>Quick Connect
+                  Bar</strong></div>
+              <div class="bento-desc">Type sftp://user@hostname:22 into the bar and hit enter. Connected in seconds
+                without creating a saved profile.</div>
+            </div>
+            <div class="bento-card">
+              <div class="bento-card-header"><i data-lucide="check" class="bento-icon"></i> <strong>Jump Server
+                  Support</strong></div>
+              <div class="bento-desc">Reach private servers through a bastion host. FilePilot handles the SSH chaining
+                transparently.</div>
+            </div>
+            <div class="bento-card">
+              <div class="bento-card-header"><i data-lucide="check" class="bento-icon"></i> <strong>Enterprise Vault
+                  Sync</strong></div>
+              <div class="bento-desc">Enter one access token from your IT team and FilePilot pulls down all your
+                permitted server profiles automatically.</div>
+            </div>
+            <div class="bento-card">
+              <div class="bento-card-header"><i data-lucide="check" class="bento-icon"></i> <strong>Audit
+                  Reporting</strong></div>
+              <div class="bento-desc">Every transfer on a vault-provisioned connection is automatically reported back to
+                your organization&#x27;s audit log.</div>
+            </div>
+            <div class="bento-card">
+              <div class="bento-card-header"><i data-lucide="check" class="bento-icon"></i> <strong>Version
+                  Backup</strong></div>
+              <div class="bento-desc">Uploads to vault-linked servers automatically create version snapshots that your
+                IT team can browse and restore.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="section-9" class="story-section " style="padding: 6rem 0;">
+    <div class="container" style="position: relative; z-index: 2;">
+      <div class="story-grid">
+        <div class="story-image reveal-on-scroll">
+          <div class="screenshot-showcase" data-caption="JavaScript Macro Editor &amp; Automation">
+            <img src="client/macros.jpg" alt="JavaScript Macro Editor &amp; Automation">
+            <div class="screenshot-overlay"><span class="zoom-icon">[ ZOOM ]</span></div>
+          </div>
+        </div>
+        <div class="story-content reveal-on-scroll">
+          <div class="section-label" style="margin-bottom: 1rem;">09 — Automation</div>
+          <h2 class="marketing-title" style="text-align: left; font-size: 2.2rem;">Automate Repetitive Tasks</h2>
+          <div class="marketing-accent-line" style="margin: 0 0 1.5rem 0;"></div>
+          <p style="color: var(--text-secondary); font-size: 1rem; line-height: 1.7; margin-bottom: 1.5rem;">Automate
+            repetitive tasks with plain JavaScript inside a safe, sandboxed environment. Write a script once and run it
+            whenever you need it.</p>
+          <div class="bento-grid">
+            <div class="bento-card">
+              <div class="bento-card-header"><i data-lucide="check" class="bento-icon"></i> <strong>JavaScript
+                  Macros</strong></div>
+              <div class="bento-desc">Write automation scripts using plain JavaScript inside a safe sandbox — no
+                external tools required.</div>
+            </div>
+            <div class="bento-card">
+              <div class="bento-card-header"><i data-lucide="check" class="bento-icon"></i> <strong>Event
+                  Triggers</strong></div>
+              <div class="bento-desc">Run a macro automatically when you connect, disconnect, or launch the app.
+                Schedule a backup every time you log in.</div>
+            </div>
+            <div class="bento-card">
+              <div class="bento-card-header"><i data-lucide="check" class="bento-icon"></i> <strong>Built-in
+                  API</strong></div>
+              <div class="bento-desc">Your scripts get fp.copy(), fp.list(), fp.rename(), fp.delete(), and fp.notify() —
+                full file operations and webhook alerts in one-line calls.</div>
+            </div>
+            <div class="bento-card">
+              <div class="bento-card-header"><i data-lucide="check" class="bento-icon"></i> <strong>Template
+                  Library</strong></div>
+              <div class="bento-desc">Don&#x27;t start from scratch. Pre-loaded templates for backups with Slack alerts,
+                batch renaming, and temp file cleanup.</div>
+            </div>
+            <div class="bento-card">
+              <div class="bento-card-header"><i data-lucide="check" class="bento-icon"></i> <strong>Code Editor</strong>
+              </div>
+              <div class="bento-desc">Write and debug macros in a full in-app code editor with live execution log
+                output.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="section-10" class="marketing-section bg-secondary reveal-on-scroll" style="padding: 6rem 0;">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-label">10 — Extensibility</div>
+        <h2 class="marketing-title">Plugin System</h2>
+        <div class="marketing-accent-line"></div>
+        <p
+          style="max-width: 650px; margin: 0 auto; color: var(--text-secondary); font-size: 1.05rem; line-height: 1.7;">
+          Extend FilePilot with custom protocols, panels, and settings — without modifying the core application.</p>
+      </div>
+      <div class="grid-3" style="gap: 1.5rem;">
+        <div class="marketing-card">
+          <h3>Plugin SDK</h3>
+          <p>Install plugins from a manifest file. Enable or disable them on the fly without restarting the app.</p>
+        </div>
+        <div class="marketing-card">
+          <h3>Custom Protocols</h3>
+          <p>Add entirely new protocol types — a proprietary cloud API, an enterprise file server — appearing as native
+            connection options.</p>
+        </div>
+        <div class="marketing-card">
+          <h3>Custom Panels</h3>
+          <p>Build a deployment dashboard or log viewer and integrate it seamlessly into the app layout.</p>
+        </div>
+        <div class="marketing-card">
+          <h3>Custom Settings</h3>
+          <p>Each plugin gets its own settings screen with proper typed inputs — text fields, passwords, toggles, and
+            numbers.</p>
+        </div>
+        <div class="marketing-card">
+          <h3>Sandboxed Execution</h3>
+          <p>Plugins run in a controlled sandbox. They can&#x27;t access arbitrary file paths or make unexpected network
+            calls.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="section-11" class="marketing-section  reveal-on-scroll" style="padding: 6rem 0;">
+    <div class="container">
+      <div
+        style="background: linear-gradient(135deg, rgba(0,230,96,0.08) 0%, rgba(13,18,22,0.98) 100%); border: 1px solid rgba(0,230,96,0.25); border-radius: var(--radius-lg); padding: 3rem 3.5rem;">
+        <div class="section-label" style="margin-bottom: 1rem;">11 — Terminal</div>
+        <h2 style="font-size: 2rem; margin-bottom: 0.75rem; color: #fff;">Built-in Terminal</h2>
+        <p style="color: var(--text-secondary); margin-bottom: 2rem; max-width: 700px;">Run commands right where you
+          manage files. Your file browser and your shell live side by side — no more switching between FilePilot and
+          your terminal app.</p>
+        <div class="grid-3" style="text-align: left; gap: 1.5rem;">
+          <div style="border-left: 2px solid rgba(0,230,96,0.4); padding-left: 1.25rem;">
+            <strong style="color:var(--accent); display: block; margin-bottom: 0.4rem;">Local Terminal</strong>
+            <span style="color:var(--text-secondary); font-size: 0.9rem; line-height: 1.6;">A full terminal emulator
+              built into FilePilot. Run local shell commands without switching windows.</span>
+          </div>
+          <div style="border-left: 2px solid rgba(0,230,96,0.4); padding-left: 1.25rem;">
+            <strong style="color:var(--accent); display: block; margin-bottom: 0.4rem;">SSH Terminal</strong>
+            <span style="color:var(--text-secondary); font-size: 0.9rem; line-height: 1.6;">Open a live SSH session to
+              any connected remote server. Browse files in the pane and run commands simultaneously.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="section-12" class="marketing-section bg-secondary reveal-on-scroll" style="padding: 6rem 0;">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-label">12 — User Experience</div>
+        <h2 class="marketing-title">Fast for Everyday Use</h2>
+        <div class="marketing-accent-line"></div>
+        <p
+          style="max-width: 650px; margin: 0 auto; color: var(--text-secondary); font-size: 1.05rem; line-height: 1.7;">
+          Every interaction in FilePilot is designed for speed: keyboard shortcuts, command palette, multi-tab workflow,
+          and a migration wizard to bring your existing setups.</p>
+      </div>
+      <div class="grid-3" style="gap: 1.5rem;">
+        <div class="marketing-card">
+          <h3>Command Palette</h3>
+          <p>Press Ctrl+K to open a searchable command palette. Find any action, switch connections, navigate to a file
+            — all without touching the mouse.</p>
+        </div>
+        <div class="marketing-card">
+          <h3>Dark / Light Theme</h3>
+          <p>Choose between a crisp dark theme and a clean light theme. Your preference is saved and restored
+            automatically.</p>
+        </div>
+        <div class="marketing-card">
+          <h3>Multi-Tab Interface</h3>
+          <p>Open multiple server connections in separate tabs and switch between them instantly — like browser tabs for
+            file transfers.</p>
+        </div>
+        <div class="marketing-card">
+          <h3>Keyboard Shortcuts</h3>
+          <p>Every action has a shortcut. Open the reference modal to see the full list and never reach for the mouse
+            for common tasks.</p>
+        </div>
+        <div class="marketing-card">
+          <h3>Migration Wizard</h3>
+          <p>Switching from FileZilla or WinSCP? Import all your saved sites and credentials in one step. Zero re-entry.
+          </p>
+        </div>
+        <div class="marketing-card">
+          <h3>Onboarding Wizard</h3>
+          <p>First time? The wizard walks you through master password setup, creating your first connection, and
+            understanding the interface.</p>
+        </div>
+        <div class="marketing-card">
+          <h3>Collapsible Sidebar</h3>
+          <p>Bookmarks, saved connections, and panel shortcuts. Collapse for more space, expand for quick access.</p>
+        </div>
+        <div class="marketing-card">
+          <h3>Cross-Platform</h3>
+          <p>One app, every OS. Windows 10+, macOS Big Sur+, and all major Linux distributions from a single codebase.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="marketing-section reveal-on-scroll" style="padding: 6rem 0;">
+    <div class="container" style="max-width: 800px;">
+      <div class="section-header">
+        <div class="section-label">FAQ</div>
+        <h2 class="marketing-title">Frequently Asked Questions</h2>
+        <div class="marketing-accent-line"></div>
+      </div>
+      <div class="faq-accordion">
+        <div class="faq-item">
+          <button class="faq-question">Is this an Electron app? </button>
+          <div class="faq-answer">
+            <p>No. FilePilot is built on Tauri, which uses your OS&#x27;s native webview. The backend is 100% Rust,
+              ensuring minimal RAM usage and blazing-fast I/O compared to Node.js or Electron-based alternatives.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">Where are my passwords stored? </button>
+          <div class="faq-answer">
+            <p>They are stored locally in an SQLite database, encrypted at rest using AES-256-GCM. You must unlock the
+              vault with your Master Password to access them. FilePilot has zero knowledge of your credentials.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">Can I use this without the Enterprise Vault? </button>
+          <div class="faq-answer">
+            <p>Yes, absolutely. The Desktop Client is a completely standalone application. The Enterprise Vault is
+              optional and only needed for teams that require centralized access control and audit logging.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">What operating systems are supported? </button>
+          <div class="faq-answer">
+            <p>FilePilot runs natively on Windows 10+, macOS Big Sur+, and all major Linux distributions (Debian,
+              Ubuntu, Fedora, Arch). One codebase, all platforms.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">Is it really free? </button>
+          <div class="faq-answer">
+            <p>Yes. Both the Desktop Client and Enterprise Vault are 100% free and open source under the MIT License. No
+              premium tiers, no telemetry, no ads.</p>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
   <!-- Footer -->
+    <!-- Next-Step Flow CTA -->
+  <section class="reveal-on-scroll flow-cta-section">
+    <div class="container">
+      <div class="flow-cta">
+        <span class="flow-cta-eyebrow">PRODUCT ECOSYSTEM</span>
+        <h2>Accelerate and secure your transfers</h2>
+        <p>Combine the Desktop Client with our Terminal Shell and Enterprise Vault for a unified workspace.</p>
+        <div class="flow-cta-actions">
+          <a href="download.html" class="btn btn-primary">Download Desktop Client →</a>
+          <a href="shell.html" class="btn btn-secondary">Try Terminal Shell →</a>
+        </div>
+        <div class="flow-journey">
+          <a class="flow-step active" href="client.html">
+            <span class="flow-step-num">STEP 01</span>
+            <span class="flow-step-title">Desktop Client</span>
+            <span class="flow-step-desc">Blazing-fast dual-pane visual file transfers.</span>
+          </a>
+          <div class="flow-arrow"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></div>
+          
+          <a class="flow-step" href="shell.html">
+            <span class="flow-step-num">STEP 02</span>
+            <span class="flow-step-title">Terminal Shell</span>
+            <span class="flow-step-desc">Vibrant multi-tab command terminal splits.</span>
+          </a>
+          <div class="flow-arrow"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></div>
+          
+          <a class="flow-step" href="enterprise.html">
+            <span class="flow-step-num">STEP 03</span>
+            <span class="flow-step-title">Enterprise Vault</span>
+            <span class="flow-step-desc">Centralized credential sync, policy, & audit.</span>
+          </a>
+          <div class="flow-arrow"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></div>
+          
+          <a class="flow-step" href="download.html">
+            <span class="flow-step-num">STEP 04</span>
+            <span class="flow-step-title">Download &amp; Deploy</span>
+            <span class="flow-step-desc">Get native installers for Windows, macOS, &amp; Linux.</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <footer>
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
           <div class="footer-logo">
-            <img src="logo/client.png" alt="FilePilot Logo">
-            <span>FILEPILOT</span>
+            <img src="logo/filepilotico.png" alt="FilePilot Logo" class="flashy-logo">
           </div>
-          <p>Blazing-fast file transfers secured by zero-knowledge local cryptography and centralized access vault control.</p>
+          <p>Fast, secure file transfers &mdash; your passwords stay encrypted on your own device, and your team&#x27;s
+            server access is managed from one place.</p>
         </div>
         <div>
           <h4 class="footer-links-title">Products</h4>
           <ul class="footer-links">
             <li><a href="client.html">Desktop Client</a></li>
+            <li><a href="shell.html">Terminal Shell</a></li>
             <li><a href="enterprise.html">Enterprise Vault</a></li>
             <li><a href="products.html">Product Guide</a></li>
             <li><a href="download.html">Downloads</a></li>
@@ -556,12 +862,12 @@
           </ul>
         </div>
         <div>
-          <h4 class="footer-links-title">System Status</h4>
-          <ul class="footer-links text-mono" style="font-size: 0.85rem; color: var(--accent);">
-            <li>SEAL_STATE: LOCKED</li>
-            <li>VAULT: OPERATIONAL</li>
-            <li>CORE: RUST_ASYNC</li>
-            <li>LICENSE: MIT</li>
+          <h4 class="footer-links-title">Why FilePilot</h4>
+          <ul class="footer-links">
+            <li>100% free &amp; open source</li>
+            <li>No accounts, no tracking</li>
+            <li>Passwords never leave your device</li>
+            <li>Windows, macOS &amp; Linux</li>
           </ul>
         </div>
       </div>
@@ -576,14 +882,16 @@
   </footer>
 
   <script src="js/main.js"></script>
-  
+
   <div id="premium-bg-mesh"></div>
   <div id="grain-overlay"></div>
-  
-  
-  
-  
-  
+
+
+
+
+
   <script src="js/matrix-world.js"></script>
+  <script>if (typeof lucide !== "undefined") lucide.createIcons();</script>
 </body>
+
 </html>
